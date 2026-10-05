@@ -18,6 +18,16 @@ class QuarryEngine:
                 sources.append(WebDirectorySource())
             except ImportError:
                 pass
+            try:
+                from quarry.sources.urlscan_source import URLScanSource
+                sources.append(URLScanSource())
+            except ImportError:
+                pass
+            try:
+                from quarry.sources.tech_community_source import TechCommunitySource
+                sources.append(TechCommunitySource())
+            except ImportError:
+                pass
             if os.environ.get('EXA_API_KEY'):
                 try:
                     from quarry.sources.exa_source import ExaSource

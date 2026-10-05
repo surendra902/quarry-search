@@ -64,6 +64,16 @@ class ContinuousHarvester:
             HackerNewsSource(),
             WebDirectorySource()
         ]
+        try:
+            from quarry.sources.urlscan_source import URLScanSource
+            sources.append(URLScanSource())
+        except Exception as e:
+            logger.warning(f"Could not load URLScanSource: {e}")
+        try:
+            from quarry.sources.tech_community_source import TechCommunitySource
+            sources.append(TechCommunitySource())
+        except Exception as e:
+            logger.warning(f"Could not load TechCommunitySource: {e}")
         if ExaSource and os.environ.get("EXA_API_KEY"):
             sources.append(ExaSource(api_key=os.environ.get("EXA_API_KEY")))
         if TavilySource and os.environ.get("TAVILY_API_KEY"):
