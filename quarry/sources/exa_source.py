@@ -14,12 +14,13 @@ from quarry.extractors import extract_referral_codes
 
 class ExaSource(BaseSource):
     name = "exa"
-    max_requests = 4
-    budget_seconds = 25
+    max_requests = 6
+    budget_seconds = 30
 
     def __init__(self, api_key: Optional[str] = None):
         self._start()
         self.api_key = api_key or os.environ.get("EXA_API_KEY")
+        self._cycle_idx = 0
 
     def _client(self):
         if Exa is None:
@@ -53,11 +54,17 @@ class ExaSource(BaseSource):
             elif "dev.to" in url:
                 platform = "DEV.to (Tech Community)"
             elif "qiita.com" in url:
-                platform = "Qiita (Web Forum / Blog)"
+                platform = "Qiita (Japanese Tech Forum)"
             elif "zenn.dev" in url:
-                platform = "Zenn.dev (Web Publication)"
+                platform = "Zenn.dev (Tech Publication)"
             elif "github.com" in url:
-                platform = "GitHub"
+                platform = "GitHub (Code / Issue)"
+            elif "substack.com" in url:
+                platform = "Substack (Newsletter)"
+            elif "reddit.com" in url:
+                platform = "Reddit"
+            elif any(d in url for d in ("toolspine.com", "opentherank.com", "usingclaude.com", "thekodelab.com")):
+                platform = "Tech Guide / Web Directory"
 
             for clean_url, code in extract_referral_codes(combined_text + " " + url):
                 if target_code is not None and code != target_code:
@@ -85,13 +92,32 @@ class ExaSource(BaseSource):
         if not client:
             return self._finish([], limit)
 
-        queries = [
-            "claude.ai/referral guest pass",
-            "claude.ai/referral site:medium.com OR site:dev.to OR site:qiita.com OR site:zenn.dev",
-            "Here is my Claude referral link https://claude.ai/referral/"
+        query_pools = [
+            # Pool 0: Direct referral links & guest passes across web
+            [
+                "claude.ai/referral guest pass",
+                "Here is my Claude referral link https://claude.ai/referral/",
+                "claude referral code guest pass free pro"
+            ],
+            # Pool 1: Technical blogs, newsletters, and publications
+            [
+                "claude.ai/referral site:medium.com OR site:dev.to OR site:qiita.com OR site:zenn.dev",
+                "site:substack.com OR site:hashnode.dev claude referral link",
+                "Claude Code passes https://claude.ai/referral/"
+            ],
+            # Pool 2: Developer communities, web directories, and forums
+            [
+                '"claude.ai/referral" site:reddit.com OR site:github.com',
+                "claude referral pass link site:toolspine.com OR site:thekodelab.com OR site:opentherank.com",
+                "Claude 招待コード OR クロード 招待リンク site:qiita.com OR site:zenn.dev"
+            ]
         ]
+
+        active_pool = query_pools[self._cycle_idx % len(query_pools)]
+        self._cycle_idx += 1
+
         all_records = []
-        for q in queries:
+        for q in active_pool:
             timeout = self._reserve_request()
             if timeout is None:
                 break

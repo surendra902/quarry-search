@@ -17,7 +17,10 @@ class ExtractionTests(unittest.TestCase):
 
     def test_rejects_trailing_path_and_invalid_characters(self):
         for value in ('https://claude.ai/referral/ValidCode/extra',
-                      'https://claude.ai/referral/ValidCode%2Fextra', 'bad!'):
+                      'https://claude.ai/referral/ValidCode%2Fextra', 'bad!',
+                      'https://claude.ai/referral/2025-01-01',
+                      'https://claude.ai/referral/06-14',
+                      'https://claude.ai/referral/YYYY-MM-DD'):
             with self.subTest(value=value):
                 self.assertFalse(is_valid_referral_format(value))
 

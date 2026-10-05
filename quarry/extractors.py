@@ -7,7 +7,8 @@ from urllib.parse import unquote, urlsplit
 MAX_CODE_LENGTH = 128
 _CODE = re.compile(r'[A-Za-z0-9_-]{1,128}\Z')
 _CANDIDATE = re.compile(r'''(?<![\w@./:-])(?:https?://|(?=claude\.ai/))[^\s<>"'`]+''', re.IGNORECASE)
-_PLACEHOLDERS = {'your_code', 'xxxxxx', 'placeholder', 'referral_code', 'xxxxxxxx'}
+_PLACEHOLDERS = {'your_code', 'xxxxxx', 'placeholder', 'referral_code', 'xxxxxxxx', 'yyyy-mm-dd', 'example', 'sample', 'test'}
+_DATE_PATTERN = re.compile(r'^(?:\d{4}[-_]\d{2}(?:[-_]\d{2})?|\d{2}[-_]\d{2})\Z')
 
 
 def extract_code_from_url(value: str) -> str:
@@ -33,8 +34,8 @@ def extract_code_from_url(value: str) -> str:
         if not path.startswith(prefix):
             raise ValueError('Expected a /referral/ URL.')
         code = path[len(prefix):]
-    if not _CODE.fullmatch(code) or code.lower() in _PLACEHOLDERS:
-        raise ValueError('Malformed or placeholder referral identifier.')
+    if not _CODE.fullmatch(code) or code.lower() in _PLACEHOLDERS or _DATE_PATTERN.fullmatch(code):
+        raise ValueError('Malformed, placeholder, or date pattern referral identifier.')
     return code
 
 

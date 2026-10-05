@@ -10,3 +10,4 @@ __pycache__/
 *.db-shm
 .audit/
 .pytest_cache/
+*.log

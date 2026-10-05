@@ -18,6 +18,16 @@ try:
 except ImportError:
     ExaSource = None
 
+try:
+    from quarry.sources.tavily_source import TavilySource
+except ImportError:
+    TavilySource = None
+
+try:
+    from quarry.sources.apify_source import ApifySource
+except ImportError:
+    ApifySource = None
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s"
@@ -49,6 +59,10 @@ class ContinuousHarvester:
         ]
         if ExaSource and os.environ.get("EXA_API_KEY"):
             sources.append(ExaSource(api_key=os.environ.get("EXA_API_KEY")))
+        if TavilySource and os.environ.get("TAVILY_API_KEY"):
+            sources.append(TavilySource(api_key=os.environ.get("TAVILY_API_KEY")))
+        if ApifySource and os.environ.get("APIFY_API_TOKEN"):
+            sources.append(ApifySource(api_token=os.environ.get("APIFY_API_TOKEN")))
 
         self.engine = QuarryEngine(storage=self.storage, sources=sources)
         logger.info(f"Initialized Harvester with {len(sources)} sources: {[s.name for s in sources]}")
