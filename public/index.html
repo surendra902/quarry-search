@@ -121,29 +121,8 @@
         <div class="stat-value" id="statCollector" style="font-size:20px">—</div>
         <div class="stat-sub" id="collectorNote">Loading collector status…</div></div>
     </section>
-    <section class="panel" aria-labelledby="serviceTitle">
-      <div class="panel-header"><h2 class="panel-title" id="serviceTitle">Service capabilities</h2>
-        <button class="btn btn-secondary" id="refreshBtn" type="button">Refresh stored data</button></div>
-      <p class="status" id="serviceStatus" role="status">Loading service status…</p>
-      <p class="note" id="storageNote">Storage durability and write availability have not been checked.</p>
-      <p class="note" id="capabilitiesNote">Validation and notification configuration have not been checked.</p>
-    </section>
-    <section class="panel" aria-labelledby="lookupTitle">
-      <div class="panel-header"><h2 class="panel-title" id="lookupTitle">Source evidence lookup</h2></div>
-      <p class="note" id="lookupHelp">Search a referral URL or code. Observed evidence cannot establish the original public source or whether a referral is redeemable.</p>
-      <form id="lookupForm" novalidate>
-        <label for="lookupInput">Referral URL or code</label>
-        <div class="search-box">
-          <input type="text" id="lookupInput" class="search-input" placeholder="https://claude.ai/referral/…" autocomplete="off" spellcheck="false" aria-describedby="lookupHelp" required>
-          <button class="btn" id="lookupBtn" type="submit">Find source evidence</button>
-          <button class="btn btn-secondary" id="targetBtn" type="button">Look up PFQOnxQmRQ</button>
-        </div>
-      </form>
-      <p class="status" id="lookupStatus" role="status" aria-atomic="true">No lookup performed. A target remains unresolved until supported by source evidence.</p>
-      <div id="lookupResult" hidden></div>
-    </section>
     <section class="panel" aria-labelledby="recordsTitle">
-      <div class="panel-header"><h2 class="panel-title" id="recordsTitle">Stored referral evidence</h2>
+      <div class="panel-header"><h2 class="panel-title" id="recordsTitle">Discovered referral links (New links feed)</h2>
         <button class="btn" id="sweepBtn" type="button">Run discovery sweep</button></div>
       <p class="note">A manual sweep is not continuous monitoring. Candidate and legacy records are not direct source matches. Redemption remains unvalidated.</p>
       <p class="status" id="sweepStatus" role="status" aria-atomic="true">No sweep run in this session.</p>
@@ -155,6 +134,29 @@
           <tbody id="tableBody"><tr><td colspan="5">Loading stored records…</td></tr></tbody>
         </table>
       </div>
+    </section>
+    <section class="panel" aria-labelledby="lookupTitle">
+      <div class="panel-header"><h2 class="panel-title" id="lookupTitle">Source evidence lookup</h2></div>
+      <p class="note" id="lookupHelp">Search a referral URL or code. Observed evidence cannot establish the original public source or whether a referral is redeemable. Unindexed, private, or auto-deleted links will show Unresolved.</p>
+      <form id="lookupForm" novalidate>
+        <label for="lookupInput">Referral URL or code</label>
+        <div class="search-box">
+          <input type="text" id="lookupInput" class="search-input" placeholder="https://claude.ai/referral/…" autocomplete="off" spellcheck="false" aria-describedby="lookupHelp" required>
+          <button class="btn" id="lookupBtn" type="submit">Find source evidence</button>
+          <button class="btn btn-secondary" id="sample1Btn" type="button">Try verified: 9wjIA9-Iug</button>
+          <button class="btn btn-secondary" id="sample2Btn" type="button">Try verified: SE-Jaa--ig</button>
+          <button class="btn btn-secondary" id="targetBtn" type="button">Look up PFQOnxQmRQ</button>
+        </div>
+      </form>
+      <p class="status" id="lookupStatus" role="status" aria-atomic="true">No lookup performed. A target remains unresolved until supported by source evidence.</p>
+      <div id="lookupResult" hidden></div>
+    </section>
+    <section class="panel" aria-labelledby="serviceTitle">
+      <div class="panel-header"><h2 class="panel-title" id="serviceTitle">Service capabilities</h2>
+        <button class="btn btn-secondary" id="refreshBtn" type="button">Refresh stored data</button></div>
+      <p class="status" id="serviceStatus" role="status">Loading service status…</p>
+      <p class="note" id="storageNote">Storage durability and write availability have not been checked.</p>
+      <p class="note" id="capabilitiesNote">Validation and notification configuration have not been checked.</p>
     </section>
   </main>
 </body>

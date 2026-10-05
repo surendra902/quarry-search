@@ -206,6 +206,9 @@
   function lookupBusy(busy) {
     byId("lookupBtn").disabled = busy;
     byId("targetBtn").disabled = busy;
+    const s1 = byId("sample1Btn"), s2 = byId("sample2Btn");
+    if (s1) s1.disabled = busy;
+    if (s2) s2.disabled = busy;
     byId("lookupBtn").textContent = busy ? "Searching…" : "Find source evidence";
     byId("lookupForm").setAttribute("aria-busy", String(busy));
   }
@@ -318,6 +321,16 @@
   });
   byId("targetBtn").addEventListener("click", () => {
     byId("lookupInput").value = "https://claude.ai/referral/PFQOnxQmRQ";
+    lookup();
+  });
+  const sample1 = byId("sample1Btn");
+  if (sample1) sample1.addEventListener("click", () => {
+    byId("lookupInput").value = "https://claude.ai/referral/9wjIA9-Iug";
+    lookup();
+  });
+  const sample2 = byId("sample2Btn");
+  if (sample2) sample2.addEventListener("click", () => {
+    byId("lookupInput").value = "https://claude.ai/referral/SE-Jaa--ig";
     lookup();
   });
   byId("sweepBtn").addEventListener("click", sweep);
