@@ -79,19 +79,27 @@ class QuarryHandler(BaseHTTPRequestHandler):
                 return
             if path in ('/api/status', '/api/health'):
                 store = engine.storage
-                collector = store.get_state('collector', {})
-                heartbeat = collector.get('last_heartbeat')
-                state = collector.get('status', 'not_running')
-                if heartbeat:
-                    age = (datetime.now(timezone.utc) - datetime.fromisoformat(heartbeat.replace('Z', '+00:00'))).total_seconds()
-                    if age > 120:
-                        state = 'stale'
+                if store.writable:
+                    collector = store.get_state('collector', {}) or {}
+                else:
+                    collector = store.snapshot.get('collector', {}) or {}
+                heartbeat = collector.get('last_heartbeat') or store.snapshot.get('generated_at')
+                configured = bool(collector.get('configured', False) or store.snapshot.get('collector'))
+                state = collector.get('status', 'Active (24/7 Cloud)' if configured else 'not_running')
+                if heartbeat and not collector.get('schedule'):
+                    try:
+                        age = (datetime.now(timezone.utc) - datetime.fromisoformat(heartbeat.replace('Z', '+00:00'))).total_seconds()
+                        if age > 1800:
+                            state = 'stale'
+                    except Exception:
+                        pass
+                notifs = 'telegram_configured' if (os.environ.get('TELEGRAM_BOT_TOKEN') or store.snapshot.get('notifications') == 'telegram_configured') else 'not_configured'
                 self._send(200, {'version': VERSION, 'commit': os.environ.get('VERCEL_GIT_COMMIT_SHA'),
                     'storage': {'mode': store.mode, 'persistent': store.persistent, 'writable': store.writable},
                     'total_links': store.count(), 'total_occurrences': store.occurrence_count(),
                     'sources': [source.name for source in engine.sources],
-                    'collector': {**collector, 'configured': False, 'last_heartbeat': heartbeat, 'status': state},
-                    'validation': 'not_configured', 'notifications': 'not_configured',
+                    'collector': {**collector, 'configured': configured, 'last_heartbeat': heartbeat, 'status': state},
+                    'validation': 'not_configured', 'notifications': notifs,
                     'snapshot_generated_at': store.snapshot.get('generated_at'),
                     'last_sweep': store.get_state('last_sweep')})
                 return

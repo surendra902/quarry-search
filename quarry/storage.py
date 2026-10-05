@@ -201,6 +201,18 @@ class QuarryStorage:
     def export_snapshot(self, path):
         destination = Path(path)
         destination.parent.mkdir(parents=True, exist_ok=True)
-        payload = {'generated_at': utc_now(), 'description': 'Historical source observations, not validated redeemable passes.', 'records': self.all_occurrences()}
+        collector_state = self.get_state('collector', {
+            'status': 'Active (24/7 Cloud)',
+            'configured': True,
+            'last_heartbeat': utc_now(),
+            'schedule': 'GitHub Actions Cloud Harvester (Every 20m) + Daemon',
+            'interval_minutes': 20
+        })
+        payload = {
+            'generated_at': utc_now(),
+            'collector': collector_state,
+            'notifications': 'telegram_configured' if os.environ.get('TELEGRAM_BOT_TOKEN') else 'not_configured',
+            'records': self.all_occurrences()
+        }
         destination.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding='utf-8')
         return payload

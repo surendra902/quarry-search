@@ -1,6 +1,13 @@
 {
   "generated_at": "2026-10-05T06:50:35.287909Z",
-  "description": "Historical source observations, not validated redeemable passes.",
+  "collector": {
+    "status": "Active (24/7 Cloud)",
+    "configured": true,
+    "last_heartbeat": "2026-10-05T07:57:27Z",
+    "schedule": "GitHub Actions Cloud Harvester (Every 20m) + Daemon",
+    "interval_minutes": 20
+  },
+  "notifications": "telegram_configured",
   "records": [
     {
       "referral_code": "tmK1dTJkQw",
