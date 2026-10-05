@@ -41,7 +41,8 @@ def main():
     alerts = AlertDispatcher(
         telegram_token=args.telegram_token,
         telegram_chat_id=args.telegram_chat,
-        discord_webhook_url=args.discord_webhook
+        discord_webhook_url=args.discord_webhook,
+        storage=storage
     )
 
     harvester = ContinuousHarvester(

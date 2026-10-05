@@ -55,17 +55,29 @@ class TelegramBotService:
                 chat_id = str(msg["chat"]["id"])
                 text = (msg.get("text") or "").strip()
 
-                if text.startswith("/start"):
+                if text.startswith("/start") or text.startswith("/subscribe"):
+                    subs = self.storage.get_state("telegram_subscribers", [])
+                    if chat_id not in subs:
+                        subs.append(chat_id)
+                        self.storage.set_state("telegram_subscribers", subs)
                     welcome = (
                         "👋 <b>Welcome to Quarry Harvester Bot!</b>\n\n"
-                        "This bot sends instant alerts whenever a new Claude referral guest pass is discovered.\n\n"
+                        "✅ <b>You are subscribed to real-time alerts!</b>\n"
+                        "You will receive an instant notification whenever a new Claude referral pass is discovered.\n\n"
                         f"📊 <b>Current Database:</b> {self.storage.count()} unique referral codes across {self.storage.occurrence_count()} sources.\n\n"
                         "Commands:\n"
                         "/status - View harvester status\n"
                         "/latest - View 3 most recent links\n"
-                        "/help - Show command list"
+                        "/stop - Unsubscribe from alerts"
                     )
                     self.send_message(chat_id, welcome)
+                    handled += 1
+                elif text.startswith("/stop") or text.startswith("/unsubscribe"):
+                    subs = self.storage.get_state("telegram_subscribers", [])
+                    if chat_id in subs:
+                        subs.remove(chat_id)
+                        self.storage.set_state("telegram_subscribers", subs)
+                    self.send_message(chat_id, "🔕 You have unsubscribed from automatic alerts. Send /start anytime to reconnect.")
                     handled += 1
                 elif text.startswith("/status"):
                     status_text = (
@@ -96,5 +108,5 @@ class TelegramBotService:
                     handled += 1
             return handled
         except Exception as exc:
-            logger.error(f"Telegram poll error: {exc}")
+            logger.debug(f"Telegram poll network blip: {exc}")
             return 0

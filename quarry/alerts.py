@@ -18,16 +18,31 @@ class AlertDispatcher:
         telegram_token: Optional[str] = None,
         telegram_chat_id: Optional[str] = None,
         discord_webhook_url: Optional[str] = None,
-        log_file: Optional[str] = None
+        log_file: Optional[str] = None,
+        storage: Optional[Any] = None
     ):
         self.telegram_token = telegram_token or os.environ.get("TELEGRAM_BOT_TOKEN")
         self.telegram_chat_id = telegram_chat_id or os.environ.get("TELEGRAM_CHAT_ID")
         self.discord_webhook = discord_webhook_url or os.environ.get("DISCORD_WEBHOOK_URL")
         self.log_file = Path(log_file or os.environ.get("QUARRY_ALERT_LOG", "data/alerts.log"))
         self.log_file.parent.mkdir(parents=True, exist_ok=True)
+        self.storage = storage
 
     def is_configured(self) -> bool:
         return bool((self.telegram_token and self.telegram_chat_id) or self.discord_webhook)
+
+    def get_recipient_chat_ids(self) -> list:
+        recipients = set()
+        if self.telegram_chat_id:
+            for cid in str(self.telegram_chat_id).split(","):
+                cid = cid.strip()
+                if cid:
+                    recipients.add(cid)
+        if self.storage and hasattr(self.storage, "get_state"):
+            subs = self.storage.get_state("telegram_subscribers", [])
+            for s in subs:
+                recipients.add(str(s).strip())
+        return list(recipients)
 
     def format_telegram_message(self, record: ReferralRecord) -> str:
         code = html.escape(record.referral_code)
@@ -51,21 +66,28 @@ class AlertDispatcher:
         )
 
     def send_telegram(self, message: str) -> bool:
-        if not (self.telegram_token and self.telegram_chat_id):
+        if not self.telegram_token:
             return False
-        try:
-            api_url = f"https://api.telegram.org/bot{self.telegram_token}/sendMessage"
-            payload = {
-                "chat_id": self.telegram_chat_id,
-                "text": message,
-                "parse_mode": "HTML",
-                "disable_web_page_preview": False
-            }
-            resp = requests.post(api_url, json=payload, timeout=8)
-            return resp.status_code == 200
-        except Exception as exc:
-            logger.error(f"Telegram alert error: {exc}")
+        chat_ids = self.get_recipient_chat_ids()
+        if not chat_ids:
             return False
+
+        any_success = False
+        api_url = f"https://api.telegram.org/bot{self.telegram_token}/sendMessage"
+        for cid in chat_ids:
+            try:
+                payload = {
+                    "chat_id": cid,
+                    "text": message,
+                    "parse_mode": "HTML",
+                    "disable_web_page_preview": False
+                }
+                resp = requests.post(api_url, json=payload, timeout=8)
+                if resp.status_code == 200:
+                    any_success = True
+            except Exception as exc:
+                logger.error(f"Telegram alert error for chat {cid}: {exc}")
+        return any_success
 
     def send_discord(self, record: ReferralRecord) -> bool:
         if not self.discord_webhook:
