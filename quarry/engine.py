@@ -13,6 +13,12 @@ class QuarryEngine:
         self.storage = storage if storage is not None else QuarryStorage()
         if sources is None:
             sources = [GitHubSource(token=os.environ.get('GITHUB_TOKEN')), HackerNewsSource()]
+            if os.environ.get('EXA_API_KEY'):
+                try:
+                    from quarry.sources.exa_source import ExaSource
+                    sources.append(ExaSource())
+                except ImportError:
+                    pass
             if os.environ.get('QUARRY_WEB_SEARCH') == '1':
                 from quarry.sources.web_dork_source import WebDorkSource
                 sources.append(WebDorkSource())

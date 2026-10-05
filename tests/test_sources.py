@@ -228,5 +228,37 @@ class SearchSnippetTests(unittest.TestCase):
         self.assertEqual(source.last_report["status"], "unavailable")
 
 
+class ExaSourceTests(unittest.TestCase):
+    def test_missing_api_key_reports_unavailable(self):
+        from quarry.sources.exa_source import ExaSource
+        with patch.dict("os.environ", {}, clear=True):
+            source = ExaSource(api_key=None)
+            self.assertEqual(source.find_sources(CODE), [])
+            self.assertEqual(source.last_report["status"], "unavailable")
+
+    def test_results_extract_direct_matches(self):
+        from quarry.sources.exa_source import ExaSource
+        result_item = Mock()
+        result_item.url = "https://dev.to/test-article"
+        result_item.title = "My AI Article"
+        result_item.author = "test-author"
+        result_item.published_date = "2026-09-20T00:00:00Z"
+        result_item.text = f"Check this out {LINK} for free pass"
+        result_item.highlights = []
+        search_res = Mock(results=[result_item])
+
+        mock_client = Mock()
+        mock_client.search_and_contents.return_value = search_res
+
+        source = ExaSource(api_key="fake-test-key")
+        with patch.object(source, "_client", return_value=mock_client):
+            records = source.find_sources(CODE)
+            self.assertEqual(len(records), 1)
+            self.assertEqual(records[0].referral_code, CODE)
+            self.assertEqual(records[0].source_url, "https://dev.to/test-article")
+            self.assertEqual(records[0].platform, "DEV.to (Tech Community)")
+            self.assertIn(LINK, records[0].evidence_snippet)
+
+
 if __name__ == "__main__":
     unittest.main()
