@@ -104,7 +104,8 @@ class QuarryHandler(BaseHTTPRequestHandler):
                 if token and not hmac.compare_digest(self.headers.get('Authorization', ''), 'Bearer ' + token):
                     self._send(403, {'error': 'Operator authorization required.'})
                     return
-            if not _NETWORK_SLOTS.acquire(blocking=False):
+            slot = _NETWORK_SLOTS
+            if not slot.acquire(blocking=False):
                 self._send(429, {'error': 'Source checks are busy. Please retry shortly.'})
                 return
             try:
@@ -120,7 +121,7 @@ class QuarryHandler(BaseHTTPRequestHandler):
                     result = engine.discover(limit_per_source=20)
                 self._send(200, result)
             finally:
-                _NETWORK_SLOTS.release()
+                slot.release()
         except RequestError:
             self._send(400, {'error': 'Invalid request. Use a complete claude.ai/referral URL or an unmodified code; check numeric limits.'})
         except Exception:
