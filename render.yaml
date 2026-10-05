@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: quarry-search
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python demo_server.py $PORT
+    plan: free
+    autoDeploy: true
