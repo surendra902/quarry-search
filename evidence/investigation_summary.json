@@ -1,0 +1,202 @@
+[
+  {
+    "timestamp": "2026-10-05T02:20:12Z",
+    "source": "Direct HTTP Probe",
+    "query": "https://claude.ai/referral/PFQOnxQmRQ",
+    "status": "OK",
+    "matches_found": 0,
+    "details": "HTTP 403, Final URL: https://claude.ai/referral/PFQOnxQmRQ, Redirects: 0"
+  },
+  {
+    "timestamp": "2026-10-05T02:20:13Z",
+    "source": "Reddit API",
+    "query": "Reddit Search (Code)",
+    "status": "HTTP 403",
+    "matches_found": 0,
+    "details": "Returned status 403"
+  },
+  {
+    "timestamp": "2026-10-05T02:20:14Z",
+    "source": "Reddit API",
+    "query": "Reddit Search (URL)",
+    "status": "HTTP 403",
+    "matches_found": 0,
+    "details": "Returned status 403"
+  },
+  {
+    "timestamp": "2026-10-05T02:20:16Z",
+    "source": "Reddit API",
+    "query": "Reddit Comments (Code)",
+    "status": "HTTP 403",
+    "matches_found": 0,
+    "details": "Returned status 403"
+  },
+  {
+    "timestamp": "2026-10-05T02:20:18Z",
+    "source": "PullPush API",
+    "query": "PullPush Submission",
+    "status": "200 OK",
+    "matches_found": 0,
+    "details": "Returned 0 items"
+  },
+  {
+    "timestamp": "2026-10-05T02:20:18Z",
+    "source": "PullPush API",
+    "query": "PullPush Comment",
+    "status": "200 OK",
+    "matches_found": 0,
+    "details": "Returned 0 items"
+  },
+  {
+    "timestamp": "2026-10-05T02:20:19Z",
+    "source": "HackerNews Algolia",
+    "query": "HN Search Code",
+    "status": "200 OK",
+    "matches_found": 0,
+    "details": "Returned 0 hits"
+  },
+  {
+    "timestamp": "2026-10-05T02:20:20Z",
+    "source": "HackerNews Algolia",
+    "query": "HN Search URL",
+    "status": "200 OK",
+    "matches_found": 0,
+    "details": "Returned 0 hits"
+  },
+  {
+    "timestamp": "2026-10-05T02:20:20Z",
+    "source": "GitHub API",
+    "query": "GitHub Issues",
+    "status": "200 OK",
+    "matches_found": 0,
+    "details": "Total count: 0"
+  },
+  {
+    "timestamp": "2026-10-05T02:20:22Z",
+    "source": "GitHub API",
+    "query": "GitHub Code",
+    "status": "HTTP 401",
+    "matches_found": 0,
+    "details": "Returned status 401"
+  },
+  {
+    "timestamp": "2026-10-05T02:20:23Z",
+    "source": "GitHub API",
+    "query": "GitHub Commits",
+    "status": "200 OK",
+    "matches_found": 0,
+    "details": "Total count: 0"
+  },
+  {
+    "timestamp": "2026-10-05T02:20:25Z",
+    "source": "GitHub API",
+    "query": "GitHub Repos",
+    "status": "200 OK",
+    "matches_found": 0,
+    "details": "Total count: 0"
+  },
+  {
+    "timestamp": "2026-10-05T02:20:28Z",
+    "source": "Wayback Machine",
+    "query": "Wayback CDX Exact",
+    "status": "200 OK",
+    "matches_found": 0,
+    "details": "Returned 0 snapshots"
+  },
+  {
+    "timestamp": "2026-10-05T02:20:39Z",
+    "source": "Wayback Machine",
+    "query": "Wayback CDX Wildcard",
+    "status": "200 OK",
+    "matches_found": 0,
+    "details": "Returned 0 snapshots"
+  },
+  {
+    "timestamp": "2026-10-05T02:20:41Z",
+    "source": "Wayback Machine",
+    "query": "Wayback Availability",
+    "status": "200 OK",
+    "matches_found": 0,
+    "details": "Returned 0 snapshots"
+  },
+  {
+    "timestamp": "2026-10-05T02:20:41Z",
+    "source": "DuckDuckGo Query",
+    "query": "\"PFQOnxQmRQ\"",
+    "status": "200 OK",
+    "matches_found": 3,
+    "details": "Result page received. Matches: 3. 'No results': False"
+  },
+  {
+    "timestamp": "2026-10-05T02:20:44Z",
+    "source": "DuckDuckGo Query",
+    "query": "\"claude.ai/referral/PFQOnxQmRQ\"",
+    "status": "200 OK",
+    "matches_found": 3,
+    "details": "Result page received. Matches: 3. 'No results': False"
+  },
+  {
+    "timestamp": "2026-10-05T02:20:45Z",
+    "source": "DuckDuckGo Query",
+    "query": "site:twitter.com \"PFQOnxQmRQ\"",
+    "status": "HTTP 202",
+    "matches_found": 0,
+    "details": "Status 202"
+  },
+  {
+    "timestamp": "2026-10-05T02:20:47Z",
+    "source": "DuckDuckGo Query",
+    "query": "site:x.com \"PFQOnxQmRQ\"",
+    "status": "HTTP 202",
+    "matches_found": 0,
+    "details": "Status 202"
+  },
+  {
+    "timestamp": "2026-10-05T02:20:49Z",
+    "source": "DuckDuckGo Query",
+    "query": "site:reddit.com \"PFQOnxQmRQ\"",
+    "status": "HTTP 202",
+    "matches_found": 0,
+    "details": "Status 202"
+  },
+  {
+    "timestamp": "2026-10-05T02:20:52Z",
+    "source": "DuckDuckGo Query",
+    "query": "site:t.me \"PFQOnxQmRQ\"",
+    "status": "HTTP 202",
+    "matches_found": 0,
+    "details": "Status 202"
+  },
+  {
+    "timestamp": "2026-10-05T02:20:53Z",
+    "source": "DuckDuckGo Query",
+    "query": "site:youtube.com \"PFQOnxQmRQ\"",
+    "status": "HTTP 202",
+    "matches_found": 0,
+    "details": "Status 202"
+  },
+  {
+    "timestamp": "2026-10-05T02:20:56Z",
+    "source": "DuckDuckGo Query",
+    "query": "site:linkedin.com \"PFQOnxQmRQ\"",
+    "status": "HTTP 403",
+    "matches_found": 0,
+    "details": "Status 403"
+  },
+  {
+    "timestamp": "2026-10-05T02:20:58Z",
+    "source": "DuckDuckGo Query",
+    "query": "site:facebook.com \"PFQOnxQmRQ\"",
+    "status": "HTTP 202",
+    "matches_found": 0,
+    "details": "Status 202"
+  },
+  {
+    "timestamp": "2026-10-05T02:20:59Z",
+    "source": "DuckDuckGo Query",
+    "query": "site:threads.net \"PFQOnxQmRQ\"",
+    "status": "HTTP 202",
+    "matches_found": 0,
+    "details": "Status 202"
+  }
+]

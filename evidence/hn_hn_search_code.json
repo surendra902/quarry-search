@@ -1,0 +1,27 @@
+{
+  "exhaustive": {
+    "nbHits": false,
+    "typo": false
+  },
+  "exhaustiveNbHits": false,
+  "exhaustiveTypo": false,
+  "hits": [],
+  "hitsPerPage": 20,
+  "nbHits": 0,
+  "nbPages": 0,
+  "page": 0,
+  "params": "query=PFQOnxQmRQ&tags=%28story%2Ccomment%29&advancedSyntax=true&analyticsTags=backend",
+  "processingTimeMS": 6,
+  "processingTimingsMS": {
+    "_request": {
+      "roundTrip": 15
+    },
+    "fetch": {
+      "query": 4,
+      "total": 5
+    },
+    "total": 6
+  },
+  "query": "PFQOnxQmRQ",
+  "serverTimeMS": 7
+}

@@ -1,0 +1,23 @@
+{
+  "exhaustive": {
+    "nbHits": true,
+    "typo": true
+  },
+  "exhaustiveNbHits": true,
+  "exhaustiveTypo": true,
+  "hits": [],
+  "hitsPerPage": 20,
+  "nbHits": 0,
+  "nbPages": 0,
+  "page": 0,
+  "params": "query=%22https%3A%2F%2Fclaude.ai%2Freferral%2FPFQOnxQmRQ%22&tags=%28story%2Ccomment%29&advancedSyntax=true&analyticsTags=backend",
+  "processingTimeMS": 1,
+  "processingTimingsMS": {
+    "_request": {
+      "roundTrip": 17
+    },
+    "total": 1
+  },
+  "query": "\"https://claude.ai/referral/PFQOnxQmRQ\"",
+  "serverTimeMS": 1
+}

@@ -1,0 +1,38 @@
+{
+  "status_code": 403,
+  "final_url": "https://claude.ai/referral/PFQOnxQmRQ",
+  "redirect_history": [
+    "https://claude.ai/referral/PFQOnxQmRQ"
+  ],
+  "headers": {
+    "Date": "Mon, 05 Oct 2026 02:20:12 GMT",
+    "Content-Type": "text/html; charset=UTF-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "close",
+    "Accept-Ch": "Sec-CH-UA-Bitness, Sec-CH-UA-Arch, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Platform, Sec-CH-UA, UA-Bitness, UA-Arch, UA-Full-Version, UA-Mobile, UA-Model, UA-Platform-Version, UA-Platform, UA",
+    "Cf-Mitigated": "challenge",
+    "Content-Security-Policy": "default-src 'none'; script-src 'nonce-cvdcphpm8a1IGnouftG5oz' 'unsafe-eval' https://challenges.cloudflare.com; script-src-attr 'none'; style-src 'unsafe-inline'; img-src 'self' https://challenges.cloudflare.com; connect-src 'self' https://challenges.cloudflare.com; frame-src 'self' https://challenges.cloudflare.com blob:; child-src 'self' https://challenges.cloudflare.com blob:; worker-src blob:; form-action http: https:; base-uri 'self'",
+    "Server": "cloudflare",
+    "Critical-Ch": "Sec-CH-UA-Bitness, Sec-CH-UA-Arch, Sec-CH-UA-Full-Version, Sec-CH-UA-Mobile, Sec-CH-UA-Model, Sec-CH-UA-Platform-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Platform, Sec-CH-UA, UA-Bitness, UA-Arch, UA-Full-Version, UA-Mobile, UA-Model, UA-Platform-Version, UA-Platform, UA",
+    "Cross-Origin-Embedder-Policy": "require-corp",
+    "Cross-Origin-Opener-Policy": "same-origin",
+    "Cross-Origin-Resource-Policy": "same-origin",
+    "Origin-Agent-Cluster": "?1",
+    "Permissions-Policy": "accelerometer=(),camera=(),clipboard-read=(),clipboard-write=(),geolocation=(),gyroscope=(),hid=(),magnetometer=(),microphone=(),payment=(),publickey-credentials-get=(),screen-wake-lock=(),serial=(),sync-xhr=(),usb=(),xr-spatial-tracking=*",
+    "Referrer-Policy": "same-origin",
+    "Server-Timing": "chlray;desc=\"a458f2231dd47e83\"",
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Vary": "accept-encoding",
+    "set-cookie": "__cf_bm=OoqOiEsgbYkgYATcRxUtzVLyiPlzZdCRRPzw_yxk_dk-1791166812.6541226-1.0.1.1-nms7bhkrLc7rv7dvz6XOewSTpS1nxQDSEtz4n5qgf21XSWLyPegnI4GQDIRYxBPNH.m8_hnnSxLqZ5BqOPiqeRdlFYF9JheWcyGUt07eaFX5TA3fC9YX1HlAjWmiaMX3; HttpOnly; SameSite=None; Secure; Path=/; Domain=claude.ai; Expires=Mon, 05 Oct 2026 02:50:12 GMT",
+    "X-Robots-Tag": "none",
+    "Content-Encoding": "br",
+    "CF-RAY": "a458f2231dd47e83-MAA",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "cookies": {
+    "__cf_bm": "OoqOiEsgbYkgYATcRxUtzVLyiPlzZdCRRPzw_yxk_dk-1791166812.6541226-1.0.1.1-nms7bhkrLc7rv7dvz6XOewSTpS1nxQDSEtz4n5qgf21XSWLyPegnI4GQDIRYxBPNH.m8_hnnSxLqZ5BqOPiqeRdlFYF9JheWcyGUt07eaFX5TA3fC9YX1HlAjWmiaMX3"
+  },
+  "content_length": 5819,
+  "contains_target_code": true
+}
