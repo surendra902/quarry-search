@@ -1,105 +1,89 @@
-import requests
-import re
+"""GitHub API occurrences: exact links in issue/PR text or commit messages."""
 from typing import List, Optional
-from datetime import datetime
+from urllib.parse import urlsplit
+import requests
 from quarry.sources.base import BaseSource
 from quarry.models import ReferralRecord
 from quarry.extractors import extract_referral_codes
 
+
 class GitHubSource(BaseSource):
     name = "github"
+    max_requests = 2
 
     def __init__(self, token: Optional[str] = None):
-        self.headers = {
-            "User-Agent": "quarry-search-bot/1.0",
-            "Accept": "application/vnd.github.v3+json",
-        }
+        self.headers = {"User-Agent": "quarry-search-bot/1.0",
+                        "Accept": "application/vnd.github+json"}
         if token:
-            self.headers["Authorization"] = f"token {token}"
+            self.headers["Authorization"] = f"Bearer {token}"
+        self._start()
+
+    def _search(self, code, limit):
+        records = []
+        for category in ("issues", "commits"):
+            data = self._get_json(
+                f"https://api.github.com/search/{category}", headers=self.headers,
+                params={"q": f'"claude.ai/referral/{code}"' if code else '"claude.ai/referral"',
+                        "sort": "created" if category == "issues" else "committer-date",
+                        "order": "desc", "per_page": 30, "page": 1})
+            if data is None:
+                continue
+            items = data.get("items")
+            if not isinstance(items, list):
+                self._problem("error", f"GitHub {category}: missing items list.")
+                continue
+            total = data.get("total_count")
+            if data.get("incomplete_results") or len(items) >= 30 or (
+                    isinstance(total, int) and total > len(items)):
+                self._problem("partial", f"GitHub {category}: additional/incomplete search pages not scanned.")
+            for item in items:
+                if not isinstance(item, dict):
+                    self._problem("error", f"GitHub {category}: malformed item.")
+                    continue
+                source_url = item.get("html_url") or ""
+                try:
+                    valid_source = urlsplit(source_url).scheme == "https" and urlsplit(source_url).hostname == "github.com"
+                except ValueError:
+                    valid_source = False
+                if not valid_source:
+                    self._problem("error", f"GitHub {category}: missing/invalid first-party source URL.")
+                    continue
+                commit = item.get("commit") or {}
+                if category == "issues":
+                    text = f"{item.get('title') or ''}\n{item.get('body') or ''}"
+                    author = (item.get("user") or {}).get("login")
+                    published = item.get("created_at")
+                    updated = item.get("updated_at")
+                    basis = "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time"
+                else:
+                    text = commit.get("message") or ""
+                    author = (item.get("author") or {}).get("login") or (commit.get("author") or {}).get("name")
+                    published = (commit.get("committer") or {}).get("date")
+                    updated = None
+                    basis = "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof"
+                for clean_url, found_code in extract_referral_codes(text):
+                    if code is not None and found_code != code:
+                        continue
+                    record = ReferralRecord(
+                        referral_code=found_code, url=clean_url,
+                        platform="GitHub (Issue/PR)" if category == "issues" else "GitHub (Commit)",
+                        source_url=source_url, author=author, published_at=published,
+                        evidence_snippet=self._evidence(text, found_code), status="unknown",
+                        evidence_kind="direct_match", source_updated_at=updated, timestamp_basis=basis)
+                    records.append(record)
+        return self._finish(records, limit)
 
     def discover_new(self, limit: int = 50) -> List[ReferralRecord]:
-        records: List[ReferralRecord] = []
-        
-        # 1. Search issues & pull requests
-        try:
-            url = "https://api.github.com/search/issues?q=%22claude.ai/referral%22&sort=created&order=desc&per_page=30"
-            resp = requests.get(url, headers=self.headers, timeout=12)
-            if resp.status_code == 200:
-                items = resp.json().get("items", [])
-                for item in items:
-                    body = item.get("body") or ""
-                    title = item.get("title") or ""
-                    text = f"{title}\n{body}"
-                    found = extract_referral_codes(text)
-                    for clean_url, code in found:
-                        records.append(ReferralRecord(
-                            referral_code=code,
-                            url=clean_url,
-                            platform="GitHub (Issue/PR)",
-                            source_url=item.get("html_url"),
-                            author=item.get("user", {}).get("login"),
-                            published_at=item.get("created_at"),
-                            evidence_snippet=title[:180],
-                            status="unknown"
-                        ))
-        except Exception as e:
-            print(f"[GitHubSource] Error querying issues: {e}")
+        self._start()
+        limit = self._limit(limit)
+        return self._search(None, limit) if limit else self._finish([], 0)
 
-        # 2. Search commits
-        try:
-            commit_headers = dict(self.headers)
-            commit_headers["Accept"] = "application/vnd.github.cloak-preview"
-            c_url = "https://api.github.com/search/commits?q=%22claude.ai/referral%22&sort=author-date&order=desc&per_page=20"
-            c_resp = requests.get(c_url, headers=commit_headers, timeout=12)
-            if c_resp.status_code == 200:
-                items = c_resp.json().get("items", [])
-                for item in items:
-                    msg = item.get("commit", {}).get("message", "")
-                    found = extract_referral_codes(msg)
-                    for clean_url, code in found:
-                        records.append(ReferralRecord(
-                            referral_code=code,
-                            url=clean_url,
-                            platform="GitHub (Commit)",
-                            source_url=item.get("html_url"),
-                            author=item.get("commit", {}).get("author", {}).get("name"),
-                            published_at=item.get("commit", {}).get("author", {}).get("date"),
-                            evidence_snippet=msg[:180].replace("\n", " "),
-                            status="unknown"
-                        ))
-        except Exception as e:
-            print(f"[GitHubSource] Error querying commits: {e}")
-
-        return records[:limit]
+    def find_sources(self, referral_code: str, limit: int = 20) -> List[ReferralRecord]:
+        self._start()
+        limit = self._limit(limit)
+        code = self._code(referral_code)
+        return self._search(code, limit) if code and limit else self._finish([], limit)
 
     def find_original_source(self, referral_code: str) -> Optional[ReferralRecord]:
-        queries = [
-            ("GitHub (Issue/PR)", f"https://api.github.com/search/issues?q={referral_code}"),
-            ("GitHub (Commit)", f"https://api.github.com/search/commits?q={referral_code}"),
-        ]
-        for platform_label, endpoint in queries:
-            try:
-                headers = dict(self.headers)
-                if "commits" in endpoint:
-                    headers["Accept"] = "application/vnd.github.cloak-preview"
-                resp = requests.get(endpoint, headers=headers, timeout=12)
-                if resp.status_code == 200:
-                    items = resp.json().get("items", [])
-                    if items:
-                        item = items[0]
-                        author = item.get("user", {}).get("login") if "user" in item else item.get("commit", {}).get("author", {}).get("name")
-                        pub_date = item.get("created_at") or item.get("commit", {}).get("author", {}).get("date")
-                        snippet = item.get("title") or item.get("commit", {}).get("message", "")
-                        return ReferralRecord(
-                            referral_code=referral_code,
-                            url=f"https://claude.ai/referral/{referral_code}",
-                            platform=platform_label,
-                            source_url=item.get("html_url"),
-                            author=author,
-                            published_at=pub_date,
-                            evidence_snippet=snippet[:180],
-                            status="unknown"
-                        )
-            except Exception as e:
-                print(f"[GitHubSource] Error checking {endpoint}: {e}")
-        return None
+        records = self.find_sources(referral_code, limit=1)
+        return records[0] if records else None

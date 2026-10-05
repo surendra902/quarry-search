@@ -1,98 +1,173 @@
-import sqlite3
+"""Local SQLite persistence, or an explicitly read-only deployment snapshot."""
+import json
 import os
-from typing import Optional, List, Dict
-from datetime import datetime
-from quarry.models import ReferralRecord
+import sqlite3
+from contextlib import contextmanager
+from dataclasses import fields
+from datetime import datetime, timezone
+from pathlib import Path
+from quarry.models import ReferralRecord, utc_now
+
+FIELDS = tuple(f.name for f in fields(ReferralRecord))
+
+
+def normalized_time(value):
+    if not value:
+        return None
+    try:
+        if isinstance(value, (int, float)) or str(value).replace('.', '', 1).isdigit():
+            dt = datetime.fromtimestamp(float(value), timezone.utc)
+        else:
+            dt = datetime.fromisoformat(str(value).replace('Z', '+00:00'))
+            if dt.tzinfo is None:
+                return None  # Do not invent a timezone.
+        return dt.astimezone(timezone.utc).isoformat().replace('+00:00', 'Z')
+    except (ValueError, TypeError, OverflowError, OSError):
+        return None
+
+
+def evidence_order(row):
+    quality = {'direct_match': 0, 'archive_match': 1, 'candidate_only': 2, 'legacy_unverified': 3}
+    date = normalized_time(row.get('published_at'))
+    return (quality.get(row.get('evidence_kind'), 3), date is None, date or '', row.get('source_url') or '')
+
 
 class QuarryStorage:
-    def __init__(self, db_path: Optional[str] = None):
-        if db_path is None:
-            if os.environ.get("VERCEL"):
-                import shutil
-                db_path = "/tmp/quarry.db"
-                seed_db = os.path.join(os.path.dirname(os.path.dirname(__file__)), "quarry.db")
-                if not os.path.exists(db_path) and os.path.exists(seed_db):
-                    shutil.copyfile(seed_db, db_path)
-            else:
-                base_dir = os.path.dirname(os.path.dirname(__file__))
-                db_path = os.path.join(base_dir, "quarry.db")
-        self.db_path = db_path
+    def __init__(self, db_path=None):
+        self.mode = 'deployment_snapshot' if os.environ.get('VERCEL') and db_path is None else 'local_persistent'
+        self.writable = self.mode == 'local_persistent'
+        self.persistent = self.writable
+        self.snapshot = {'records': []}
+        root = Path(__file__).resolve().parent.parent
+        if not self.writable:
+            path = Path(os.environ.get('QUARRY_SNAPSHOT_PATH', str(root / 'data' / 'snapshot.json')))
+            if path.exists():
+                self.snapshot = json.loads(path.read_text(encoding='utf-8'))
+            self.db_path = None
+            return
+        self.db_path = str(db_path or os.environ.get('QUARRY_DB_PATH') or root / 'quarry.db')
+        Path(self.db_path).parent.mkdir(parents=True, exist_ok=True)
         self._init_db()
 
+    @contextmanager
     def _get_conn(self):
-        conn = sqlite3.connect(self.db_path)
+        conn = sqlite3.connect(self.db_path, timeout=15)
         conn.row_factory = sqlite3.Row
-        return conn
+        try:
+            with conn:
+                yield conn
+        finally:
+            conn.close()
 
     def _init_db(self):
         with self._get_conn() as conn:
-            cursor = conn.cursor()
-            cursor.execute("""
-                CREATE TABLE IF NOT EXISTS referral_links (
-                    referral_code TEXT PRIMARY KEY,
-                    url TEXT NOT NULL,
-                    platform TEXT NOT NULL,
-                    source_url TEXT NOT NULL,
-                    author TEXT,
-                    published_at TEXT,
-                    discovered_at TEXT NOT NULL,
-                    evidence_snippet TEXT,
-                    status TEXT DEFAULT 'unknown'
-                )
-            """)
-            cursor.execute("""
-                CREATE INDEX IF NOT EXISTS idx_platform ON referral_links(platform)
-            """)
-            cursor.execute("""
-                CREATE INDEX IF NOT EXISTS idx_discovered ON referral_links(discovered_at)
-            """)
-            conn.commit()
+            conn.execute('PRAGMA journal_mode=WAL')
+            conn.execute('''CREATE TABLE IF NOT EXISTS referral_links (
+                referral_code TEXT PRIMARY KEY, url TEXT NOT NULL, platform TEXT NOT NULL,
+                source_url TEXT NOT NULL, author TEXT, published_at TEXT, discovered_at TEXT NOT NULL,
+                evidence_snippet TEXT, status TEXT DEFAULT 'unknown')''')
+            conn.execute('''CREATE TABLE IF NOT EXISTS occurrences (
+                referral_code TEXT NOT NULL, url TEXT NOT NULL, platform TEXT NOT NULL,
+                source_url TEXT NOT NULL, author TEXT, published_at TEXT, discovered_at TEXT NOT NULL,
+                evidence_snippet TEXT, status TEXT NOT NULL DEFAULT 'unknown',
+                evidence_kind TEXT NOT NULL DEFAULT 'legacy_unverified', source_updated_at TEXT,
+                timestamp_basis TEXT, last_seen_at TEXT NOT NULL,
+                PRIMARY KEY (referral_code, source_url))''')
+            conn.execute('''INSERT OR IGNORE INTO occurrences
+                (referral_code,url,platform,source_url,author,published_at,discovered_at,evidence_snippet,status,last_seen_at)
+                SELECT referral_code,url,platform,source_url,author,published_at,discovered_at,evidence_snippet,
+                COALESCE(status,'unknown'),discovered_at FROM referral_links''')
+            conn.execute('CREATE INDEX IF NOT EXISTS occurrence_code ON occurrences(referral_code)')
+            conn.execute('CREATE TABLE IF NOT EXISTS runtime_state (key TEXT PRIMARY KEY, value TEXT NOT NULL)')
 
-    def save_link(self, record: ReferralRecord) -> bool:
-        """Saves a referral record. Returns True if inserted, False if already exists (deduplicated)."""
+    def save_link(self, record):
+        if not self.writable:
+            return False
         data = record.to_dict()
+        if not data.get('source_url'):
+            raise ValueError('A source URL is required for an occurrence.')
+        data['published_at'] = normalized_time(data.get('published_at'))
+        data['source_updated_at'] = normalized_time(data.get('source_updated_at'))
+        data['discovered_at'] = normalized_time(data.get('discovered_at')) or utc_now()
+        data['status'] = data.get('status') or 'unknown'
         with self._get_conn() as conn:
-            cursor = conn.cursor()
-            try:
-                cursor.execute("""
-                    INSERT INTO referral_links (
-                        referral_code, url, platform, source_url, author, 
-                        published_at, discovered_at, evidence_snippet, status
-                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-                """, (
-                    data["referral_code"],
-                    data["url"],
-                    data["platform"],
-                    data["source_url"],
-                    data.get("author"),
-                    data.get("published_at"),
-                    data.get("discovered_at") or datetime.utcnow().isoformat() + "Z",
-                    data.get("evidence_snippet"),
-                    data.get("status", "unknown")
-                ))
-                conn.commit()
-                return True
-            except sqlite3.IntegrityError:
-                # Link already exists; keep original first-seen record
-                return False
+            basic = FIELDS[:9]
+            cur = conn.execute('INSERT OR IGNORE INTO referral_links (' + ','.join(basic) + ') VALUES (' + ','.join('?' for _ in basic) + ')', tuple(data[k] for k in basic))
+            is_new = cur.rowcount == 1
+            # Never downgrade existing verified source evidence to a snippet/legacy claim.
+            old = conn.execute('SELECT * FROM occurrences WHERE referral_code=? AND source_url=?', (data['referral_code'], data['source_url'])).fetchone()
+            if old and evidence_order(dict(old))[0] < evidence_order(data)[0]:
+                conn.execute('UPDATE occurrences SET last_seen_at=? WHERE referral_code=? AND source_url=?', (utc_now(), data['referral_code'], data['source_url']))
+                return is_new
+            if old:
+                data['discovered_at'] = old['discovered_at']
+            columns = FIELDS + ('last_seen_at',)
+            values = tuple(data[k] for k in FIELDS) + (utc_now(),)
+            conn.execute('INSERT OR REPLACE INTO occurrences (' + ','.join(columns) + ') VALUES (' + ','.join('?' for _ in columns) + ')', values)
+            return is_new
 
-    def get_by_code(self, referral_code: str) -> Optional[Dict]:
+    def all_occurrences(self):
+        if not self.writable:
+            return [dict(row) for row in self.snapshot.get('records', [])]
         with self._get_conn() as conn:
-            cursor = conn.cursor()
-            cursor.execute("SELECT * FROM referral_links WHERE referral_code = ?", (referral_code,))
-            row = cursor.fetchone()
-            if row:
-                return dict(row)
-            return None
+            return [dict(row) for row in conn.execute('SELECT * FROM occurrences')]
 
-    def list_links(self, limit: int = 100) -> List[Dict]:
-        with self._get_conn() as conn:
-            cursor = conn.cursor()
-            cursor.execute("SELECT * FROM referral_links ORDER BY discovered_at DESC LIMIT ?", (limit,))
-            return [dict(r) for r in cursor.fetchall()]
+    def get_occurrences(self, code):
+        if not self.writable:
+            rows = [row for row in self.all_occurrences() if row.get('referral_code') == code]
+        else:
+            with self._get_conn() as conn:
+                rows = [dict(row) for row in conn.execute('SELECT * FROM occurrences WHERE referral_code=?', (code,))]
+        return sorted(rows, key=evidence_order)
 
-    def count(self) -> int:
+    def get_by_code(self, code):
+        rows = self.get_occurrences(code)
+        return rows[0] if rows else None
+
+    def list_links(self, limit=100, offset=0):
+        grouped = {}
+        for row in self.all_occurrences():
+            grouped.setdefault(row['referral_code'], []).append(row)
+        rows = []
+        for occurrences in grouped.values():
+            row = min(occurrences, key=evidence_order).copy()
+            row['occurrence_count'] = len(occurrences)
+            rows.append(row)
+        rows.sort(key=lambda r: (normalized_time(r.get('discovered_at')) or '', r['referral_code']), reverse=True)
+        return rows[offset:offset + limit]
+
+    def count(self):
+        if not self.writable:
+            return len({r['referral_code'] for r in self.all_occurrences()})
         with self._get_conn() as conn:
-            cursor = conn.cursor()
-            cursor.execute("SELECT COUNT(*) FROM referral_links")
-            return cursor.fetchone()[0]
+            return conn.execute('SELECT COUNT(DISTINCT referral_code) FROM occurrences').fetchone()[0]
+
+    def occurrence_count(self):
+        if not self.writable:
+            return len(self.all_occurrences())
+        with self._get_conn() as conn:
+            return conn.execute('SELECT COUNT(*) FROM occurrences').fetchone()[0]
+
+    def invalidate_source(self, source_url):
+        if self.writable:
+            with self._get_conn() as conn:
+                conn.execute("UPDATE occurrences SET evidence_kind='removed', evidence_snippet=NULL, author=NULL, last_seen_at=? WHERE source_url=?", (utc_now(), source_url))
+
+    def set_state(self, key, value):
+        if self.writable:
+            with self._get_conn() as conn:
+                conn.execute('INSERT OR REPLACE INTO runtime_state(key,value) VALUES (?,?)', (key, json.dumps(value)))
+
+    def get_state(self, key, default=None):
+        if not self.writable:
+            return default
+        with self._get_conn() as conn:
+            row = conn.execute('SELECT value FROM runtime_state WHERE key=?', (key,)).fetchone()
+        return json.loads(row[0]) if row else default
+
+    def export_snapshot(self, path):
+        destination = Path(path)
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        payload = {'generated_at': utc_now(), 'description': 'Historical source observations, not validated redeemable passes.', 'records': self.all_occurrences()}
+        destination.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding='utf-8')
+        return payload

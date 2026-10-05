@@ -1,84 +1,117 @@
-import time
-from typing import List, Optional, Dict
-from quarry.models import ReferralRecord
-from quarry.storage import QuarryStorage
-from quarry.extractors import extract_code_from_url, is_valid_referral_format
-from quarry.sources.base import BaseSource
+"""Bounded discovery and earliest-evidenced lookup, never global-origin claims."""
+import os
+from concurrent.futures import ThreadPoolExecutor
+from quarry.storage import QuarryStorage, evidence_order
+from quarry.models import utc_now
+from quarry.extractors import extract_code_from_url, extract_referral_codes
 from quarry.sources.github_source import GitHubSource
 from quarry.sources.hackernews_source import HackerNewsSource
-from quarry.sources.reddit_source import RedditSource
-from quarry.sources.web_dork_source import WebDorkSource
+
 
 class QuarryEngine:
-    def __init__(self, storage: Optional[QuarryStorage] = None, sources: Optional[List[BaseSource]] = None):
-        self.storage = storage or QuarryStorage()
-        self.sources: List[BaseSource] = sources if sources is not None else [
-            GitHubSource(),
-            HackerNewsSource(),
-            RedditSource(),
-            WebDorkSource(),
-        ]
+    def __init__(self, storage=None, sources=None):
+        self.storage = storage if storage is not None else QuarryStorage()
+        if sources is None:
+            sources = [GitHubSource(token=os.environ.get('GITHUB_TOKEN')), HackerNewsSource()]
+            if os.environ.get('QUARRY_WEB_SEARCH') == '1':
+                from quarry.sources.web_dork_source import WebDorkSource
+                sources.append(WebDorkSource())
+            if os.environ.get('QUARRY_REDDIT_ENABLED') == '1':
+                from quarry.sources.reddit_source import RedditSource
+                sources.append(RedditSource(enabled=True))
+        self.sources = sources
 
-    def discover(self, limit_per_source: int = 50) -> Dict[str, any]:
-        """
-        Runs discovery sweeps across all registered sources.
-        Deduplicates against local SQLite database.
-        Returns newly discovered records and summary statistics.
-        """
-        new_records: List[ReferralRecord] = []
-        source_counts: Dict[str, int] = {}
-        total_found = 0
+    def _run_source(self, source, code=None, limit=20):
+        try:
+            if code is None:
+                rows = source.discover_new(limit=limit)
+            elif hasattr(source, 'find_sources'):
+                rows = source.find_sources(code, limit=limit)
+            else:
+                row = source.find_original_source(code)
+                rows = [row] if row else []
+            report = dict(getattr(source, 'last_report', {}) or {})
+            report.setdefault('status', 'ok')
+            report.setdefault('messages', [])
+            accepted = []
+            for row in rows:
+                try:
+                    exact = extract_code_from_url(row.url)
+                    if exact != row.referral_code or (code is not None and exact != code):
+                        raise ValueError('Source returned a different identifier.')
+                    if row.evidence_kind == 'direct_match' and exact not in {c for _, c in extract_referral_codes(row.evidence_snippet or '')}:
+                        raise ValueError('Direct evidence does not contain the full referral URL.')
+                    accepted.append(row)
+                except (AttributeError, TypeError, ValueError):
+                    report['status'] = 'partial'
+                    report['messages'].append('Discarded a record without consistent exact-link evidence.')
+            report['records'] = len(accepted)
+            return source.name, accepted, report
+        except Exception as exc:
+            return source.name, [], {'status': 'error', 'messages': [str(exc)[:300]], 'records': 0}
 
-        for source in self.sources:
-            try:
-                print(f"[QuarryEngine] Polling source: {source.name}...")
-                found = source.discover_new(limit=limit_per_source)
-                source_counts[source.name] = len(found)
-                total_found += len(found)
-                
-                for record in found:
-                    is_new = self.storage.save_link(record)
-                    if is_new:
-                        new_records.append(record)
-            except Exception as e:
-                print(f"[QuarryEngine] Error in source {source.name}: {e}")
-                source_counts[source.name] = 0
+    def _gather(self, code=None, limit=20):
+        if not self.sources:
+            return []
+        with ThreadPoolExecutor(max_workers=min(4, len(self.sources))) as pool:
+            return list(pool.map(lambda source: self._run_source(source, code, limit), self.sources))
 
+    def discover(self, limit_per_source=20):
+        reports, rows, seen = {}, [], set()
+        for name, found, report in self._gather(limit=limit_per_source):
+            reports[name] = report
+            for row in found:
+                key = (row.referral_code, row.source_url)
+                if key not in seen:
+                    seen.add(key)
+                    rows.append(row)
+        new, saved_codes = [], set()
+        for row in rows:
+            inserted = self.storage.save_link(row)
+            if inserted:
+                saved_codes.add(row.referral_code)
+                new.append(row.to_dict())
+        summary = {
+            'timestamp': utc_now(), 'total_candidates_found': len(rows),
+            'new_unique_links_saved': len(saved_codes), 'total_links_in_db': self.storage.count(),
+            'source_breakdown': {name: r['records'] for name, r in reports.items()},
+            'source_reports': reports, 'new_records': new,
+            'candidate_records': [row.to_dict() for row in rows],
+            'persistent': self.storage.persistent, 'stored': self.storage.writable,
+            'partial': any(r['status'] != 'ok' for r in reports.values()),
+            'message': 'Observed links may be historical; validity remains unknown.' if self.storage.writable else 'Read-only deployment snapshot. Live results are returned but are not saved.'
+        }
+        self.storage.set_state('last_sweep', summary)
+        return summary
+
+    def lookup_detailed(self, value, refresh=False):
+        code = extract_code_from_url(value)
+        cached = self.storage.get_occurrences(code)
+        verified_cached = [r for r in cached if r.get('evidence_kind') in ('direct_match', 'archive_match')]
+        reports, gathered = {}, []
+        if not verified_cached or refresh:
+            for name, found, report in self._gather(code=code):
+                reports[name] = report
+                for row in found:
+                    self.storage.save_link(row)
+                    gathered.append(row.to_dict())
+        merged = {(r['referral_code'], r['source_url']): r for r in cached}
+        for row in gathered:
+            key = (row['referral_code'], row['source_url'])
+            if key not in merged or evidence_order(row) <= evidence_order(merged[key]):
+                merged[key] = row
+        occurrences = sorted(merged.values(), key=evidence_order)
+        verified = [r for r in occurrences if r.get('evidence_kind') in ('direct_match', 'archive_match')]
+        record = dict(verified[0]) if verified else None
+        if record:
+            record['cached'] = not gathered
+        partial = any(r['status'] != 'ok' for r in reports.values())
         return {
-            "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
-            "total_candidates_found": total_found,
-            "new_unique_links_saved": len(new_records),
-            "total_links_in_db": self.storage.count(),
-            "source_breakdown": source_counts,
-            "new_records": [r.to_dict() for r in new_records]
+            'found': bool(record), 'record': record, 'occurrences': occurrences,
+            'source_reports': reports, 'partial': partial, 'code': code,
+            'message': 'Earliest evidenced occurrence among the matches checked; not proof of the original public post.' if record else 'No verified occurrence found in the sources checked. Unchecked, blocked, deleted or unindexed sources remain unknown.',
+            'persistent': self.storage.persistent, 'stored': self.storage.writable,
         }
 
-    def lookup(self, code_or_url: str) -> Optional[Dict]:
-        """
-        Given any referral code or URL, finds its original source post, platform, author, and evidence.
-        Checks local database first, then queries live sources if not cached.
-        """
-        code = extract_code_from_url(code_or_url)
-        if not is_valid_referral_format(code):
-            raise ValueError(f"Invalid Claude referral code format: '{code_or_url}'")
-
-        # 1. Check local DB
-        local_match = self.storage.get_by_code(code)
-        if local_match:
-            local_match["cached"] = True
-            return local_match
-
-        # 2. Query live sources
-        print(f"[QuarryEngine] Searching live sources for referral code: {code}...")
-        for source in self.sources:
-            try:
-                record = source.find_original_source(code)
-                if record:
-                    self.storage.save_link(record)
-                    d = record.to_dict()
-                    d["cached"] = False
-                    return d
-            except Exception as e:
-                print(f"[QuarryEngine] Error searching {source.name} for {code}: {e}")
-
-        return None
+    def lookup(self, value):
+        return self.lookup_detailed(value)['record']

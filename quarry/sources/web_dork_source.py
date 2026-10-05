@@ -1,97 +1,108 @@
-import requests
-import re
-import urllib.parse
+"""Optional search snippets: candidate evidence only, never primary attribution."""
 from typing import List, Optional
+from urllib.parse import parse_qs, urlsplit, urlencode
+import requests
 from bs4 import BeautifulSoup
+try:
+    from scrapling.fetchers import Fetcher
+except ImportError:
+    Fetcher = None
 from quarry.sources.base import BaseSource
 from quarry.models import ReferralRecord
 from quarry.extractors import extract_referral_codes
 
+
 class WebDorkSource(BaseSource):
     name = "web_dorks"
+    max_requests = 1
 
     def __init__(self):
-        self.headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-        }
+        self._start()
+
+    @staticmethod
+    def _target(href):
+        if not isinstance(href, str):
+            return None
+        if href.startswith("//"):
+            href = "https:" + href
+        try:
+            parts = urlsplit(href)
+            if parts.hostname in ("duckduckgo.com", "html.duckduckgo.com") or href.startswith("/l/"):
+                href = parse_qs(parts.query).get("uddg", [""])[0]
+                parts = urlsplit(href)
+            if parts.scheme not in ("http", "https") or not parts.hostname or parts.username or parts.password:
+                return None
+            return href
+        except ValueError:
+            return None
+
+    def _search(self, code, limit):
+        if Fetcher is None:
+            self._problem("unavailable", "Optional dependency scrapling[fetchers] is unavailable; web search was not attempted.")
+            return self._finish([], limit)
+        timeout = self._reserve_request()
+        if timeout is None:
+            return self._finish([], limit)
+        query = f'"claude.ai/referral/{code}"' if code else '"claude.ai/referral"'
+        records = []
+        try:
+            page = Fetcher.get("https://html.duckduckgo.com/html/?" + urlencode({"q": query}),
+                               timeout=timeout, retries=1, follow_redirects=False)
+            # Scrapling uses .status rather than requests' .status_code.
+            status = page.status
+            if status != 200:
+                kind = "rate_limited" if status == 429 else "blocked" if status in (202, 401, 403) else "error"
+                self._problem(kind, f"DuckDuckGo HTTP {status}; search unavailable.")
+                return self._finish([], limit)
+            body = page.body
+            if isinstance(body, bytes):
+                body = body.decode("utf-8", errors="replace")
+            if not isinstance(body, str):
+                self._problem("error", "DuckDuckGo returned a non-text response.")
+                return self._finish([], limit)
+            lowered = body.lower()
+            if any(marker in lowered for marker in ("challenge-form", "anomaly.js", "captcha", "unusual traffic", "bots use duckduckgo")):
+                self._problem("blocked", "DuckDuckGo returned a bot challenge; no bypass attempted.")
+                return self._finish([], limit)
+            soup = BeautifulSoup(body, "html.parser")
+            results = soup.select(".result__body")
+            if not results and not (soup.select_one(".no-results") or "no results found" in soup.get_text(" ").lower()):
+                self._problem("error", "DuckDuckGo returned no recognizable results/empty-results marker.")
+                return self._finish([], limit)
+            self._success()
+            if soup.select_one('input[name="s"]') or soup.select_one(".nav-link"):
+                self._problem("partial", "DuckDuckGo additional search pages were not scanned.")
+            for result in results:
+                anchor = result.select_one("a.result__a") or result.select_one("a.result__url")
+                target = self._target(anchor.get("href")) if anchor else None
+                if not target:
+                    self._problem("partial", "Search result without a usable target URL was discarded.")
+                    continue
+                text = result.get_text(" ", strip=True) + "\n" + target
+                for clean_url, token in extract_referral_codes(text):
+                    if code is not None and token != code:
+                        continue
+                    records.append(ReferralRecord(
+                        referral_code=token, url=clean_url, platform="Web Search", source_url=target,
+                        author=None, published_at=None, evidence_snippet=self._evidence(text, token),
+                        status="unknown", evidence_kind="candidate_only",
+                        timestamp_basis="search_snippet_observed_now; target_content_not_verified"))
+        except Exception as exc:
+            # Optional transport libraries use their own exception hierarchy.
+            self._problem("error", f"DuckDuckGo {type(exc).__name__}; search request/parsing failed.")
+        return self._finish(records, limit)
 
     def discover_new(self, limit: int = 50) -> List[ReferralRecord]:
-        records: List[ReferralRecord] = []
-        dorks = [
-            '"claude.ai/referral"',
-            'site:x.com "claude.ai/referral"',
-            'site:twitter.com "claude.ai/referral"',
-            'site:threads.net "claude.ai/referral"',
-            'site:dev.to "claude.ai/referral"',
-        ]
-        seen_codes = set()
-        for dork in dorks:
-            try:
-                resp = requests.post(
-                    "https://html.duckduckgo.com/html/",
-                    data={"q": dork},
-                    headers=self.headers,
-                    timeout=10
-                )
-                if resp.status_code == 200:
-                    soup = BeautifulSoup(resp.text, "html.parser")
-                    results = soup.find_all("div", class_="result__body")
-                    for res in results:
-                        link_tag = res.find("a", class_="result__url")
-                        snippet_tag = res.find("a", class_="result__snippet")
-                        title_tag = res.find("a", class_="result__title")
-                        
-                        target_url = link_tag.get("href") if link_tag else ""
-                        snippet_text = snippet_tag.text if snippet_tag else ""
-                        title_text = title_tag.text if title_tag else ""
-                        full_text = f"{target_url}\n{snippet_text}\n{title_text}"
-                        
-                        found = extract_referral_codes(full_text)
-                        for clean_url, code in found:
-                            if code not in seen_codes:
-                                seen_codes.add(code)
-                                records.append(ReferralRecord(
-                                    referral_code=code,
-                                    url=clean_url,
-                                    platform="Web Search Dork",
-                                    source_url=target_url or clean_url,
-                                    author="Web Author",
-                                    published_at=None,
-                                    evidence_snippet=snippet_text[:180],
-                                    status="unknown"
-                                ))
-            except Exception as e:
-                print(f"[WebDorkSource] Error: {e}")
-        return records[:limit]
+        self._start()
+        limit = self._limit(limit)
+        return self._search(None, limit) if limit else self._finish([], 0)
+
+    def find_sources(self, referral_code: str, limit: int = 20) -> List[ReferralRecord]:
+        self._start()
+        limit = self._limit(limit)
+        code = self._code(referral_code)
+        return self._search(code, limit) if code and limit else self._finish([], limit)
 
     def find_original_source(self, referral_code: str) -> Optional[ReferralRecord]:
-        dork = f'"{referral_code}"'
-        try:
-            resp = requests.post(
-                "https://html.duckduckgo.com/html/",
-                data={"q": dork},
-                headers=self.headers,
-                timeout=10
-            )
-            if resp.status_code == 200 and referral_code in resp.text:
-                soup = BeautifulSoup(resp.text, "html.parser")
-                results = soup.find_all("div", class_="result__body")
-                for res in results:
-                    snippet = res.find("a", class_="result__snippet")
-                    title = res.find("a", class_="result__title")
-                    link = res.find("a", class_="result__url")
-                    if snippet and referral_code in (snippet.text + (title.text if title else "")):
-                        return ReferralRecord(
-                            referral_code=referral_code,
-                            url=f"https://claude.ai/referral/{referral_code}",
-                            platform="Web Search",
-                            source_url=link.get("href") if link else "https://duckduckgo.com",
-                            author=None,
-                            published_at=None,
-                            evidence_snippet=snippet.text[:180],
-                            status="unknown"
-                        )
-        except Exception:
-            pass
-        return None
+        records = self.find_sources(referral_code, limit=1)
+        return records[0] if records else None

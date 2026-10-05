@@ -19,7 +19,8 @@ class MockTestSource(BaseSource):
                 source_url="https://example.com/post/1",
                 author="alice",
                 published_at="2026-10-01T12:00:00Z",
-                evidence_snippet="Check out my Claude referral MockCode123"
+                evidence_snippet="Check out https://claude.ai/referral/MockCode123",
+                evidence_kind="direct_match"
             )
         ]
 
@@ -32,7 +33,8 @@ class MockTestSource(BaseSource):
                 source_url="https://example.com/post/1",
                 author="alice",
                 published_at="2026-10-01T12:00:00Z",
-                evidence_snippet="Check out my Claude referral MockCode123"
+                evidence_snippet="Check out https://claude.ai/referral/MockCode123",
+                evidence_kind="direct_match"
             )
         return None
 
@@ -66,7 +68,7 @@ class TestQuarrySearch(unittest.TestCase):
     def test_is_valid_referral_format(self):
         self.assertTrue(is_valid_referral_format("PFQOnxQmRQ"))
         self.assertTrue(is_valid_referral_format("https://claude.ai/referral/YWAsr_1fbA"))
-        self.assertFalse(is_valid_referral_format("short"))
+        self.assertFalse(is_valid_referral_format("contains whitespace"))
         self.assertFalse(is_valid_referral_format("invalid!@#$%^"))
 
     def test_storage_save_and_deduplication(self):

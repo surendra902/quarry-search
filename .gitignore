@@ -1,1 +1,12 @@
-.vercel
+.vercel/
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.py[cod]
+*.db
+*.db-wal
+*.db-shm
+.audit/
+.pytest_cache/

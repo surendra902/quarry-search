@@ -1,0 +1,9 @@
+.audit/
+.venv/
+.env*
+evidence/
+tests/
+**/__pycache__/
+*.db
+*.db-wal
+*.db-shm
