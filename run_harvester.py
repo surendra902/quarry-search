@@ -38,6 +38,7 @@ def main():
     args = parser.parse_args()
 
     storage = QuarryStorage("quarry.db")
+    storage.seed_from_snapshot()
     alerts = AlertDispatcher(
         telegram_token=args.telegram_token,
         telegram_chat_id=args.telegram_chat,

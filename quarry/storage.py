@@ -80,6 +80,39 @@ class QuarryStorage:
             conn.execute('CREATE INDEX IF NOT EXISTS occurrence_code ON occurrences(referral_code)')
             conn.execute('CREATE TABLE IF NOT EXISTS runtime_state (key TEXT PRIMARY KEY, value TEXT NOT NULL)')
 
+    def seed_from_snapshot(self, path=None):
+        if not self.writable:
+            return 0
+        with self._get_conn() as conn:
+            occ_count = conn.execute('SELECT COUNT(*) FROM occurrences').fetchone()[0]
+            if occ_count > 0:
+                return 0
+            root = Path(__file__).resolve().parent.parent
+            snap_path = Path(path or os.environ.get('QUARRY_SNAPSHOT_PATH', str(root / 'data' / 'snapshot.json')))
+            if not snap_path.exists():
+                return 0
+            try:
+                snap_data = json.loads(snap_path.read_text(encoding='utf-8'))
+                inserted = 0
+                for r in snap_data.get('records', []):
+                    conn.execute('''INSERT OR IGNORE INTO occurrences
+                        (referral_code,url,platform,source_url,author,published_at,discovered_at,evidence_snippet,status,evidence_kind,source_updated_at,timestamp_basis,last_seen_at)
+                        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)''',
+                        (r.get('referral_code'), r.get('url'), r.get('platform'), r.get('source_url'),
+                         r.get('author'), r.get('published_at'), r.get('discovered_at'), r.get('evidence_snippet'),
+                         r.get('status', 'unknown'), r.get('evidence_kind', 'direct_match'),
+                         r.get('source_updated_at'), r.get('timestamp_basis'), r.get('last_seen_at') or utc_now()))
+                    conn.execute('''INSERT OR IGNORE INTO referral_links
+                        (referral_code,url,platform,source_url,author,published_at,discovered_at,evidence_snippet,status)
+                        VALUES (?,?,?,?,?,?,?,?,?)''',
+                        (r.get('referral_code'), r.get('url'), r.get('platform'), r.get('source_url'),
+                         r.get('author'), r.get('published_at'), r.get('discovered_at'), r.get('evidence_snippet'),
+                         r.get('status', 'unknown')))
+                    inserted += 1
+                return inserted
+            except Exception:
+                return 0
+
     def save_link(self, record):
         if not self.writable:
             return False
