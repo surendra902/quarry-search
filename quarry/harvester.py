@@ -51,6 +51,13 @@ class ContinuousHarvester:
         self.cycle_count = 0
         self.total_new_found = 0
 
+        # Optional interactive Telegram command responder
+        try:
+            from quarry.telegram_bot import TelegramBotService
+            self.telegram_bot = TelegramBotService(storage=self.storage) if os.environ.get("TELEGRAM_BOT_TOKEN") else None
+        except Exception:
+            self.telegram_bot = None
+
         # Build comprehensive source list
         sources = [
             GitHubSource(token=os.environ.get("GITHUB_TOKEN")),
@@ -152,7 +159,15 @@ class ContinuousHarvester:
 
                 elapsed = time.monotonic() - start_time
                 sleep_time = max(1.0, self.interval - elapsed)
-                time.sleep(sleep_time)
+                
+                # Sleep in short increments while processing Telegram bot commands
+                slept = 0.0
+                while self.running and slept < sleep_time:
+                    if self.telegram_bot:
+                        self.telegram_bot.poll_and_handle()
+                    step = min(2.0, sleep_time - slept)
+                    time.sleep(step)
+                    slept += step
         except KeyboardInterrupt:
             logger.info("Keyboard interrupt received. Shutting down gracefully...")
         finally:
