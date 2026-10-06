@@ -7,8 +7,17 @@ from urllib.parse import unquote, urlsplit
 MAX_CODE_LENGTH = 128
 _CODE = re.compile(r'[A-Za-z0-9_-]{1,128}\Z')
 _CANDIDATE = re.compile(r'''(?<![\w@./:-])(?:https?://|(?=claude\.ai/))[^\s<>"'`]+''', re.IGNORECASE)
+_FULL_CANDIDATE = re.compile(r'''(?<![\w@./:-])https?://[^\s<>"'`]+''', re.IGNORECASE)
 _PLACEHOLDERS = {'your_code', 'xxxxxx', 'placeholder', 'referral_code', 'xxxxxxxx', 'yyyy-mm-dd', 'example', 'sample', 'test'}
 _DATE_PATTERN = re.compile(r'^(?:\d{4}[-_]\d{2}(?:[-_]\d{2})?|\d{2}[-_]\d{2})\Z')
+
+
+def is_excluded_source(url):
+    try:
+        host = (urlsplit(url).hostname or '').lower().rstrip('.')
+        return host in ('x.com', 'twitter.com') or host.endswith(('.x.com', '.twitter.com'))
+    except (TypeError, ValueError):
+        return False
 
 
 def extract_code_from_url(value: str) -> str:
@@ -54,7 +63,9 @@ def extract_referral_codes(text: str):
     # Parse URL boundaries before percent-decoding its path. Decoding the whole
     # text would turn encoded path characters into query/fragment delimiters.
     found = {}
-    for match in _CANDIDATE.finditer(decoded):
+    # A bare-URL Markdown label can otherwise greedily swallow its destination.
+    matches = sorted([*_CANDIDATE.finditer(decoded), *_FULL_CANDIDATE.finditer(decoded)], key=lambda m: m.start())
+    for match in matches:
         candidate = match.group().rstrip('.,;:!?)]}')
         try:
             code = extract_code_from_url(candidate)

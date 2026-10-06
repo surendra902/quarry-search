@@ -8,7 +8,7 @@ import requests
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-TOKEN = "8949259720:AAGld-d08yW-uE_ONQp3cbGQiVsWfXp0xq8"
+TOKEN = None  # Loaded at runtime; never store credentials in source control.
 BOT_USERNAME = "suri8bot"
 ENV_PATH = Path(__file__).resolve().parent / ".env"
 
@@ -61,6 +61,16 @@ def check_updates():
 
 
 def main():
+    global TOKEN
+    TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
+    if not TOKEN and ENV_PATH.exists():
+        for line in ENV_PATH.read_text(encoding="utf-8").splitlines():
+            key, separator, value = line.partition("=")
+            if separator and key.strip() == "TELEGRAM_BOT_TOKEN":
+                TOKEN = value.strip().strip("\"'")
+                break
+    if not TOKEN:
+        raise SystemExit("Set TELEGRAM_BOT_TOKEN in the environment or ignored .env file first.")
     print("=" * 65)
     print(f"TELEGRAM AUTO-SETUP FOR @{BOT_USERNAME}")
     print("=" * 65)
@@ -102,11 +112,9 @@ def main():
 
     # Send confirmation test message
     test_msg = (
-        "🚀 <b>Quarry 24/7 Harvester Connected!</b>\n\n"
-        "✅ Telegram alerts are now fully active.\n"
-        "📡 <b>Monitored Sources:</b> Exa Neural, GitHub Commits/Issues, Hacker News, Tech Blogs & Web Directories.\n"
-        "⚡ You will receive instant notifications whenever a new valid Claude referral pass is harvested!\n\n"
-        "<i>Quarry Engine v2026.10.05.1</i>"
+        "<b>Quarry Telegram delivery test</b>\n\n"
+        "This message confirms only this test delivery.\n"
+        "Collector scheduling, future delivery and referral redemption are not validated by this test."
     )
     send_url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
     payload = {

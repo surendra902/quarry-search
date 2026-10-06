@@ -26,6 +26,25 @@ def normalized_time(value):
         return None
 
 
+def normalized_provenance(row):
+    row = dict(row)
+    basis = row.get('timestamp_basis') or ''
+    if basis.startswith('urlscan_') or row.get('platform') == 'Web (URLScan Intelligence)':
+        row['source_updated_at'] = row.get('source_updated_at') or row.get('published_at')
+        row['published_at'] = None
+        row['author'] = None
+        row['evidence_kind'] = 'candidate_only'
+        row['timestamp_basis'] = 'urlscan_observation_time_not_source_publication'
+        if basis == 'urlscan_submission_time':
+            row['evidence_snippet'] = None
+    elif basis == 'directory_submission_created_at; live_web_directory_observed':
+        row['evidence_kind'] = 'legacy_unverified'
+        row['timestamp_basis'] = 'legacy_directory_archived_submission'
+        row['author'] = None
+        row['evidence_snippet'] = None
+    return row
+
+
 def evidence_order(row):
     quality = {'direct_match': 0, 'archive_match': 1, 'candidate_only': 2, 'legacy_unverified': 3}
     date = normalized_time(row.get('published_at'))
@@ -95,12 +114,13 @@ class QuarryStorage:
                 snap_data = json.loads(snap_path.read_text(encoding='utf-8'))
                 inserted = 0
                 for r in snap_data.get('records', []):
+                    r = normalized_provenance(r)
                     conn.execute('''INSERT OR IGNORE INTO occurrences
                         (referral_code,url,platform,source_url,author,published_at,discovered_at,evidence_snippet,status,evidence_kind,source_updated_at,timestamp_basis,last_seen_at)
                         VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)''',
                         (r.get('referral_code'), r.get('url'), r.get('platform'), r.get('source_url'),
                          r.get('author'), r.get('published_at'), r.get('discovered_at'), r.get('evidence_snippet'),
-                         r.get('status', 'unknown'), r.get('evidence_kind', 'direct_match'),
+                         r.get('status', 'unknown'), r.get('evidence_kind', 'legacy_unverified'),
                          r.get('source_updated_at'), r.get('timestamp_basis'), r.get('last_seen_at') or utc_now()))
                     conn.execute('''INSERT OR IGNORE INTO referral_links
                         (referral_code,url,platform,source_url,author,published_at,discovered_at,evidence_snippet,status)
@@ -109,6 +129,9 @@ class QuarryStorage:
                          r.get('author'), r.get('published_at'), r.get('discovered_at'), r.get('evidence_snippet'),
                          r.get('status', 'unknown')))
                     inserted += 1
+                for key, value in snap_data.get('source_state', {}).items():
+                    if key in ('measurement_started_at', 'public_web_cursor'):
+                        conn.execute('INSERT OR REPLACE INTO runtime_state(key,value) VALUES (?,?)', (key, json.dumps(value)))
                 return inserted
             except Exception:
                 return 0
@@ -116,7 +139,7 @@ class QuarryStorage:
     def save_link(self, record):
         if not self.writable:
             return False
-        data = record.to_dict()
+        data = normalized_provenance(record.to_dict())
         if not data.get('source_url'):
             raise ValueError('A source URL is required for an occurrence.')
         data['published_at'] = normalized_time(data.get('published_at'))
@@ -129,11 +152,21 @@ class QuarryStorage:
             is_new = cur.rowcount == 1
             # Never downgrade existing verified source evidence to a snippet/legacy claim.
             old = conn.execute('SELECT * FROM occurrences WHERE referral_code=? AND source_url=?', (data['referral_code'], data['source_url'])).fetchone()
-            if old and evidence_order(dict(old))[0] < evidence_order(data)[0]:
+            if old:
+                old = normalized_provenance(old)
+            if old and evidence_order(old)[0] < evidence_order(data)[0]:
                 conn.execute('UPDATE occurrences SET last_seen_at=? WHERE referral_code=? AND source_url=?', (utc_now(), data['referral_code'], data['source_url']))
                 return is_new
             if old:
                 data['discovered_at'] = old['discovered_at']
+                if old.get('published_at') and not data.get('published_at'):
+                    # Missing metadata is not a retraction. Preserve the dated
+                    # evidence as a unit rather than inventing a new date basis.
+                    for field in ('published_at', 'timestamp_basis', 'evidence_snippet'):
+                        data[field] = old[field]
+                for field in ('author', 'source_updated_at'):
+                    if not data.get(field):
+                        data[field] = old.get(field)
             columns = FIELDS + ('last_seen_at',)
             values = tuple(data[k] for k in FIELDS) + (utc_now(),)
             conn.execute('INSERT OR REPLACE INTO occurrences (' + ','.join(columns) + ') VALUES (' + ','.join('?' for _ in columns) + ')', values)
@@ -141,16 +174,16 @@ class QuarryStorage:
 
     def all_occurrences(self):
         if not self.writable:
-            return [dict(row) for row in self.snapshot.get('records', [])]
+            return [normalized_provenance(row) for row in self.snapshot.get('records', [])]
         with self._get_conn() as conn:
-            return [dict(row) for row in conn.execute('SELECT * FROM occurrences')]
+            return [normalized_provenance(row) for row in conn.execute('SELECT * FROM occurrences')]
 
     def get_occurrences(self, code):
         if not self.writable:
             rows = [row for row in self.all_occurrences() if row.get('referral_code') == code]
         else:
             with self._get_conn() as conn:
-                rows = [dict(row) for row in conn.execute('SELECT * FROM occurrences WHERE referral_code=?', (code,))]
+                rows = [normalized_provenance(row) for row in conn.execute('SELECT * FROM occurrences WHERE referral_code=?', (code,))]
         return sorted(rows, key=evidence_order)
 
     def get_by_code(self, code):
@@ -193,24 +226,27 @@ class QuarryStorage:
 
     def get_state(self, key, default=None):
         if not self.writable:
-            return default
+            return self.snapshot.get('source_state', {}).get(key, default)
         with self._get_conn() as conn:
             row = conn.execute('SELECT value FROM runtime_state WHERE key=?', (key,)).fetchone()
         return json.loads(row[0]) if row else default
+
+    def yield_summary(self, now=None):
+        from quarry.metrics import yield_summary
+        return yield_summary(self.all_occurrences(), now=now,
+                             started_at=self.get_state('measurement_started_at'), days=8)
 
     def export_snapshot(self, path):
         destination = Path(path)
         destination.parent.mkdir(parents=True, exist_ok=True)
         collector_state = self.get_state('collector', {
-            'status': 'Active (24/7 Cloud)',
-            'configured': True,
-            'last_heartbeat': utc_now(),
-            'schedule': 'GitHub Actions Cloud Harvester (Every 20m) + Daemon',
-            'interval_minutes': 20
+            'status': 'not_running', 'configured': False, 'last_heartbeat': None
         })
         payload = {
             'generated_at': utc_now(),
             'collector': collector_state,
+            'daily_yield': self.yield_summary(),
+            'source_state': {key: self.get_state(key) for key in ('measurement_started_at', 'public_web_cursor')},
             'notifications': 'telegram_configured' if os.environ.get('TELEGRAM_BOT_TOKEN') else 'not_configured',
             'records': self.all_occurrences()
         }

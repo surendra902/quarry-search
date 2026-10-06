@@ -3,7 +3,7 @@ import os
 from concurrent.futures import ThreadPoolExecutor
 from quarry.storage import QuarryStorage, evidence_order
 from quarry.models import utc_now
-from quarry.extractors import extract_code_from_url, extract_referral_codes
+from quarry.extractors import extract_code_from_url, extract_referral_codes, is_excluded_source
 from quarry.sources.github_source import GitHubSource
 from quarry.sources.hackernews_source import HackerNewsSource
 
@@ -28,19 +28,19 @@ class QuarryEngine:
                 sources.append(TechCommunitySource())
             except ImportError:
                 pass
-            if os.environ.get('EXA_API_KEY'):
+            if os.environ.get('QUARRY_ENABLE_PAID_SOURCES') == '1' and os.environ.get('EXA_API_KEY'):
                 try:
                     from quarry.sources.exa_source import ExaSource
-                    sources.append(ExaSource())
+                    sources.append(ExaSource(storage=self.storage))
                 except ImportError:
                     pass
-            if os.environ.get('TAVILY_API_KEY'):
+            if os.environ.get('QUARRY_ENABLE_PAID_SOURCES') == '1' and os.environ.get('TAVILY_API_KEY'):
                 try:
                     from quarry.sources.tavily_source import TavilySource
                     sources.append(TavilySource())
                 except ImportError:
                     pass
-            if os.environ.get('APIFY_API_TOKEN'):
+            if os.environ.get('QUARRY_ENABLE_PAID_SOURCES') == '1' and os.environ.get('APIFY_API_TOKEN'):
                 try:
                     from quarry.sources.apify_source import ApifySource
                     sources.append(ApifySource())
@@ -52,6 +52,8 @@ class QuarryEngine:
             if os.environ.get('QUARRY_REDDIT_ENABLED') == '1':
                 from quarry.sources.reddit_source import RedditSource
                 sources.append(RedditSource(enabled=True))
+            from quarry.sources.public_web_source import PublicWebSource
+            sources.append(PublicWebSource(cursor=self.storage.get_state('public_web_cursor', 0)))
         self.sources = sources
 
     def _run_source(self, source, code=None, limit=20):
@@ -69,6 +71,9 @@ class QuarryEngine:
             accepted = []
             for row in rows:
                 try:
+                    if is_excluded_source(row.source_url):
+                        report['messages'].append('Excluded an X/Twitter result by collection policy.')
+                        continue
                     exact = extract_code_from_url(row.url)
                     if exact != row.referral_code or (code is not None and exact != code):
                         raise ValueError('Source returned a different identifier.')
@@ -90,9 +95,13 @@ class QuarryEngine:
             return list(pool.map(lambda source: self._run_source(source, code, limit), self.sources))
 
     def discover(self, limit_per_source=20):
+        if not self.storage.get_state('measurement_started_at'):
+            self.storage.set_state('measurement_started_at', utc_now())
         reports, rows, seen = {}, [], set()
         for name, found, report in self._gather(limit=limit_per_source):
             reports[name] = report
+            if name == 'public_web' and isinstance(report.get('next_cursor'), int):
+                self.storage.set_state('public_web_cursor', report['next_cursor'])
             for row in found:
                 key = (row.referral_code, row.source_url)
                 if key not in seen:
@@ -114,6 +123,7 @@ class QuarryEngine:
             'partial': any(r['status'] != 'ok' for r in reports.values()),
             'message': 'Observed links may be historical; validity remains unknown.' if self.storage.writable else 'Read-only deployment snapshot. Live results are returned but are not saved.'
         }
+        summary['daily_yield'] = self.storage.yield_summary()
         self.storage.set_state('last_sweep', summary)
         return summary
 

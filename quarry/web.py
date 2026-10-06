@@ -11,7 +11,7 @@ from urllib.parse import parse_qs, urlsplit
 from quarry.engine import QuarryEngine
 from quarry.extractors import extract_code_from_url
 
-VERSION = '2026.10.05.1'
+VERSION = '2026.10.06.1'
 ROOT = Path(__file__).resolve().parent.parent
 _NETWORK_SLOTS = threading.BoundedSemaphore(2)
 _SWEEP_LOCK = threading.Lock()
@@ -83,10 +83,10 @@ class QuarryHandler(BaseHTTPRequestHandler):
                     collector = store.get_state('collector', {}) or {}
                 else:
                     collector = store.snapshot.get('collector', {}) or {}
-                heartbeat = collector.get('last_heartbeat') or store.snapshot.get('generated_at')
-                configured = bool(collector.get('configured', False) or store.snapshot.get('collector'))
-                state = collector.get('status', 'Active (24/7 Cloud)' if configured else 'not_running')
-                if heartbeat and not collector.get('schedule'):
+                heartbeat = collector.get('last_heartbeat')
+                configured = bool(collector.get('configured', False))
+                state = collector.get('status', 'unknown' if configured else 'not_running')
+                if heartbeat:
                     try:
                         age = (datetime.now(timezone.utc) - datetime.fromisoformat(heartbeat.replace('Z', '+00:00'))).total_seconds()
                         if age > 1800:
@@ -97,6 +97,7 @@ class QuarryHandler(BaseHTTPRequestHandler):
                 self._send(200, {'version': VERSION, 'commit': os.environ.get('VERCEL_GIT_COMMIT_SHA'),
                     'storage': {'mode': store.mode, 'persistent': store.persistent, 'writable': store.writable},
                     'total_links': store.count(), 'total_occurrences': store.occurrence_count(),
+                    'daily_yield': store.yield_summary(),
                     'sources': [source.name for source in engine.sources],
                     'collector': {**collector, 'configured': configured, 'last_heartbeat': heartbeat, 'status': state},
                     'validation': 'not_configured', 'notifications': notifs,

@@ -9,7 +9,7 @@ except ImportError:
     Fetcher = None
 from quarry.sources.base import BaseSource
 from quarry.models import ReferralRecord
-from quarry.extractors import extract_referral_codes
+from quarry.extractors import extract_referral_codes, is_excluded_source
 
 
 class WebDorkSource(BaseSource):
@@ -32,7 +32,7 @@ class WebDorkSource(BaseSource):
                 parts = urlsplit(href)
             if parts.scheme not in ("http", "https") or not parts.hostname or parts.username or parts.password:
                 return None
-            return href
+            return None if is_excluded_source(href) else href
         except ValueError:
             return None
 

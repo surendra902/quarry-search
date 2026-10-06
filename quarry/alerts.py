@@ -29,7 +29,7 @@ class AlertDispatcher:
         self.storage = storage
 
     def is_configured(self) -> bool:
-        return bool((self.telegram_token and self.telegram_chat_id) or self.discord_webhook)
+        return bool((self.telegram_token and self.get_recipient_chat_ids()) or self.discord_webhook)
 
     def get_recipient_chat_ids(self) -> list:
         recipients = set()
@@ -50,12 +50,12 @@ class AlertDispatcher:
         platform = html.escape(record.platform or "Web")
         source_url = html.escape(record.source_url or "Unknown")
         author = html.escape(record.author or "Anonymous")
-        time_str = html.escape(record.published_at or record.discovered_at or "Just now")
+        time_str = html.escape(record.published_at or "Unknown (observation is not publication)")
         snippet = html.escape((record.evidence_snippet or "")[:250])
 
         return (
-            f"🚨 <b>NEW CLAUDE REFERRAL PASS DETECTED!</b>\n\n"
-            f"🔗 <b>Claim Link:</b> {url}\n"
+            f"🚨 <b>NEWLY OBSERVED CLAUDE REFERRAL</b>\n\n"
+            f"🔗 <b>Referral URL (validity unknown):</b> {url}\n"
             f"🏷️ <b>Code:</b> <code>{code}</code>\n"
             f"🌐 <b>Platform:</b> {platform}\n"
             f"📌 <b>Source:</b> <a href=\"{source_url}\">{source_url[:60]}...</a>\n"
@@ -86,7 +86,7 @@ class AlertDispatcher:
                 if resp.status_code == 200:
                     any_success = True
             except Exception as exc:
-                logger.error(f"Telegram alert error for chat {cid}: {exc}")
+                logger.error("Telegram alert error: %s", type(exc).__name__)
         return any_success
 
     def send_discord(self, record: ReferralRecord) -> bool:
@@ -112,7 +112,7 @@ class AlertDispatcher:
             resp = requests.post(self.discord_webhook, json=payload, timeout=8)
             return resp.status_code in (200, 204)
         except Exception as exc:
-            logger.error(f"Discord alert error: {exc}")
+            logger.error("Discord alert error: %s", type(exc).__name__)
             return False
 
     def log_alert(self, record: ReferralRecord):
@@ -135,7 +135,7 @@ class AlertDispatcher:
         results["logged"] = True
 
         msg = self.format_telegram_message(record)
-        if self.telegram_token and self.telegram_chat_id:
+        if self.telegram_token and self.get_recipient_chat_ids():
             results["telegram"] = self.send_telegram(msg)
         if self.discord_webhook:
             results["discord"] = self.send_discord(record)

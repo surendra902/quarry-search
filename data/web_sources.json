@@ -1,0 +1,60 @@
+{
+  "description": "Bounded public-source entrypoints, not entire-internet coverage. X is excluded. Each fetch checks robots and public same-host URLs.",
+  "sources": [
+    {
+      "name": "V2EX latest topics",
+      "url": "https://www.v2ex.com/index.xml",
+      "kind": "feed"
+    },
+    {
+      "name": "PyTorchKR latest topics",
+      "url": "https://discuss.pytorch.kr/latest.rss",
+      "kind": "feed"
+    },
+    {
+      "name": "Zhaojian recent articles",
+      "url": "https://www.zhaojian.net/rss.xml",
+      "kind": "feed"
+    },
+    {
+      "name": "DevProblems referral comments",
+      "url": "https://www.devproblems.com/claude-ai-guest-pass-referral/feed/",
+      "kind": "feed"
+    },
+    {
+      "name": "V2EX public referral thread",
+      "url": "https://www.v2ex.com/t/1134700",
+      "kind": "page"
+    },
+    {
+      "name": "PyTorchKR public referral thread",
+      "url": "https://discuss.pytorch.kr/t/3-claude-code-1-guest-pass/9037",
+      "kind": "page"
+    },
+    {
+      "name": "DevProblems href-only positive control",
+      "url": "https://www.devproblems.com/claude-ai-guest-pass-referral/",
+      "kind": "page"
+    },
+    {
+      "name": "Zhaojian guest-pass positive control",
+      "url": "https://www.zhaojian.net/en/free-claude-code-guest-pass-passes-share/",
+      "kind": "page"
+    },
+    {
+      "name": "JDesigns AI Systemized guide",
+      "url": "https://jdesigns.info/systemized",
+      "kind": "page"
+    },
+    {
+      "name": "NannyAkore Cursor review article",
+      "url": "https://nannyakore.com/en/blog/cursor-ios-app-review-en",
+      "kind": "page"
+    },
+    {
+      "name": "JTechForums Claude giveaway thread",
+      "url": "https://jtechforums.org/t/claude-code-free-week-giveaway/9011/5",
+      "kind": "page"
+    }
+  ]
+}

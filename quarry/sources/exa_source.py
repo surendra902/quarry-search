@@ -17,9 +17,10 @@ class ExaSource(BaseSource):
     max_requests = 6
     budget_seconds = 30
 
-    def __init__(self, api_key: Optional[str] = None):
+    def __init__(self, api_key: Optional[str] = None, storage: Optional[object] = None):
         self._start()
         self.api_key = api_key or os.environ.get("EXA_API_KEY")
+        self.storage = storage
         self._cycle_idx = 0
 
     def _client(self):
@@ -37,17 +38,12 @@ class ExaSource(BaseSource):
             return None
 
     def _parse_results(self, search_results, target_code=None) -> List[ReferralRecord]:
-        records = []
+        from quarry.search_discovery import SearchDiscoveryVerifier
+        verifier = SearchDiscoveryVerifier(max_page_fetches=8, timeout=4)
         results = getattr(search_results, "results", []) or []
+        items = []
         for res in results:
             url = getattr(res, "url", "")
-            title = getattr(res, "title", "")
-            author = getattr(res, "author", None)
-            published_date = getattr(res, "published_date", None)
-            text = getattr(res, "text", "") or ""
-            highlights = getattr(res, "highlights", []) or []
-            combined_text = "\n".join([title, text] + highlights)
-
             platform = "Web (Exa Neural)"
             if "medium.com" in url:
                 platform = "Medium (Tech Article)"
@@ -66,21 +62,17 @@ class ExaSource(BaseSource):
             elif any(d in url for d in ("toolspine.com", "opentherank.com", "usingclaude.com", "thekodelab.com")):
                 platform = "Tech Guide / Web Directory"
 
-            for clean_url, code in extract_referral_codes(combined_text + " " + url):
-                if target_code is not None and code != target_code:
-                    continue
-                records.append(ReferralRecord(
-                    referral_code=code,
-                    url=clean_url,
-                    platform=platform,
-                    source_url=url,
-                    author=author,
-                    published_at=self._iso_timestamp(published_date) if isinstance(published_date, (int, float)) else (str(published_date) if published_date else None),
-                    evidence_snippet=self._evidence(combined_text, code) if combined_text else f"Referral link {clean_url} discovered via Exa at {url}",
-                    status="unknown",
-                    evidence_kind="direct_match",
-                    timestamp_basis="exa_search_content_indexed; direct_web_content_observed"
-                ))
+            items.append({
+                "url": url,
+                "title": getattr(res, "title", ""),
+                "author": getattr(res, "author", None),
+                "published_at": getattr(res, "published_date", None),
+                "platform": platform,
+                "snippet": "\n".join([getattr(res, "text", "") or ""] + (getattr(res, "highlights", []) or []))
+            })
+        records = verifier.verify_candidates(items)
+        if target_code is not None:
+            records = [r for r in records if r.referral_code == target_code]
         return records
 
     def discover_new(self, limit: int = 50) -> List[ReferralRecord]:
@@ -113,8 +105,13 @@ class ExaSource(BaseSource):
             ]
         ]
 
+        if self.storage and hasattr(self.storage, "get_state"):
+            self._cycle_idx = self.storage.get_state("exa_cycle_idx", 0)
+
         active_pool = query_pools[self._cycle_idx % len(query_pools)]
-        self._cycle_idx += 1
+        self._cycle_idx = (self._cycle_idx + 1) % len(query_pools)
+        if self.storage and hasattr(self.storage, "set_state"):
+            self.storage.set_state("exa_cycle_idx", self._cycle_idx)
 
         all_records = []
         for q in active_pool:

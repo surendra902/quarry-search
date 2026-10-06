@@ -180,6 +180,16 @@
         ? `Reported status: ${text(collector.status)}. Last heartbeat: ${text(collector.last_heartbeat, "none reported; continuous operation unconfirmed")}.`
         : "Continuous collector is not configured. Manual lookup and sweep only.";
       byId("capabilitiesNote").textContent = `Referral validation: ${text(data.validation).replaceAll("_", " ")}. Notifications: ${text(data.notifications).replaceAll("_", " ")}. No redemption guarantee is provided.`;
+      let yieldNote = byId("dailyYieldNote");
+      if (!yieldNote) {
+        yieldNote = element("p", "", "note");
+        yieldNote.id = "dailyYieldNote";
+        byId("capabilitiesNote").after(yieldNote);
+      }
+      const today = data.daily_yield && data.daily_yield.today;
+      yieldNote.textContent = today
+        ? `UTC ${text(today.date)}: ${count(today.first_observed_unique)} codes first observed in stored history; ${count(today.recent_dated_candidates)} same-day dated candidates; ${count(today.historical_dated)} historical; ${count(today.unknown_publication)} with unknown publication. The 30–50/day target is ${data.daily_yield.target_verified === true ? "met by the last seven complete measured days, not guaranteed for future days" : "not yet established"}.`
+        : "Daily yield has not been measured. Stored inventory is not a daily discovery rate.";
       status("serviceStatus", `Service status loaded. Version: ${text(data.version)}.`);
     } catch (error) {
       for (const id of ["statCount", "statOccurrences", "statSources", "statCollector"]) byId(id).textContent = "—";
@@ -188,6 +198,7 @@
       byId("collectorNote").textContent = "Continuous collector status unknown.";
       byId("storageNote").textContent = "Storage durability and write availability are unknown.";
       byId("capabilitiesNote").textContent = "Validation and notification configuration are unknown. Redemption is unvalidated.";
+      if (byId("dailyYieldNote")) byId("dailyYieldNote").textContent = "Daily yield unavailable.";
       status("serviceStatus", `Could not load service status. ${error.message}`, "error");
     }
   }
