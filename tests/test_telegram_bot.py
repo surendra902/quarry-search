@@ -109,6 +109,20 @@ class TelegramBotTests(unittest.TestCase):
             args, _ = mock_send.call_args
             self.assertIn("No referral links recorded", args[1])
 
+    def test_handle_update_search_command(self):
+        with patch.object(self.bot, "send_message", return_value=True) as mock_send, \
+             patch("quarry.engine.QuarryEngine.discover", return_value={"new_records": [
+                 {"referral_code": "FreshCode999", "url": "https://claude.ai/referral/FreshCode999", "platform": "Web (Exa Neural)", "source_url": "https://example.com/fresh"}
+             ]}):
+            for cmd in ("/search", "/hunt", "/sweep", "🔍 Search Now", "search"):
+                with self.subTest(cmd=cmd):
+                    handled = self.bot.handle_update({
+                        "update_id": 105,
+                        "message": {"chat": {"id": 12345}, "text": cmd}
+                    })
+                    self.assertTrue(handled)
+                    self.assertGreaterEqual(mock_send.call_count, 1)
+
     def test_telegram_webhook_route_in_web_handler(self):
         from quarry.web import QuarryHandler
         payload = json.dumps({"update_id": 104, "message": {"chat": {"id": 12345}, "text": "/latest"}}).encode('utf-8')

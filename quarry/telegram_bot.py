@@ -13,8 +13,8 @@ logger = logging.getLogger("quarry.telegram")
 
 REPLY_KEYBOARD = {
     "keyboard": [
-        [{"text": "⚡ Latest Links"}, {"text": "📊 Status"}],
-        [{"text": "🌐 Web Dashboard"}, {"text": "❓ Help"}]
+        [{"text": "⚡ Latest Links"}, {"text": "🔍 Search Now"}],
+        [{"text": "📊 Status"}, {"text": "🌐 Web Dashboard"}]
     ],
     "resize_keyboard": True,
     "persistent": True
@@ -103,22 +103,27 @@ class TelegramBotService:
             self._handle_latest(chat_id)
             return True
 
-        # 2. /status or "Status" or "📊 Status"
+        # 2. /search or /hunt or /sweep or "Search" or "🔍 Search Now"
+        if cmd.startswith("/search") or cmd.startswith("/hunt") or cmd.startswith("/sweep") or "search" in cmd or "hunt" in cmd:
+            self._handle_search(chat_id)
+            return True
+
+        # 3. /status or "Status" or "📊 Status"
         if cmd.startswith("/status") or "status" in cmd:
             self._handle_status(chat_id)
             return True
 
-        # 3. /start or /help or "Help" or "❓ Help"
+        # 4. /start or /help or "Help" or "❓ Help"
         if cmd.startswith("/start") or cmd.startswith("/help") or "help" in cmd:
             self._handle_start(chat_id)
             return True
 
-        # 4. /stop or /unsubscribe
+        # 5. /stop or /unsubscribe
         if cmd.startswith("/stop") or cmd.startswith("/unsubscribe") or cmd == "stop":
             self._handle_stop(chat_id)
             return True
 
-        # 5. "Web Dashboard" or /web
+        # 6. "Web Dashboard" or /web
         if "web" in cmd or "dashboard" in cmd:
             self.send_message(
                 chat_id,
@@ -133,9 +138,10 @@ class TelegramBotService:
         self.send_message(
             chat_id,
             "🤖 <b>Command not recognized.</b>\n\n"
-            "Use the buttons below or try:\n"
+            "Use the buttons below:\n"
             "• <b>⚡ Latest Links</b> - View newest Claude passes\n"
-            "• <b>📊 Status</b> - Harvester & database state\n"
+            "• <b>🔍 Search Now</b> - Run live search across web\n"
+            "• <b>📊 Status</b> - Harvester state & link count\n"
             "• <b>🌐 Web Dashboard</b> - Open online explorer",
             reply_markup=REPLY_KEYBOARD
         )
@@ -152,7 +158,7 @@ class TelegramBotService:
             self.send_message(
                 chat_id,
                 "⚠️ <b>No referral links recorded in the database yet.</b>\n\n"
-                "The harvester runs continuously and will alert you as soon as passes are discovered.",
+                "Tap <b>🔍 Search Now</b> below to trigger a live web search sweep right now!",
                 reply_markup=REPLY_KEYBOARD
             )
             return
@@ -163,7 +169,6 @@ class TelegramBotService:
             url = _record_val(r, "url", f"https://claude.ai/referral/{code}")
             platform = _record_val(r, "platform", "Web")
             source_url = _record_val(r, "source_url", "")
-            discovered = _record_val(r, "discovered_at", "")
 
             host = ""
             if source_url:
@@ -182,10 +187,92 @@ class TelegramBotService:
             )
 
         header = f"⚡ <b>Latest Claude Referral Passes ({len(links)}):</b>\n\n"
-        footer = "\n\n<i>Tap a link above to redeem your guest pass on Claude.ai!</i>"
+        footer = (
+            "\n\n<i>Tap a link above to redeem on Claude.ai!</i>\n"
+            "💡 <i>Tip: Tap <b>🔍 Search Now</b> below to trigger an instant live search across the web.</i>"
+        )
         full_text = header + "\n\n".join(items) + footer
 
         self.send_message(chat_id, full_text, reply_markup=REPLY_KEYBOARD)
+
+    def _handle_search(self, chat_id: str):
+        self.send_message(
+            chat_id,
+            "🔍 <b>Running live search sweep across web sources...</b>\n"
+            "Checking Exa neural search, URLScan intelligence, GitHub, and developer communities for new passes. Please wait a few seconds...",
+            reply_markup=REPLY_KEYBOARD
+        )
+
+        new_records = []
+        try:
+            from quarry.engine import QuarryEngine
+            engine = QuarryEngine(storage=self.storage)
+            result = engine.discover(limit_per_source=20)
+            new_records = result.get("new_records", [])
+        except Exception as exc:
+            logger.error(f"Search sweep error: {exc}")
+
+        if new_records:
+            items = []
+            for idx, r in enumerate(new_records[:5], 1):
+                code = _record_val(r, "referral_code", "Unknown")
+                url = _record_val(r, "url", f"https://claude.ai/referral/{code}")
+                platform = _record_val(r, "platform", "Web")
+                source_url = _record_val(r, "source_url", "")
+
+                host = ""
+                if source_url:
+                    try:
+                        host = urlsplit(source_url).netloc
+                    except Exception:
+                        host = source_url[:30]
+
+                source_display = f'<a href="{html.escape(source_url)}">{html.escape(host or "Source Link")}</a>' if source_url else "Web"
+
+                items.append(
+                    f"<b>{idx}. NEW Pass:</b> <code>{html.escape(code)}</code>\n"
+                    f"   👉 <a href=\"{html.escape(url)}\">Claim Guest Pass</a>\n"
+                    f"   🏷️ <i>Platform:</i> {html.escape(platform or 'Web')}\n"
+                    f"   🌐 <i>Source:</i> {source_display}"
+                )
+
+            header = f"🎉 <b>Discovered {len(new_records)} NEW Claude Referral Pass(es)!</b>\n\n"
+            footer = "\n\n<i>Tap a link above to redeem your guest pass on Claude.ai!</i>"
+            full_text = header + "\n\n".join(items) + footer
+            self.send_message(chat_id, full_text, reply_markup=REPLY_KEYBOARD)
+        else:
+            links = self.storage.list_links(limit=5)
+            items = []
+            for idx, r in enumerate(links, 1):
+                code = _record_val(r, "referral_code", "Unknown")
+                url = _record_val(r, "url", f"https://claude.ai/referral/{code}")
+                platform = _record_val(r, "platform", "Web")
+                source_url = _record_val(r, "source_url", "")
+
+                host = ""
+                if source_url:
+                    try:
+                        host = urlsplit(source_url).netloc
+                    except Exception:
+                        host = source_url[:30]
+
+                source_display = f'<a href="{html.escape(source_url)}">{html.escape(host or "Source Link")}</a>' if source_url else "Web"
+
+                items.append(
+                    f"<b>{idx}. Claude Pass:</b> <code>{html.escape(code)}</code>\n"
+                    f"   👉 <a href=\"{html.escape(url)}\">Claim Guest Pass</a>\n"
+                    f"   🏷️ <i>Platform:</i> {html.escape(platform or 'Web')}\n"
+                    f"   🌐 <i>Source:</i> {source_display}"
+                )
+
+            header = (
+                "✅ <b>Live Search Sweep Completed (7 sources checked).</b>\n"
+                "<i>No newer passes were published on the web since the last sweep.</i>\n\n"
+                f"<b>Freshest Verified Passes in Database ({len(links)}):</b>\n\n"
+            )
+            footer = "\n\n<i>Tap a link above to redeem on Claude.ai!</i>"
+            full_text = header + "\n\n".join(items) + footer
+            self.send_message(chat_id, full_text, reply_markup=REPLY_KEYBOARD)
 
     def _handle_status(self, chat_id: str):
         total_unique = self.storage.count()

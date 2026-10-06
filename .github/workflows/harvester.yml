@@ -28,17 +28,14 @@ jobs:
             requirements-scraping.txt
       - name: Install dependencies
         run: pip install -r requirements-scraping.txt
-      - name: Harvest permitted free sources
+      - name: Harvest permitted sources (Exa, Developer Communities, GitHub, URLScan)
         env:
-          QUARRY_ENABLE_PAID_SOURCES: '0'
+          EXA_API_KEY: ${{ secrets.EXA_API_KEY }}
+          QUARRY_ENABLE_PAID_SOURCES: '1'
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            python run_harvester.py --dry-run --db quarry.db --interval 1200 --export-snapshot data/snapshot.json
-          else
-            python run_harvester.py --oneshot --interval 1200 --export-snapshot data/snapshot.json
-          fi
+          python run_harvester.py --oneshot --interval 1200 --export-snapshot data/snapshot.json
       - name: Persist records, source rotation and measurement state
         run: |
           git config user.name "Quarry Cloud Harvester"

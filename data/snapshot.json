@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-10-06T06:30:06.315437Z",
+  "generated_at": "2026-10-06T09:46:22.704426Z",
   "collector": {
     "status": "completed",
     "configured": true,
-    "last_heartbeat": "2026-10-06T06:30:06.310171Z",
-    "mode": "manual_workflow",
+    "last_heartbeat": "2026-10-06T09:46:22.627908Z",
+    "mode": "single_run",
     "cycles_completed": 1,
     "new_links_session": 6,
     "total_links_in_db": 73,
     "total_occurrences": 104,
-    "interval_seconds": 1200,
-    "alerts_configured": false,
+    "interval_seconds": 60,
+    "alerts_configured": true,
     "daily_yield": {
       "timezone": "UTC",
-      "as_of": "2026-10-06T06:30:06.312173Z",
+      "as_of": "2026-10-06T09:46:22.674365Z",
       "today": {
         "date": "2026-10-06",
         "first_observed_unique": 7,
@@ -98,7 +98,7 @@
   },
   "daily_yield": {
     "timezone": "UTC",
-    "as_of": "2026-10-06T06:30:06.316667Z",
+    "as_of": "2026-10-06T09:46:22.728583Z",
     "today": {
       "date": "2026-10-06",
       "first_observed_unique": 7,
@@ -307,21 +307,6 @@
       "last_seen_at": "2026-10-05T08:09:53.363189Z"
     },
     {
-      "referral_code": "18tu0-9FlA",
-      "url": "https://claude.ai/referral/18tu0-9FlA",
-      "platform": "GitHub (Code / Issue)",
-      "source_url": "https://github.com/anthropics/claude-code/issues/34816",
-      "author": null,
-      "published_at": null,
-      "discovered_at": "2026-10-05T06:23:41.509996Z",
-      "evidence_snippet": "# Guest passes link shows as invalid despite 2 passes remaining\n\n- State: closed\n- Author: 001005HS\n- Created: 2026-03-16T02:30:56Z\n- Updated: 2026-04-26T14:29:15Z\n- Repository: anthropics/claude-code\n- Number: #34816\n\n## Labels\n\n- bug\n- platform:linux\n- area:cli\n- stale\n\n---\n\n## Description\n\nWhen using `/passes` command in Claude Code, it shows 2 guest passes remaining and generates a referral link (`https://claude.ai/referral/...`), but the link appears to be invalid/not working when shared.\n\n## Steps to Reproduce\n\n1. Run `/passes` in Claude Code CLI\n2. Dialog shows \"Guest passes · 2 left\"\n3. Copy the generated referral link\n4. Link does not work / shows as invalid\n\n## Expected Behavior\n\nThe referral link should be valid and allow the recipient to redeem a free week of Claude Code.\n\n## Environment\n\n- Platform: Linux (Ubuntu)\n- Claude Code CLI (latest)\n\n## Timeline\n\n- github-actions[bot] added label \"bug\"\n\n- github-actions[bot] added label \"platform:linux\"\n\n- github-actions[bot] added label \"area:cli\"\n\n**yurukusa** commented on 2026-03-16T02:59:11Z:\n\n> A few things to check that might help narrow this down:\n> \n> **1. Link format**\n> \n> Can you confirm the exact URL format you're getting? It should look like:\n> ```\n> https://claude.ai/referral/ \n> ```\n> If it's a different format or has extra characters (trailing whitespace, newline, etc.), that could cause it to show as invalid.\n> \n> **2. Link expiration**\n> \n> Guest pass links have a time limit. If there's a delay between generating the link with `/passes` and sharing it, the link may have expired. Try generating a fresh link and sharing it immediately.\n> \n> **3. Recipient eligibility**\n> \n> Guest passes are for new users who don't already have a Claude account. If the person you're sharing with already has a claude.ai account (even a free one), the link may show as invalid for them. Have them try opening it in an incognito/private browser window to rule out existing session cookies interfering.\n> \n> **4. Region restrictions**\n> \n> Some referral programs have geographic restrictions. If the recipient is in a region where Claude isn't fully available, the link could appear invalid.\n> \n> **5. CLI version**\n> \n> You mentioned \"latest\" — can you confirm the exact version? (`claude --version`) There have been cases where the `/passes` command generates links against a different environment. Updating to the absolute latest (`npm update -g @anthropic-ai/claude-code`) might help if you're on a slightly older build.\n> \n> **6. Reproduction test**\n> \n> Try opening the link yourself in an incognito window (where you're not logged into Claude). Does it show as invalid there too, or does it show a signup/redeem page? That would help distinguish between a link generation issue vs. a recipient-side issue.\n> \n> If you can share the error message the recipient sees (screenshot or exact text), that would help the team diagnose whether this is a link generation bug or a redemption/eligibility issue.\n\n**001005HS** commented on 2026-03-16T03:05:00Z:\n\n> ───────────────────────────────────────────────────────────────────────\n> Guest passes · 2 left\n> \n> ┌──────────┐ ┌──────────┐ ┌─────────╱\n> ) CC ✻ ┊ ( ) CC ✻ ┊ ( ) CC ✻ ┊╱\n> └──────────┘ └──────────┘ └───────╱\n> \n> https://claude.ai/referral/18tu0-9FlA\n> \n> Share a free week of Claude Code with friends. Terms apply.\n> \n> Enter to copy link · Esc to cancel\n> \n> 이거이고, 버전은 2.1.76 이에요\n> \n> 친구한테 주려고 하니까 만료되었다 라고 뜨고\n> \n> 전 이 링크를 공유한적이 없는데 티켓이 하나 뜯어져있어요\n> \n> 누가 썼는지 얘기좀 해주세요\n> \n> 2026년 3월 16일 (월) AM 11:59, ゆる草 ***@***.***>님이 작성:\n> \n> > *yurukusa* left a comment (anthropics/claude-code#34816)\n> > \n> >\n> > A few things to check that might help narrow this down:\n> >\n> > *1. Link format*\n> >\n> > Can you confirm the exact URL format you're getting? It should look like:\n> >\n> > https://claude.ai/referral/ \n> >\n> > If it's a different format or has extra characters (trailing whitespace,\n> > newline, etc.), that could cause it to show as invalid.\n> >\n> > *2. Link expiration*\n> >\n> > Guest pass links have a time limit. If there's a delay between generating\n> > the link with /passes and sharing it, the link may have expired. Try\n> > generating a fresh link and sharing it immediately.\n> >\n> > *3. Recipient eligibility*\n> >\n> > Guest passes are for new users who don't already have a Claude account. If\n> > the person you're sharing with already has a claude.ai account (even a\n> > free one), the link may show as invalid for them. Have them try opening it\n> > in an incognito/private browser window to rule out existing session cookies\n> > interfering.\n> >\n> > *4. Region restrictions*\n> >\n> > Some referral programs have geographic restrictions. If the recipient is\n> > in a region where Claude isn't fully available, the link could appear\n> > invalid.\n> >\n> > *5. CLI version*\n> >\n> > You mentioned \"latest\" — can you confirm the exact version? (claude\n> > --version) There have been cases where the /passes command generates\n> > links against a different environment. Updating to the absolute latest (npm\n> > update -g @anthropic-ai/claude-code) might help if you're on a slightly\n> > older build.\n> >\n> > *6. Reproduction test*\n> >\n> > Try opening the link yourself in an incognito window (where you're not\n> > logged into Claude). Does it show as invalid there too, or does it show a\n> > signup/redeem page? That would help distinguish between a link generation\n> > issue vs. a recipient-side issue.\n> >\n> > If you can share the error message the recipient sees (screenshot or exact\n> > text), that would help the team diagnose whether this is a link generation\n> > bug or a redemption/eligibility issue.\n> >\n> > —\n> > Reply to this email directly, view it on GitHub\n> >,\n> > or unsubscribe\n> > \n> > .\n> > You are receiving this because you authored the thread.Message ID:\n> > ***@***.***>\n> >\n\n**yurukusa** commented on 2026-03-16T04:19:13Z:\n\n> Thanks for the details. Version 2.1.76 is current, so that's not the issue.\n> \n> **On the consumed pass:**\n> \n> This sounds like a known behavior — when you press Enter on the `/passes` screen to copy the link, some users have reported it counts as \"claimed\" even if the link was never actually opened by another person. The link URL (`/referral/18tu0-9FlA`) is generated and marked as issued at copy time, not at redemption time.\n> \n> If the link then shows as \"expired\" when your friend opens it, there are two likely scenarios:\n> \n> 1. **Time-to-live expired** — Guest pass links have a limited validity window (typically hours, not days). If you copied the link and sent it later, it may have expired before your friend clicked it.\n> 2. **Single-use consumed at generation** — The pass may have been consumed when it was generated/copied. This would be a bug (pass should be consumed at redemption, not generation).\n> \n> **What to try:**\n> \n> - Generate a fresh pass with `/passes` right now, copy the link, and have your friend open it **immediately** (within minutes, not hours)\n> - Have your friend open it in an **incognito/private window** to avoid any session interference\n> - If this second pass also shows expired immediately, that points to a bug in the pass generation system rather than a timing issue\n> \n> **On tracking who used it:**\n> \n> Unfortunately, there's no way for you to see who redeemed a guest pass. Anthropic's team would need to check server-side logs. If you believe the pass was consumed without your knowledge, that's worth flagging to Anthropic support directly (support.anthropic.com) since it could indicate a security issue with the referral link system.\n\n**hyeonjinyoon** commented on 2026-03-16T07:55:13Z:\n\n> I have the same issue. I currently have 2 guest passes remaining, and they show as active in /passes in Claude Code, but when I open the URL, it shows as expired. There is no way to generate a new URL. Is this a recent issue?\n\n**yurukusa** commented on 2026-03-16T08:18:35Z:\n\n> @hyeonjinyoon Thanks for confirming — this makes it clearer that it's a systemic issue rather than an isolated case. Multiple users seeing active passes in `/passes` that resolve to expired URLs points to a server-side bug in the pass URL generation/validation pipeline.\n> \n> I'd recommend both of you file support tickets at support.anthropic.com referencing this issue number so the team can investigate the backend.\n\n- hyeonjinyoon mentioned\n\n- hyeonjinyoon subscribed\n\n**Charles5277** commented on 2026-03-16T10:43:07Z:\n\n> I have same problem. My passes also 2/3 remain.\n\n**hyeonjinyoon** commented on 2026-03-19T02:38:45Z:\n\n> It seems the issue has been resolved. the link is working properly now.\n\n- github-actions[bot] added label \"stale\"\n\n**github-actions[bot]** commented on 2026-04-17T10:32:48Z:\n\n> Closing for now — inactive for too long. Please open a new issue if this is still relevant.\n\n- github-actions[bot] closed\n\n**github-actions[bot]** commented on 2026-04-26T14:29:14Z:\n\n> This issue has been automatically locked since it was closed and has not had any activity for 7 days. If you're experiencing a similar issue, please file a new issue and reference this one if it's relevant.\n\n- github-actions[bot] locked\n# Guest passes link shows as invalid despite 2 passes remaining\n...\nWhen using `/passes` command in Claude Code, it shows 2 guest passes remaining and generates a referral link (`https://claude.ai/referral/...`), but the link appears to be invalid/not working when shared.\n...\n1. Run `/passes` in Claude Code CLI\n2. Dialog shows \"Guest passes · 2 left\"\n3. Copy the generated referral link\n4. Link does not work / shows as invalid\n...\nThe referral link should be valid and allow the recipient to redeem a free week of Claude Code.\n...\n> A few things to check that might help narrow this down:\n> \n> **1. Link format**\n> \n> Can you confirm the exact URL format you're getting? It should look like:\n> ```\n> https://claude.ai/referral/ \n> ```\n> If it's a different format or has extra characters (trailing whitespace, newline, etc.), that could cause it to show as invalid.\n> \n> **2. Link expiration**\n> \n> Guest pass links have a time limit. If there's a delay between generating the link with `/passes` and sharing it, the link may have expired. Try generating a fresh link and sharing it immediately.\n> \n> **3. Recipient eligibility**\n> \n> Guest passes are for new users who don't already have a Claude account. If the person you're sharing with already has a claude.ai account (even a free one), the link may show as invalid for them. Have them try opening it in an incognito/private browser window to rule out existing session cookies interfering.\n> \n> **4. Region restrictions**\n> \n> Some referral programs have geographic restrictions. If the recipient is in a region where Claude isn't fully available, the link could appear invalid.\n> \n> **5. CLI version**\n> \n> You mentioned \"latest\" — can you confirm the exact version? (`claude --version`) There have been cases where the `/passes` command generates links against a different environment. Updating to the absolute latest (`npm update -g @anthropic-ai/claude-code`) might help if you're on a slightly older build.\n> \n> **6. Reproduction test**\n> \n> Try opening the link yourself in an incognito window (where you're not logged into Claude). Does it show as invalid there too, or does it show a signup/redeem page? That would help distinguish between a link generation issue vs. a recipient-side issue.\n> \n> If you can share the error message the recipient sees (screenshot or exact text), that would help the team diagnose whether this is a link generation bug or a redemption/eligibility issue.\n...\n> ───────────────────────────────────────────────────────────────────────\n> Guest passes · 2 left\n> \n> ┌──────────┐ ┌──────────┐ ┌─────────╱\n> ) CC ✻ ┊ ( ) CC ✻ ┊ ( ) CC ✻ ┊╱\n> └──────────┘ └──────────┘ └───────╱\n> \n> https://claude.ai/referral/18tu0-9FlA\n> \n> Share a free week of Claude Code with friends. Terms apply.\n> \n> Enter to copy link · Esc to cancel\n> \n> 이거이고, 버전은 2.1.76 이에요\n> \n> 친구한테 주려고 하니까 만료되었다 라고 뜨고\n> \n> 전 이 링크를 공유한적이 없는데 티켓이 하나 뜯어져있어요\n> \n> 누가 썼는지 얘기좀 해주세요\n> \n> 2026년 3월 16일 (월) AM 11:5 ... ***.***>\n...\nanthropics/cla\n...\n> Thanks for the details. Version 2.1.76 is current, so that's not the issue.\n> \n> **On the consumed pass:**\n> \n> This sounds like a known behavior — when you press Enter on the `/passes` screen to copy the link, some users have reported it counts as \"claimed\" even if the link was never actually opened by another person. The link URL (`/referral/18tu0-9FlA`) is generated and marked as issued at copy time, not at redemption time.\n> \n> If the link then shows as \"expired\" when your friend opens it, there are two likely scenarios:\n> \n> 1. **Time-to-live expired** — Guest pass links have a limited validity window (typically hours, not days). If you copied the link and sent it later, it may have expired before your friend clicked it.\n> 2. **Single-use consumed at generation** — The pass may have been consumed when it was generated/copied. This would be a bug (pass should be consumed at redemption, not generation).\n> \n> **What to try:**\n> \n> - Generate a fresh pass with `/passes` right now, copy the link, and have your friend open it **immediately** (within minutes, not hours)\n> - Have your friend open it in an **incognito/private window** to avoid any session interference\n> - If this second pass also shows expired immediately, that points to a bug in the pass generation system rather than a timing issue\n> \n> **On tracking who used it:**\n> \n> Unfortunately, there's no way for you to see who redeemed a guest pass. Anthropic's team would need to check server-side logs. If you believe the pass was consumed without your knowledge, that's worth flagging to Anthropic support directly (support.anthropic.com) since it could indicate a security issue with the referral link system.\n...\n> I have the same issue. I currently have 2 guest passes remaining, and they show as active in /passes in Claude Code, but when I open the URL, it shows as expired. There is no way to generate a new URL. Is this a recent issue?\n...\n> @hyeonjinyoon Thanks for confirming — this makes it clearer that it's a systemic issue rather than an isolated case. Multiple users seeing active passes in `/passes` that resolve to expired URLs points to a server-side bug in the pass URL generation/validation pipeline.\n> \n> I'd recommend both of you file support tickets at support.anthropic.com referencing this issue number so the team can investigate the backend.\n...\n> It seems the issue has been resolved. the link is working properly now.",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": null,
-      "timestamp_basis": "search_snippet_content",
-      "last_seen_at": "2026-10-06T06:19:15.821281Z"
-    },
-    {
       "referral_code": "b9Segx2cZA",
       "url": "https://claude.ai/referral/b9Segx2cZA",
       "platform": "GitHub (Issue/PR)",
@@ -334,7 +319,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-06T05:26:42Z",
       "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-10-06T06:30:06.159727Z"
+      "last_seen_at": "2026-10-06T09:45:44.212118Z"
     },
     {
       "referral_code": "9wjIA9-Iug",
@@ -349,7 +334,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-09-29T03:02:03Z",
       "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-10-06T06:30:06.161162Z"
+      "last_seen_at": "2026-10-06T09:45:44.229469Z"
     },
     {
       "referral_code": "b9Segx2cZA",
@@ -364,7 +349,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-06T06:30:06.164184Z"
+      "last_seen_at": "2026-10-06T09:45:44.246504Z"
     },
     {
       "referral_code": "SE-Jaa--ig",
@@ -379,7 +364,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-06T06:30:06.165681Z"
+      "last_seen_at": "2026-10-06T09:45:44.262286Z"
     },
     {
       "referral_code": "8U0OiPj7Dg",
@@ -394,7 +379,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-06T06:30:06.167185Z"
+      "last_seen_at": "2026-10-06T09:45:44.276339Z"
     },
     {
       "referral_code": "hWvMMltr7Q",
@@ -409,7 +394,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-06T06:30:06.168851Z"
+      "last_seen_at": "2026-10-06T09:45:44.291669Z"
     },
     {
       "referral_code": "b9Segx2cZA",
@@ -424,7 +409,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-06T06:30:06.170246Z"
+      "last_seen_at": "2026-10-06T09:45:44.308071Z"
     },
     {
       "referral_code": "b9Segx2cZA",
@@ -439,7 +424,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-06T06:30:06.171613Z"
+      "last_seen_at": "2026-10-06T09:45:44.319802Z"
     },
     {
       "referral_code": "u4UoldU5jA",
@@ -454,7 +439,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-06T06:30:06.173022Z"
+      "last_seen_at": "2026-10-06T09:45:44.332727Z"
     },
     {
       "referral_code": "b9Segx2cZA",
@@ -469,7 +454,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-06T06:30:06.174616Z"
+      "last_seen_at": "2026-10-06T09:45:44.346729Z"
     },
     {
       "referral_code": "b9Segx2cZA",
@@ -484,7 +469,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-06T06:30:06.176021Z"
+      "last_seen_at": "2026-10-06T09:45:44.359525Z"
     },
     {
       "referral_code": "b9Segx2cZA",
@@ -499,7 +484,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-06T06:30:06.177450Z"
+      "last_seen_at": "2026-10-06T09:45:44.373067Z"
     },
     {
       "referral_code": "b9Segx2cZA",
@@ -514,7 +499,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-06T06:30:06.179124Z"
+      "last_seen_at": "2026-10-06T09:45:44.384965Z"
     },
     {
       "referral_code": "b9Segx2cZA",
@@ -529,7 +514,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-06T06:30:06.180655Z"
+      "last_seen_at": "2026-10-06T09:45:44.399474Z"
     },
     {
       "referral_code": "b9Segx2cZA",
@@ -544,7 +529,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-06T06:30:06.182208Z"
+      "last_seen_at": "2026-10-06T09:45:44.412006Z"
     },
     {
       "referral_code": "4tieocI5Xw",
@@ -559,7 +544,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-06T06:30:06.183625Z"
+      "last_seen_at": "2026-10-06T09:45:44.425447Z"
     },
     {
       "referral_code": "4fAMYN9Ing",
@@ -574,7 +559,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-06T06:30:06.185419Z"
+      "last_seen_at": "2026-10-06T09:45:44.440785Z"
     },
     {
       "referral_code": "pIpeQjEpEw",
@@ -589,7 +574,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "hn_item_created_time; content_observed_now; edit_time_unavailable",
-      "last_seen_at": "2026-10-06T06:30:06.186918Z"
+      "last_seen_at": "2026-10-06T09:45:44.453931Z"
     },
     {
       "referral_code": "YWAsr_1fbA",
@@ -604,7 +589,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "hn_item_created_time; content_observed_now; edit_time_unavailable",
-      "last_seen_at": "2026-10-06T06:30:06.188261Z"
+      "last_seen_at": "2026-10-06T09:45:44.465879Z"
     },
     {
       "referral_code": "sdf5PFocdaE",
@@ -619,7 +604,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.189686Z"
+      "last_seen_at": "2026-10-06T09:45:44.478889Z"
     },
     {
       "referral_code": "gm1LYCDKBw",
@@ -634,7 +619,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.191032Z"
+      "last_seen_at": "2026-10-06T09:45:44.492140Z"
     },
     {
       "referral_code": "4GDH3",
@@ -649,7 +634,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.192483Z"
+      "last_seen_at": "2026-10-06T09:45:44.506687Z"
     },
     {
       "referral_code": "PXRguDxCdA",
@@ -664,7 +649,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.194041Z"
+      "last_seen_at": "2026-10-06T09:45:44.523228Z"
     },
     {
       "referral_code": "PXRAuDxCdA",
@@ -679,7 +664,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.195529Z"
+      "last_seen_at": "2026-10-06T09:45:44.536994Z"
     },
     {
       "referral_code": "Lh8JFw71cQ",
@@ -694,7 +679,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.196979Z"
+      "last_seen_at": "2026-10-06T09:45:44.553416Z"
     },
     {
       "referral_code": "1ZyUtTMzJg",
@@ -709,7 +694,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.198403Z"
+      "last_seen_at": "2026-10-06T09:45:44.567009Z"
     },
     {
       "referral_code": "zRf18dzbXg",
@@ -724,7 +709,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.199848Z"
+      "last_seen_at": "2026-10-06T09:45:44.580342Z"
     },
     {
       "referral_code": "fQNl4qxe8w",
@@ -739,7 +724,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.201302Z"
+      "last_seen_at": "2026-10-06T09:45:44.593924Z"
     },
     {
       "referral_code": "CxsL80A00A",
@@ -754,7 +739,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.202772Z"
+      "last_seen_at": "2026-10-06T09:45:44.608746Z"
     },
     {
       "referral_code": "D9bPRoRw4Q",
@@ -769,7 +754,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.204210Z"
+      "last_seen_at": "2026-10-06T09:45:44.622567Z"
     },
     {
       "referral_code": "dP-MvwdAVs",
@@ -784,7 +769,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.205587Z"
+      "last_seen_at": "2026-10-06T09:45:44.635879Z"
     },
     {
       "referral_code": "dP-MvwdAVw",
@@ -799,7 +784,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.207041Z"
+      "last_seen_at": "2026-10-06T09:45:44.650408Z"
     },
     {
       "referral_code": "ufnFYAokWA",
@@ -814,7 +799,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.208450Z"
+      "last_seen_at": "2026-10-06T09:45:44.665167Z"
     },
     {
       "referral_code": "PBtwBMB-Kg",
@@ -829,7 +814,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.209949Z"
+      "last_seen_at": "2026-10-06T09:45:44.678863Z"
     },
     {
       "referral_code": "pdRrGZtQdw",
@@ -844,7 +829,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.211304Z"
+      "last_seen_at": "2026-10-06T09:45:44.690383Z"
     },
     {
       "referral_code": "z1fkmO5Efw",
@@ -859,7 +844,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.212839Z"
+      "last_seen_at": "2026-10-06T09:45:44.703583Z"
     },
     {
       "referral_code": "9izzHjef7w",
@@ -874,7 +859,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.214175Z"
+      "last_seen_at": "2026-10-06T09:45:44.716043Z"
     },
     {
       "referral_code": "kD-WgXKRUw",
@@ -889,7 +874,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.215697Z"
+      "last_seen_at": "2026-10-06T09:45:44.729645Z"
     },
     {
       "referral_code": "GHI56RST",
@@ -904,7 +889,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.217678Z"
+      "last_seen_at": "2026-10-06T09:45:44.744069Z"
     },
     {
       "referral_code": "XlTn0GEPSw",
@@ -919,7 +904,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.219440Z"
+      "last_seen_at": "2026-10-06T09:45:44.759088Z"
     },
     {
       "referral_code": "LvCgwpHi8w",
@@ -934,7 +919,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.220922Z"
+      "last_seen_at": "2026-10-06T09:45:44.772883Z"
     },
     {
       "referral_code": "NaczESFrww",
@@ -949,7 +934,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.222334Z"
+      "last_seen_at": "2026-10-06T09:45:44.788841Z"
     },
     {
       "referral_code": "Y7Grt5DIrg",
@@ -964,7 +949,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.223836Z"
+      "last_seen_at": "2026-10-06T09:45:44.806311Z"
     },
     {
       "referral_code": "d23e1fdaf",
@@ -979,7 +964,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.225360Z"
+      "last_seen_at": "2026-10-06T09:45:44.826064Z"
     },
     {
       "referral_code": "0E5Ip1-SEA",
@@ -994,7 +979,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.226786Z"
+      "last_seen_at": "2026-10-06T09:45:44.846154Z"
     },
     {
       "referral_code": "YldFwT9qQA",
@@ -1009,7 +994,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.228340Z"
+      "last_seen_at": "2026-10-06T09:45:44.861218Z"
     },
     {
       "referral_code": "B-9qsE1yOA",
@@ -1024,7 +1009,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.229751Z"
+      "last_seen_at": "2026-10-06T09:45:44.880173Z"
     },
     {
       "referral_code": "NFhffr883",
@@ -1039,7 +1024,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.231162Z"
+      "last_seen_at": "2026-10-06T09:45:44.895297Z"
     },
     {
       "referral_code": "6GKD9PtJfw",
@@ -1054,7 +1039,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.232623Z"
+      "last_seen_at": "2026-10-06T09:45:44.911600Z"
     },
     {
       "referral_code": "2hjZmF6w8Q",
@@ -1069,7 +1054,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.234064Z"
+      "last_seen_at": "2026-10-06T09:45:44.926590Z"
     },
     {
       "referral_code": "OE5Ipl-SEA",
@@ -1084,7 +1069,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.235564Z"
+      "last_seen_at": "2026-10-06T09:45:44.937589Z"
     },
     {
       "referral_code": "tJngdirGgw",
@@ -1099,7 +1084,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.236942Z"
+      "last_seen_at": "2026-10-06T09:45:44.946590Z"
     },
     {
       "referral_code": "yaniex",
@@ -1114,7 +1099,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.238402Z"
+      "last_seen_at": "2026-10-06T09:45:44.954594Z"
     },
     {
       "referral_code": "zPEPhfSguA",
@@ -1129,7 +1114,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.239937Z"
+      "last_seen_at": "2026-10-06T09:45:44.961590Z"
     },
     {
       "referral_code": "4kpVc8Rw7A",
@@ -1144,7 +1129,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.241418Z"
+      "last_seen_at": "2026-10-06T09:45:44.970233Z"
     },
     {
       "referral_code": "hMkuhD0wYA",
@@ -1159,7 +1144,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.242911Z"
+      "last_seen_at": "2026-10-06T09:45:44.980783Z"
     },
     {
       "referral_code": "jiCIWE2vgg",
@@ -1174,7 +1159,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.244391Z"
+      "last_seen_at": "2026-10-06T09:45:44.990587Z"
     },
     {
       "referral_code": "R0MRR8hCdg",
@@ -1189,7 +1174,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.245840Z"
+      "last_seen_at": "2026-10-06T09:45:45.003706Z"
     },
     {
       "referral_code": "xxxxl",
@@ -1204,7 +1189,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.247291Z"
+      "last_seen_at": "2026-10-06T09:45:45.018730Z"
     },
     {
       "referral_code": "ambient",
@@ -1219,7 +1204,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.248749Z"
+      "last_seen_at": "2026-10-06T09:45:45.029153Z"
     },
     {
       "referral_code": "xxxxx",
@@ -1234,7 +1219,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.250264Z"
+      "last_seen_at": "2026-10-06T09:45:45.040690Z"
     },
     {
       "referral_code": "9JSq19LQ0g",
@@ -1249,7 +1234,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.251654Z"
+      "last_seen_at": "2026-10-06T09:45:45.053183Z"
     },
     {
       "referral_code": "uiL9c_Xwrj",
@@ -1264,7 +1249,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.253039Z"
+      "last_seen_at": "2026-10-06T09:45:45.063846Z"
     },
     {
       "referral_code": "ItsATestNotAReferral",
@@ -1279,7 +1264,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.254557Z"
+      "last_seen_at": "2026-10-06T09:45:45.076320Z"
     },
     {
       "referral_code": "oiEshmCVtA",
@@ -1294,7 +1279,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.255893Z"
+      "last_seen_at": "2026-10-06T09:45:45.089677Z"
     },
     {
       "referral_code": "fmjzx",
@@ -1309,7 +1294,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-06T06:30:06.257583Z"
+      "last_seen_at": "2026-10-06T09:45:45.104930Z"
     },
     {
       "referral_code": "3Xf9GS_m6g",
@@ -1324,7 +1309,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-10-06T06:30:06.259018Z"
+      "last_seen_at": "2026-10-06T09:45:45.120356Z"
     },
     {
       "referral_code": "Y9YNbekrsg",
@@ -1339,7 +1324,7 @@
       "evidence_kind": "candidate_only",
       "source_updated_at": "2026-10-03T19:53:35.337000Z",
       "timestamp_basis": "urlscan_observation_time_not_source_publication",
-      "last_seen_at": "2026-10-06T06:30:06.260572Z"
+      "last_seen_at": "2026-10-06T09:45:45.132123Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -1352,9 +1337,9 @@
       "evidence_snippet": "o try it, this invitation link gives you a **one-week free trial**: [claude.ai/referral/0sqPw8E_lw](https://claude.ai/referral/0sqPw8E_lw)\n\nIf even one exhibit was worth your time, a **like or a stock** helps: the reactions decide which w",
       "status": "unknown",
       "evidence_kind": "direct_match",
-      "source_updated_at": "2026-10-06T01:17:20Z",
+      "source_updated_at": "2026-10-06T09:29:17Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-06T06:30:06.262023Z"
+      "last_seen_at": "2026-10-06T09:45:45.148377Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -1367,9 +1352,9 @@
       "evidence_snippet": "て図まで揃えられたのは、この運用のおかげです。試してみたい方は、こちらの招待リンクから **1 週間の無料トライアル** が使えます: [claude.ai/referral/0sqPw8E_lw](https://claude.ai/referral/0sqPw8E_lw)\n\n面白い展示が 1 つでもあったら、**いいね・ストック**をもらえると助かります。どのウィングを次に増やすかは反応を見て決めるつもりなので、「自分の分野のこれが欲しい」もコメントで教えてください。",
       "status": "unknown",
       "evidence_kind": "direct_match",
-      "source_updated_at": "2026-10-06T01:17:06Z",
+      "source_updated_at": "2026-10-06T09:29:04Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-06T06:30:06.263396Z"
+      "last_seen_at": "2026-10-06T09:45:45.162033Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -1382,9 +1367,9 @@
       "evidence_snippet": "o try it, this invitation link gives you a **one-week free trial**: [claude.ai/referral/0sqPw8E_lw](https://claude.ai/referral/0sqPw8E_lw)\n\nIf even one exhibit was worth your time, a **like or a stock** helps: the reactions decide which w",
       "status": "unknown",
       "evidence_kind": "direct_match",
-      "source_updated_at": "2026-10-06T01:16:30Z",
+      "source_updated_at": "2026-10-06T09:28:28Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-06T06:30:06.264955Z"
+      "last_seen_at": "2026-10-06T09:45:45.175458Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -1397,9 +1382,9 @@
       "evidence_snippet": "て図まで揃えられたのは、この運用のおかげです。試してみたい方は、こちらの招待リンクから **1 週間の無料トライアル** が使えます: [claude.ai/referral/0sqPw8E_lw](https://claude.ai/referral/0sqPw8E_lw)\n\n面白い展示が 1 つでもあったら、**いいね・ストック**をもらえると助かります。どのウィングを次に増やすかは反応を見て決めるつもりなので、「自分の分野のこれが欲しい」もコメントで教えてください。",
       "status": "unknown",
       "evidence_kind": "direct_match",
-      "source_updated_at": "2026-10-06T01:16:13Z",
+      "source_updated_at": "2026-10-06T09:28:13Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-06T06:30:06.266381Z"
+      "last_seen_at": "2026-10-06T09:45:45.190699Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -1414,7 +1399,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-09-28T06:02:37Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-06T06:30:06.267753Z"
+      "last_seen_at": "2026-10-06T09:45:45.209208Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -1429,7 +1414,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-09-28T06:02:33Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-06T06:30:06.269293Z"
+      "last_seen_at": "2026-10-06T09:45:45.226030Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -1442,9 +1427,9 @@
       "evidence_snippet": "o try it, this invitation link gives you a **one-week free trial**: [claude.ai/referral/0sqPw8E_lw](https://claude.ai/referral/0sqPw8E_lw)\n\nIf even one exhibit was worth your time, a **like or a stock** helps: the reactions decide which w",
       "status": "unknown",
       "evidence_kind": "direct_match",
-      "source_updated_at": "2026-10-06T01:15:37Z",
+      "source_updated_at": "2026-10-06T09:27:34Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-06T06:30:06.270675Z"
+      "last_seen_at": "2026-10-06T09:45:45.238811Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -1457,9 +1442,9 @@
       "evidence_snippet": "て図まで揃えられたのは、この運用のおかげです。試してみたい方は、こちらの招待リンクから **1 週間の無料トライアル** が使えます: [claude.ai/referral/0sqPw8E_lw](https://claude.ai/referral/0sqPw8E_lw)\n\n面白い展示が 1 つでもあったら、**いいね・ストック**をもらえると助かります。どのウィングを次に増やすかは反応を見て決めるつもりなので、「自分の分野のこれが欲しい」もコメントで教えてください。",
       "status": "unknown",
       "evidence_kind": "direct_match",
-      "source_updated_at": "2026-10-06T01:15:36Z",
+      "source_updated_at": "2026-10-06T09:27:33Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-06T06:30:06.272378Z"
+      "last_seen_at": "2026-10-06T09:45:45.250809Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -1474,7 +1459,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-19T13:01:13Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-06T06:30:06.274653Z"
+      "last_seen_at": "2026-10-06T09:45:45.266252Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -1489,7 +1474,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T14:13:04Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-06T06:30:06.276262Z"
+      "last_seen_at": "2026-10-06T09:45:45.280675Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -1504,7 +1489,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T13:51:43Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-06T06:30:06.277784Z"
+      "last_seen_at": "2026-10-06T09:45:45.293953Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -1519,7 +1504,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T13:50:25Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-06T06:30:06.279158Z"
+      "last_seen_at": "2026-10-06T09:45:45.308142Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -1534,7 +1519,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T13:48:29Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-06T06:30:06.280666Z"
+      "last_seen_at": "2026-10-06T09:45:45.321509Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -1549,7 +1534,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T14:00:41Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-06T06:30:06.282047Z"
+      "last_seen_at": "2026-10-06T09:45:45.333045Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -1564,7 +1549,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T15:58:34Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-06T06:30:06.283493Z"
+      "last_seen_at": "2026-10-06T09:45:45.346292Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -1579,7 +1564,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T15:59:02Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-06T06:30:06.284971Z"
+      "last_seen_at": "2026-10-06T09:45:45.361279Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -1594,7 +1579,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T15:59:00Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-06T06:30:06.286409Z"
+      "last_seen_at": "2026-10-06T09:45:45.378431Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -1609,7 +1594,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T15:58:43Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-06T06:30:06.287814Z"
+      "last_seen_at": "2026-10-06T09:45:45.390711Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -1624,7 +1609,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T15:59:07Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-06T06:30:06.289455Z"
+      "last_seen_at": "2026-10-06T09:45:45.407691Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -1639,7 +1624,22 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T15:59:06Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-06T06:30:06.290893Z"
+      "last_seen_at": "2026-10-06T09:45:45.423862Z"
+    },
+    {
+      "referral_code": "18tu0-9FlA",
+      "url": "https://claude.ai/referral/18tu0-9FlA",
+      "platform": "GitHub (Code / Issue)",
+      "source_url": "https://github.com/anthropics/claude-code/issues/34816",
+      "author": null,
+      "published_at": null,
+      "discovered_at": "2026-10-05T06:23:41.509996Z",
+      "evidence_snippet": "# Guest passes link shows as invalid despite 2 passes remaining\n\n- State: closed\n- Author: 001005HS\n- Created: 2026-03-16T02:30:56Z\n- Updated: 2026-04-26T14:29:15Z\n- Repository: anthropics/claude-code\n- Number: #34816\n\n## Labels\n\n- bug\n- platform:linux\n- area:cli\n- stale\n\n---\n\n## Description\n\nWhen using `/passes` command in Claude Code, it shows 2 guest passes remaining and generates a referral link (`https://claude.ai/referral/...`), but the link appears to be invalid/not working when shared.\n\n## Steps to Reproduce\n\n1. Run `/passes` in Claude Code CLI\n2. Dialog shows \"Guest passes · 2 left\"\n3. Copy the generated referral link\n4. Link does not work / shows as invalid\n\n## Expected Behavior\n\nThe referral link should be valid and allow the recipient to redeem a free week of Claude Code.\n\n## Environment\n\n- Platform: Linux (Ubuntu)\n- Claude Code CLI (latest)\n\n## Timeline\n\n- github-actions[bot] added label \"bug\"\n\n- github-actions[bot] added label \"platform:linux\"\n\n- github-actions[bot] added label \"area:cli\"\n\n**yurukusa** commented on 2026-03-16T02:59:11Z:\n\n> A few things to check that might help narrow this down:\n> \n> **1. Link format**\n> \n> Can you confirm the exact URL format you're getting? It should look like:\n> ```\n> https://claude.ai/referral/ \n> ```\n> If it's a different format or has extra characters (trailing whitespace, newline, etc.), that could cause it to show as invalid.\n> \n> **2. Link expiration**\n> \n> Guest pass links have a time limit. If there's a delay between generating the link with `/passes` and sharing it, the link may have expired. Try generating a fresh link and sharing it immediately.\n> \n> **3. Recipient eligibility**\n> \n> Guest passes are for new users who don't already have a Claude account. If the person you're sharing with already has a claude.ai account (even a free one), the link may show as invalid for them. Have them try opening it in an incognito/private browser window to rule out existing session cookies interfering.\n> \n> **4. Region restrictions**\n> \n> Some referral programs have geographic restrictions. If the recipient is in a region where Claude isn't fully available, the link could appear invalid.\n> \n> **5. CLI version**\n> \n> You mentioned \"latest\" — can you confirm the exact version? (`claude --version`) There have been cases where the `/passes` command generates links against a different environment. Updating to the absolute latest (`npm update -g @anthropic-ai/claude-code`) might help if you're on a slightly older build.\n> \n> **6. Reproduction test**\n> \n> Try opening the link yourself in an incognito window (where you're not logged into Claude). Does it show as invalid there too, or does it show a signup/redeem page? That would help distinguish between a link generation issue vs. a recipient-side issue.\n> \n> If you can share the error message the recipient sees (screenshot or exact text), that would help the team diagnose whether this is a link generation bug or a redemption/eligibility issue.\n\n**001005HS** commented on 2026-03-16T03:05:00Z:\n\n> ───────────────────────────────────────────────────────────────────────\n> Guest passes · 2 left\n> \n> ┌──────────┐ ┌──────────┐ ┌─────────╱\n> ) CC ✻ ┊ ( ) CC ✻ ┊ ( ) CC ✻ ┊╱\n> └──────────┘ └──────────┘ └───────╱\n> \n> https://claude.ai/referral/18tu0-9FlA\n> \n> Share a free week of Claude Code with friends. Terms apply.\n> \n> Enter to copy link · Esc to cancel\n> \n> 이거이고, 버전은 2.1.76 이에요\n> \n> 친구한테 주려고 하니까 만료되었다 라고 뜨고\n> \n> 전 이 링크를 공유한적이 없는데 티켓이 하나 뜯어져있어요\n> \n> 누가 썼는지 얘기좀 해주세요\n> \n> 2026년 3월 16일 (월) AM 11:59, ゆる草 ***@***.***>님이 작성:\n> \n> > *yurukusa* left a comment (anthropics/claude-code#34816)\n> > \n> >\n> > A few things to check that might help narrow this down:\n> >\n> > *1. Link format*\n> >\n> > Can you confirm the exact URL format you're getting? It should look like:\n> >\n> > https://claude.ai/referral/ \n> >\n> > If it's a different format or has extra characters (trailing whitespace,\n> > newline, etc.), that could cause it to show as invalid.\n> >\n> > *2. Link expiration*\n> >\n> > Guest pass links have a time limit. If there's a delay between generating\n> > the link with /passes and sharing it, the link may have expired. Try\n> > generating a fresh link and sharing it immediately.\n> >\n> > *3. Recipient eligibility*\n> >\n> > Guest passes are for new users who don't already have a Claude account. If\n> > the person you're sharing with already has a claude.ai account (even a\n> > free one), the link may show as invalid for them. Have them try opening it\n> > in an incognito/private browser window to rule out existing session cookies\n> > interfering.\n> >\n> > *4. Region restrictions*\n> >\n> > Some referral programs have geographic restrictions. If the recipient is\n> > in a region where Claude isn't fully available, the link could appear\n> > invalid.\n> >\n> > *5. CLI version*\n> >\n> > You mentioned \"latest\" — can you confirm the exact version? (claude\n> > --version) There have been cases where the /passes command generates\n> > links against a different environment. Updating to the absolute latest (npm\n> > update -g @anthropic-ai/claude-code) might help if you're on a slightly\n> > older build.\n> >\n> > *6. Reproduction test*\n> >\n> > Try opening the link yourself in an incognito window (where you're not\n> > logged into Claude). Does it show as invalid there too, or does it show a\n> > signup/redeem page? That would help distinguish between a link generation\n> > issue vs. a recipient-side issue.\n> >\n> > If you can share the error message the recipient sees (screenshot or exact\n> > text), that would help the team diagnose whether this is a link generation\n> > bug or a redemption/eligibility issue.\n> >\n> > —\n> > Reply to this email directly, view it on GitHub\n> >,\n> > or unsubscribe\n> > \n> > .\n> > You are receiving this because you authored the thread.Message ID:\n> > ***@***.***>\n> >\n\n**yurukusa** commented on 2026-03-16T04:19:13Z:\n\n> Thanks for the details. Version 2.1.76 is current, so that's not the issue.\n> \n> **On the consumed pass:**\n> \n> This sounds like a known behavior — when you press Enter on the `/passes` screen to copy the link, some users have reported it counts as \"claimed\" even if the link was never actually opened by another person. The link URL (`/referral/18tu0-9FlA`) is generated and marked as issued at copy time, not at redemption time.\n> \n> If the link then shows as \"expired\" when your friend opens it, there are two likely scenarios:\n> \n> 1. **Time-to-live expired** — Guest pass links have a limited validity window (typically hours, not days). If you copied the link and sent it later, it may have expired before your friend clicked it.\n> 2. **Single-use consumed at generation** — The pass may have been consumed when it was generated/copied. This would be a bug (pass should be consumed at redemption, not generation).\n> \n> **What to try:**\n> \n> - Generate a fresh pass with `/passes` right now, copy the link, and have your friend open it **immediately** (within minutes, not hours)\n> - Have your friend open it in an **incognito/private window** to avoid any session interference\n> - If this second pass also shows expired immediately, that points to a bug in the pass generation system rather than a timing issue\n> \n> **On tracking who used it:**\n> \n> Unfortunately, there's no way for you to see who redeemed a guest pass. Anthropic's team would need to check server-side logs. If you believe the pass was consumed without your knowledge, that's worth flagging to Anthropic support directly (support.anthropic.com) since it could indicate a security issue with the referral link system.\n\n**hyeonjinyoon** commented on 2026-03-16T07:55:13Z:\n\n> I have the same issue. I currently have 2 guest passes remaining, and they show as active in /passes in Claude Code, but when I open the URL, it shows as expired. There is no way to generate a new URL. Is this a recent issue?\n\n**yurukusa** commented on 2026-03-16T08:18:35Z:\n\n> @hyeonjinyoon Thanks for confirming — this makes it clearer that it's a systemic issue rather than an isolated case. Multiple users seeing active passes in `/passes` that resolve to expired URLs points to a server-side bug in the pass URL generation/validation pipeline.\n> \n> I'd recommend both of you file support tickets at support.anthropic.com referencing this issue number so the team can investigate the backend.\n\n- hyeonjinyoon mentioned\n\n- hyeonjinyoon subscribed\n\n**Charles5277** commented on 2026-03-16T10:43:07Z:\n\n> I have same problem. My passes also 2/3 remain.\n\n**hyeonjinyoon** commented on 2026-03-19T02:38:45Z:\n\n> It seems the issue has been resolved. the link is working properly now.\n\n- github-actions[bot] added label \"stale\"\n\n**github-actions[bot]** commented on 2026-04-17T10:32:48Z:\n\n> Closing for now — inactive for too long. Please open a new issue if this is still relevant.\n\n- github-actions[bot] closed\n\n**github-actions[bot]** commented on 2026-04-26T14:29:14Z:\n\n> This issue has been automatically locked since it was closed and has not had any activity for 7 days. If you're experiencing a similar issue, please file a new issue and reference this one if it's relevant.\n\n- github-actions[bot] locked\nWhen using `/passes` command in Claude Code, it shows 2 guest passes remaining and generates a referral link (`https://claude.ai/referral/...`), but the link appears to be invalid/not working when shared.\n...\n1. Run `/passes` in Claude Code CLI\n2. Dialog shows \"Guest passes · 2 left\"\n3. Copy the generated referral link\n4. Link does not work / shows as invalid\n...\nThe referral link should be valid and allow the recipient to redeem a free week of Claude Code.\n...\n> A few things to check that might help narrow this down:\n> \n> **1. Link format**\n> \n> Can you confirm the exact URL format you're getting? It should look like:\n> ```\n> https://claude.ai/referral/ \n> ```\n> If it's a different format or has extra characters (trailing whitespace, newline, etc.), that could cause it to show as invalid.\n> \n> **2. Link expiration**\n> \n> Guest pass links have a time limit. If there's a delay between generating the link with `/passes` and sharing it, the link may have expired. Try generating a fresh link and sharing it immediately.\n> \n> **3. Recipient eligibility**\n> \n> Guest passes are for new users who don't already have a Claude account. If the person you're sharing with already has a claude.ai account (even a free one), the link may show as invalid for them. Have them try opening it in an incognito/private browser window to rule out existing session cookies interfering.\n> \n> **4. Region restrictions**\n> \n> Some referral programs have geographic restrictions. If the recipient is in a region where Claude isn't fully available, the link could appear invalid.\n> \n> **5. CLI version**\n> \n> You mentioned \"latest\" — can you confirm the exact version? (`claude --version`) There have been cases where the `/passes` command generates links against a different environment. Updating to the absolute latest (`npm update -g @anthropic-ai/claude-code`) might help if you're on a slightly older build.\n> \n> **6. Reproduction test**\n> \n> Try opening the link yourself in an incognito window (where you're not logged into Claude). Does it show as invalid there too, or does it show a signup/redeem page? That would help distinguish between a link generation issue vs. a recipient-side issue.\n> \n> If you can share the error message the recipient sees (screenshot or exact text), that would help the team diagnose whether this is a link generation bug or a redemption/eligibility issue.\n...\n> ───────────────────────────────────────────────────────────────────────\n> Guest passes · 2 left\n> \n> ┌──────────┐ ┌──────────┐ ┌─────────╱\n> ) CC ✻ ┊ ( ) CC ✻ ┊ ( ) CC ✻ ┊╱\n> └──────────┘ └──────────┘ └───────╱\n> \n> https://claude.ai/referral/18tu0-9FlA\n> \n> Share a free week of Claude Code with friends. Terms apply.\n> \n> Enter to copy link · Esc to cancel\n> \n> 이거이고, 버전은 2.1.76 이에요\n> \n> 친구한테 주려고 하니까 만료되었다 라고 뜨고\n> \n> 전 이 링크를 공유한적이 없는데 티켓이 하나 뜯어져있어요\n> \n> 누가 썼는지 얘기좀 해주세요\n>\n...\n2026년 3월 16일 (월) AM 11:59, ... ***.***>\n...\n3481\n...\n> >\n...\n> Thanks for the details. Version 2.1.76 is current, so that's not the issue.\n> \n> **On the consumed pass:**\n> \n> This sounds like a known behavior — when you press Enter on the `/passes` screen to copy the link, some users have reported it counts as \"claimed\" even if the link was never actually opened by another person. The link URL (`/referral/18tu0-9FlA`) is generated and marked as issued at copy time, not at redemption time.\n> \n> If the link then shows as \"expired\" when your friend opens it, there are two likely scenarios:\n> \n> 1. **Time-to-live expired** — Guest pass links have a limited validity window (typically hours, not days). If you copied the link and sent it later, it may have expired before your friend clicked it.\n> 2. **Single-use consumed at generation** — The pass may have been consumed when it was generated/copied. This would be a bug (pass should be consumed at redemption, not generation).\n> \n> **What to try:**\n> \n> - Generate a fresh pass with `/passes` right now, copy the link, and have your friend open it **immediately** (within minutes, not hours)\n> - Have your friend open it in an **incognito/private window** to avoid any session interference\n> - If this second pass also shows expired immediately, that points to a bug in the pass generation system rather than a timing issue\n> \n> **On tracking who used it:**\n> \n> Unfortunately, there's no way for you to see who redeemed a guest pass. Anthropic's team would need to check server-side logs. If you believe the pass was consumed without your knowledge, that's worth flagging to Anthropic support directly (support.anthropic.com) since it could indicate a security issue with the referral link system.\n...\n> I have the same issue. I currently have 2 guest passes remaining, and they show as active in /passes in Claude Code, but when I open the URL, it shows as expired. There is no way to generate a new URL. Is this a recent issue?\n...\n> @hyeonjinyoon Thanks for confirming — this makes it clearer that it's a systemic issue rather than an isolated case. Multiple users seeing active passes in `/passes` that resolve to expired URLs points to a server-side bug in the pass URL generation/validation pipeline.\n> \n> I'd recommend both of you file support tickets at support.anthropic.com referencing this issue number so the team can investigate the backend.\n...\n> It seems the issue has been resolved. the link is working properly now.",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": null,
+      "timestamp_basis": "search_snippet_content",
+      "last_seen_at": "2026-10-06T09:45:45.437924Z"
     },
     {
       "referral_code": "D2HSScu9Pw",
@@ -1648,13 +1648,13 @@
       "source_url": "https://www.v2ex.com/t/1134700",
       "author": null,
       "published_at": null,
-      "discovered_at": "2026-10-06T06:30:00.009717Z",
+      "discovered_at": "2026-10-06T09:45:15.414368Z",
       "evidence_snippet": "<a href=\"https://claude.ai/referral/D2HSScu9Pw\" rel=\"nofollow noopener\" target=\"_blank\">https://claude.ai/referral/D2HSScu9Pw</a>",
       "status": "unknown",
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-10-06T06:30:06.292437Z"
+      "last_seen_at": "2026-10-06T09:45:45.454638Z"
     },
     {
       "referral_code": "yzD8vlwYJg",
@@ -1663,13 +1663,13 @@
       "source_url": "https://www.v2ex.com/t/1134700",
       "author": null,
       "published_at": null,
-      "discovered_at": "2026-10-06T06:30:00.009738Z",
+      "discovered_at": "2026-10-06T09:45:15.414368Z",
       "evidence_snippet": "<a href=\"https://claude.ai/referral/yzD8vlwYJg\" rel=\"nofollow noopener\" target=\"_blank\">https://claude.ai/referral/yzD8vlwYJg</a>",
       "status": "unknown",
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-10-06T06:30:06.293896Z"
+      "last_seen_at": "2026-10-06T09:45:45.471255Z"
     },
     {
       "referral_code": "4fDjpBvIBg",
@@ -1678,13 +1678,13 @@
       "source_url": "https://www.v2ex.com/t/1134700",
       "author": null,
       "published_at": null,
-      "discovered_at": "2026-10-06T06:30:00.009746Z",
+      "discovered_at": "2026-10-06T09:45:15.414368Z",
       "evidence_snippet": "<a href=\"https://claude.ai/referral/4fDjpBvIBg\" rel=\"nofollow noopener\" target=\"_blank\">https://claude.ai/referral/4fDjpBvIBg</a>",
       "status": "unknown",
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-10-06T06:30:06.295250Z"
+      "last_seen_at": "2026-10-06T09:45:45.485768Z"
     },
     {
       "referral_code": "Qg4DW6Bmdg",
@@ -1693,13 +1693,13 @@
       "source_url": "https://www.v2ex.com/t/1134700",
       "author": null,
       "published_at": null,
-      "discovered_at": "2026-10-06T06:30:00.009752Z",
+      "discovered_at": "2026-10-06T09:45:15.414368Z",
       "evidence_snippet": "<a href=\"https://claude.ai/referral/Qg4DW6Bmdg\" rel=\"nofollow noopener\" target=\"_blank\">https://claude.ai/referral/Qg4DW6Bmdg</a>",
       "status": "unknown",
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-10-06T06:30:06.296784Z"
+      "last_seen_at": "2026-10-06T09:45:45.499839Z"
     },
     {
       "referral_code": "4l-jDHjytA",
@@ -1708,13 +1708,13 @@
       "source_url": "https://discuss.pytorch.kr/t/3-claude-code-1-guest-pass/9037",
       "author": null,
       "published_at": null,
-      "discovered_at": "2026-10-06T06:30:02.641668Z",
+      "discovered_at": "2026-10-06T09:45:17.581119Z",
       "evidence_snippet": "<a href=\"https://claude.ai/referral/4l-jDHjytA\"><img alt=\"image\" data-base62-sha1=\"rISHiYht7TPs2zfIFRlhJOObZOM\" height=\"400\" src=\"https://discuss.pytorch.kr/uploads/default/original/2X/c/c24d83226beff83445d406dbaffa7ea83f3b3788.png\" width=\"1028\"/></a>",
       "status": "unknown",
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-10-06T06:30:06.298168Z"
+      "last_seen_at": "2026-10-06T09:45:45.517831Z"
     },
     {
       "referral_code": "oYaq12h4Zw",
@@ -1723,13 +1723,13 @@
       "source_url": "https://www.devproblems.com/claude-ai-guest-pass-referral/",
       "author": null,
       "published_at": null,
-      "discovered_at": "2026-10-06T06:30:04.208442Z",
+      "discovered_at": "2026-10-06T09:45:20.199006Z",
       "evidence_snippet": "<a class=\"button btn\" href=\"https://claude.ai/referral/oYaq12h4Zw\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">Claim Your Free Week of Claude →</a>",
       "status": "unknown",
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-10-06T06:30:06.299625Z"
+      "last_seen_at": "2026-10-06T09:45:45.533146Z"
     },
     {
       "referral_code": "uiL9c_Xwrj",
@@ -1744,7 +1744,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "exa_search_content_indexed; direct_web_content_observed",
-      "last_seen_at": "2026-10-06T06:30:06.301020Z"
+      "last_seen_at": "2026-10-06T09:45:45.553143Z"
     }
   ]
 }
