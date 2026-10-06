@@ -84,6 +84,19 @@ class WorkerRecoveryTests(unittest.TestCase):
         self.assertEqual(new_count2, 0)
         self.assertEqual(alerts_mock.dispatch.call_count, 1)  # Not called again
 
+    def test_sync_to_git_called_when_auto_push_enabled(self):
+        harvester = ContinuousHarvester(
+            storage=self.storage,
+            export_snapshot=os.path.join(self.temp_dir.name, "snap.json"),
+            auto_push=True
+        )
+        harvester.engine = Mock()
+        harvester.engine.sources = []
+        harvester.engine.discover.return_value = {'new_records': [], 'candidate_records': []}
+        with patch.object(harvester, "sync_to_git", return_value=True) as mock_sync:
+            harvester.harvest_cycle()
+            mock_sync.assert_called_once()
+
 
 if __name__ == '__main__':
     unittest.main()

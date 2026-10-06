@@ -179,16 +179,27 @@ class TelegramBotService:
 
             source_display = f'<a href="{html.escape(source_url)}">{html.escape(host or "Source Link")}</a>' if source_url else "Web"
 
+            discovered = _record_val(r, "discovered_at", "")
+            time_display = ""
+            if discovered:
+                try:
+                    from datetime import datetime
+                    dt_obj = datetime.fromisoformat(discovered.replace("Z", "+00:00"))
+                    time_display = f"   🕒 <i>Discovered:</i> {dt_obj.strftime('%b %d, %H:%M UTC')}\n"
+                except Exception:
+                    time_display = f"   🕒 <i>Discovered:</i> {discovered[:19]}\n"
+
             items.append(
                 f"<b>{idx}. Claude Pass:</b> <code>{html.escape(code)}</code>\n"
                 f"   👉 <a href=\"{html.escape(url)}\">Claim Guest Pass</a>\n"
+                f"{time_display}"
                 f"   🏷️ <i>Platform:</i> {html.escape(platform or 'Web')}\n"
                 f"   🌐 <i>Source:</i> {source_display}"
             )
 
         header = f"⚡ <b>Latest Claude Referral Passes ({len(links)}):</b>\n\n"
         footer = (
-            "\n\n<i>Tap a link above to redeem on Claude.ai!</i>\n"
+            "\n\n🔄 <i>Auto-updates every 20 minutes across 7 web sources.</i>\n"
             "💡 <i>Tip: Tap <b>🔍 Search Now</b> below to trigger an instant live search across the web.</i>"
         )
         full_text = header + "\n\n".join(items) + footer

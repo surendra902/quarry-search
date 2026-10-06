@@ -1,11 +1,12 @@
 @echo off
-title Quarry Claude Referral Pass Collector
+title Quarry Claude Referral Pass Harvester (20-Min Continuous Runner)
 echo ========================================================
-echo  Quarry Claude Referral Pass Harvester (24/7 Runner)
+echo  Quarry Claude Referral Pass Harvester (20-Min Continuous)
 echo ========================================================
 echo Active Sources: Exa, GitHub, Qiita, DEV.to, URLScan, Web Watchlist
-echo Check interval: 10 minutes (600 seconds)
-echo Telegram alerts: Configured to @suri8bot
+echo Check interval: 20 minutes (1200 seconds)
+echo Telegram alerts: Enabled to @suri8bot
+echo Auto-Sync: Commits and pushes to GitHub/Vercel on discovery
 echo ========================================================
-python run_harvester.py --interval 600
+python run_harvester.py --interval 1200 --auto-push
 pause
