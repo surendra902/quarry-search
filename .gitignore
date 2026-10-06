@@ -11,3 +11,4 @@ __pycache__/
 .audit/
 .pytest_cache/
 *.log
+.hermes/

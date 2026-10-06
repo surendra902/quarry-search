@@ -46,6 +46,12 @@ class QuarryEngine:
                     sources.append(ApifySource())
                 except ImportError:
                     pass
+            if os.environ.get('QUARRY_ENABLE_PAID_SOURCES') == '1' and os.environ.get('SERPAPI_API_KEY'):
+                try:
+                    from quarry.sources.serp_source import SerpSource
+                    sources.append(SerpSource(storage=self.storage))
+                except ImportError:
+                    pass
             if os.environ.get('QUARRY_WEB_SEARCH') == '1':
                 from quarry.sources.web_dork_source import WebDorkSource
                 sources.append(WebDorkSource())

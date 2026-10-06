@@ -48,9 +48,10 @@ class YieldPolicyTests(unittest.TestCase):
         self.assertIsNone(payload['collector']['last_heartbeat'])
     def test_paid_keys_do_not_implicitly_enable_paid_sources(self):
         with patch.dict(os.environ, {'EXA_API_KEY':'fixture', 'TAVILY_API_KEY':'fixture',
-                                    'APIFY_API_TOKEN':'fixture', 'QUARRY_ENABLE_PAID_SOURCES':'0'}):
+                                    'APIFY_API_TOKEN':'fixture', 'SERPAPI_API_KEY':'fixture',
+                                    'QUARRY_ENABLE_PAID_SOURCES':'0'}):
             names = [source.name for source in QuarryEngine(self.store).sources]
-        self.assertFalse({'exa','tavily','apify'} & set(names), names)
+        self.assertFalse({'exa','tavily','apify','serpapi'} & set(names), names)
     def test_scan_date_cannot_be_treated_as_post_publication(self):
         self.add('ScanOnly123', '2026-10-05T01:00:00Z', 'urlscan_submission_time')
         result = self.store.yield_summary(now=self.now)
