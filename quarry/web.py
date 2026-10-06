@@ -70,7 +70,8 @@ class QuarryHandler(BaseHTTPRequestHandler):
                 except Exception:
                     update_data = {}
                 from quarry.telegram_bot import TelegramBotService
-                bot = TelegramBotService(storage=engine.storage)
+                from quarry.storage import QuarryStorage
+                bot = TelegramBotService(storage=QuarryStorage())
                 handled = bot.handle_update(update_data)
                 self._send(200, {'ok': True, 'handled': handled})
                 return

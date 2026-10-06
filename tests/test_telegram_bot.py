@@ -109,6 +109,29 @@ class TelegramBotTests(unittest.TestCase):
             args, _ = mock_send.call_args
             self.assertIn("No referral links recorded", args[1])
 
+    def test_telegram_webhook_route_in_web_handler(self):
+        from quarry.web import QuarryHandler
+        payload = json.dumps({"update_id": 104, "message": {"chat": {"id": 12345}, "text": "/latest"}}).encode('utf-8')
+        mock_rfile = io.BytesIO(payload)
+        mock_wfile = io.BytesIO()
+
+        handler = QuarryHandler.__new__(QuarryHandler)
+        handler.rfile = mock_rfile
+        handler.wfile = mock_wfile
+        handler.path = "/api/telegram"
+        handler.command = "POST"
+        handler.requestline = "POST /api/telegram HTTP/1.1"
+        handler.request_version = "HTTP/1.1"
+        handler.headers = {"Content-Length": str(len(payload))}
+        handler.server = Mock()
+
+        with patch.object(TelegramBotService, "send_message", return_value=True):
+            handler._dispatch()
+
+        response_bytes = mock_wfile.getvalue()
+        self.assertIn(b"200 OK", response_bytes)
+        self.assertIn(b'"ok": true', response_bytes.lower())
+
 
 if __name__ == "__main__":
     unittest.main()
