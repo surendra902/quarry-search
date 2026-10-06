@@ -55,9 +55,24 @@ class QuarryHandler(BaseHTTPRequestHandler):
                 kind = 'text/javascript; charset=utf-8' if path == '/app.js' else 'text/html; charset=utf-8'
                 self._send(200, file.read_bytes(), kind)
                 return
-            routes = {'/api/links', '/api/lookup', '/api/discover', '/api/status', '/api/health'}
+            routes = {'/api/links', '/api/lookup', '/api/discover', '/api/status', '/api/health', '/api/telegram'}
             if path not in routes:
                 self._send(404, {'error': 'Not found.'})
+                return
+            if path == '/api/telegram':
+                if self.command != 'POST':
+                    self._send(405, {'error': 'Use POST for Telegram webhook updates.'})
+                    return
+                content_len = int(self.headers.get('Content-Length', 0))
+                raw_body = self.rfile.read(content_len) if content_len > 0 else b'{}'
+                try:
+                    update_data = json.loads(raw_body.decode('utf-8'))
+                except Exception:
+                    update_data = {}
+                from quarry.telegram_bot import TelegramBotService
+                bot = TelegramBotService(storage=engine.storage)
+                handled = bot.handle_update(update_data)
+                self._send(200, {'ok': True, 'handled': handled})
                 return
             expected = 'POST' if path == '/api/discover' else 'GET'
             if self.command != expected:
