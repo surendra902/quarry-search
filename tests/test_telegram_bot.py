@@ -62,7 +62,7 @@ class TelegramBotTests(unittest.TestCase):
 
     def test_handle_update_latest_command(self):
         with patch.object(self.bot, "send_message", return_value=True) as mock_send:
-            for text in ("/latest", "/latest@suri8bot", "latest", "⚡ Latest Links", "⚡ latest"):
+            for text in ("/latest", "/latest@suri8bot", "latest", "⚡ Latest Links", "⚡ latest", "⚡ Latest Feeds", "/feeds", "feeds"):
                 with self.subTest(text=text):
                     handled = self.bot.handle_update({
                         "update_id": 100,

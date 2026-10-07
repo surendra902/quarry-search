@@ -13,7 +13,7 @@ logger = logging.getLogger("quarry.telegram")
 
 REPLY_KEYBOARD = {
     "keyboard": [
-        [{"text": "⚡ Latest Links"}, {"text": "🔍 Search Now"}],
+        [{"text": "⚡ Latest Feeds"}, {"text": "🔍 Search Now"}],
         [{"text": "📊 Status"}, {"text": "🌐 Web Dashboard"}]
     ],
     "resize_keyboard": True,
@@ -98,8 +98,8 @@ class TelegramBotService:
         if "@" in cmd:
             cmd = cmd.split("@")[0]
 
-        # 1. /latest or "Latest" or "⚡ Latest Links"
-        if cmd.startswith("/latest") or "latest" in cmd:
+        # 1. /latest or /feeds or "Latest" or "⚡ Latest Feeds" or "⚡ Latest Links" or "feeds"
+        if cmd.startswith("/latest") or cmd.startswith("/feeds") or "latest" in cmd or "feed" in cmd or "link" in cmd:
             self._handle_latest(chat_id)
             return True
 
