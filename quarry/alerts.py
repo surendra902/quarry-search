@@ -65,12 +65,22 @@ class AlertDispatcher:
             f"⚡ <i>Discovered by Quarry 24/7 Harvester</i>"
         )
 
-    def send_telegram(self, message: str) -> bool:
+    def send_telegram(self, message: str, reply_markup: Optional[Dict[str, Any]] = None) -> bool:
         if not self.telegram_token:
             return False
         chat_ids = self.get_recipient_chat_ids()
         if not chat_ids:
             return False
+
+        if reply_markup is None:
+            reply_markup = {
+                "keyboard": [
+                    [{"text": "⚡ Latest Feeds"}, {"text": "🔍 Search Now"}],
+                    [{"text": "📊 Status"}, {"text": "🌐 Web Dashboard"}]
+                ],
+                "resize_keyboard": True,
+                "persistent": True
+            }
 
         any_success = False
         api_url = f"https://api.telegram.org/bot{self.telegram_token}/sendMessage"
@@ -80,7 +90,8 @@ class AlertDispatcher:
                     "chat_id": cid,
                     "text": message,
                     "parse_mode": "HTML",
-                    "disable_web_page_preview": False
+                    "disable_web_page_preview": False,
+                    "reply_markup": reply_markup
                 }
                 resp = requests.post(api_url, json=payload, timeout=8)
                 if resp.status_code == 200:

@@ -13,7 +13,7 @@ from quarry.extractors import extract_referral_codes, is_excluded_source
 from quarry.models import ReferralRecord, utc_now
 
 logger = logging.getLogger("quarry.search_discovery")
-DEFAULT_UA = "QuarrySearch/1.0 (+https://github.com/surendra902/quarry-search)"
+DEFAULT_UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 
 
 def _default_http_fetch(url: str, timeout: int = 5) -> Optional[Dict[str, Any]]:

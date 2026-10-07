@@ -85,22 +85,22 @@ class ExaSource(BaseSource):
             return self._finish([], limit)
 
         query_pools = [
-            # Pool 0: Direct referral links & guest passes across web
+            # Pool 0: Fresh direct referral links & top developer communities
             [
-                "claude.ai/referral guest pass",
-                "Here is my Claude referral link https://claude.ai/referral/",
-                "claude referral code guest pass free pro"
+                "free week of claude pro guest pass claude.ai/referral",
+                "site:nodeseek.com claude.ai/referral",
+                "site:v2ex.com claude.ai/referral"
             ],
-            # Pool 1: Technical blogs, newsletters, and publications
+            # Pool 1: Technical blogs, publications, and forum links
             [
-                "claude.ai/referral site:medium.com OR site:dev.to OR site:qiita.com OR site:zenn.dev",
-                "site:substack.com OR site:hashnode.dev claude referral link",
-                "Claude Code passes https://claude.ai/referral/"
+                "site:linux.do claude.ai/referral",
+                "claude pro guest pass referral code 2026",
+                "claude.ai/referral site:medium.com OR site:dev.to OR site:qiita.com OR site:zenn.dev"
             ],
-            # Pool 2: Developer communities, web directories, and forums
+            # Pool 2: Developer communities, web directories, and guides
             [
-                '"claude.ai/referral" site:reddit.com OR site:github.com',
-                "claude referral pass link site:toolspine.com OR site:thekodelab.com OR site:opentherank.com",
+                "claude code cowork guest pass referral",
+                "claude referral pass link site:toolspine.com OR site:laosji.net",
                 "Claude 招待コード OR クロード 招待リンク site:qiita.com OR site:zenn.dev"
             ]
         ]

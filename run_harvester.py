@@ -31,7 +31,7 @@ def main():
             for line in env.read_text(encoding='utf-8').splitlines():
                 if line.strip() and not line.lstrip().startswith('#') and '=' in line:
                     key, value = line.split('=', 1)
-                    os.environ.setdefault(key.strip(), value.strip().strip('"\''))
+                    os.environ[key.strip()] = value.strip().strip('"\'')
     logging.basicConfig(level=logging.INFO, format='%(levelname)s %(name)s: %(message)s')
     path = args.db or ('.audit/dry-run.db' if args.dry_run else os.environ.get('QUARRY_DB_PATH', 'quarry.db'))
     export = args.export_snapshot or ('.audit/dry-run-snapshot.json' if args.dry_run else 'data/snapshot.json')
