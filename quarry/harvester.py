@@ -20,13 +20,14 @@ class QuietAlerts:
 
 class ContinuousHarvester:
     def __init__(self, storage=None, alerts=None, interval_seconds=1200, export_snapshot=None,
-                 notifications_enabled=True, auto_push=False):
+                 notifications_enabled=True, auto_push=False, notify_heartbeat=False):
         self.storage = storage if storage is not None else QuarryStorage()
         self.notifications_enabled = notifications_enabled
         self.alerts = (alerts if alerts is not None else AlertDispatcher(storage=self.storage)) if notifications_enabled else QuietAlerts()
         self.interval = max(10, interval_seconds)
         self.export_path = export_snapshot
         self.auto_push = auto_push
+        self.notify_heartbeat = notify_heartbeat
         self.running = False
         self.cycle_count = 0
         self.total_new_found = 0
@@ -126,6 +127,15 @@ class ContinuousHarvester:
                 self.alerts.dispatch(record)
         self.total_new_found += len(new_codes)
         self.update_heartbeat('running' if self.running else 'completed')
+        if self.notifications_enabled and (self.notify_heartbeat or (self.cycle_count == 1 and not os.environ.get('QUARRY_SUPPRESS_STARTUP_ALERT'))):
+            if hasattr(self.alerts, 'dispatch_heartbeat'):
+                sources = [source.name for source in self.engine.sources]
+                self.alerts.dispatch_heartbeat(
+                    cycle_num=self.cycle_count,
+                    total_links=self.storage.count(),
+                    new_found=len(new_codes),
+                    sources=sources
+                )
         # Checkpoints and measurement state must survive fresh scheduled runners,
         # even when this cycle discovers no new code.
         if self.export_path:

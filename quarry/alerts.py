@@ -141,3 +141,20 @@ class AlertDispatcher:
             results["discord"] = self.send_discord(record)
 
         return results
+
+    def dispatch_heartbeat(self, cycle_num: int, total_links: int, new_found: int, sources: Optional[list] = None) -> bool:
+        """Send a periodic heartbeat / activity status notification to Telegram."""
+        if not self.telegram_token or not self.get_recipient_chat_ids():
+            return False
+        source_names = ", ".join(sources) if sources else "7 web sources"
+        msg = (
+            f"🟢 <b>Quarry 20-Min Harvester Active (Cycle #{cycle_num})</b>\n\n"
+            f"• <b>Status:</b> Scanning web sources every 20 minutes\n"
+            f"• <b>Active Sources:</b> {source_names}\n"
+            f"• <b>Database:</b> {total_links} unique referral codes tracked\n"
+            f"• <b>New Passes in This Sweep:</b> {new_found}\n\n"
+            f"⚡ <i>Whenever a new pass is published online, you will receive an instant alert here!</i>\n"
+            f"💡 <i>Tip: Send /latest or /search anytime to inspect passes on demand.</i>"
+        )
+        return self.send_telegram(msg)
+

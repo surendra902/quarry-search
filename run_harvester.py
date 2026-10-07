@@ -18,6 +18,7 @@ def main():
     parser.add_argument('--oneshot', action='store_true')
     parser.add_argument('--dry-run', action='store_true', help='One isolated cycle, no .env, bot polling or notifications')
     parser.add_argument('--auto-push', action='store_true', help='Auto-commit and git push snapshot on discovery / checkpoint')
+    parser.add_argument('--heartbeat', action='store_true', help='Dispatch periodic status heartbeat notification to Telegram')
     parser.add_argument('--no-env', action='store_true')
     parser.add_argument('--db')
     parser.add_argument('--export-snapshot')
@@ -39,7 +40,8 @@ def main():
     alerts = None if args.dry_run else AlertDispatcher(telegram_token=args.telegram_token,
         telegram_chat_id=args.telegram_chat, discord_webhook_url=args.discord_webhook, storage=store)
     harvester = ContinuousHarvester(store, alerts=alerts, interval_seconds=args.interval,
-        export_snapshot=export, notifications_enabled=not args.dry_run, auto_push=args.auto_push)
+        export_snapshot=export, notifications_enabled=not args.dry_run, auto_push=args.auto_push,
+        notify_heartbeat=args.heartbeat)
     if args.oneshot or args.dry_run:
         count = harvester.harvest_cycle()
         print(json.dumps({'new_to_history': count, 'dry_run': args.dry_run,
