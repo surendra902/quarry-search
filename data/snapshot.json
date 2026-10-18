@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-17T23:44:24.758676Z",
+  "generated_at": "2026-10-18T02:39:58.780466Z",
   "collector": {
     "status": "completed",
     "configured": true,
-    "last_heartbeat": "2026-10-17T23:44:24.362373Z",
+    "last_heartbeat": "2026-10-18T02:39:58.412061Z",
     "mode": "scheduled",
     "cycles_completed": 1,
     "new_links_session": 0,
@@ -13,9 +13,9 @@
     "alerts_configured": true,
     "daily_yield": {
       "timezone": "UTC",
-      "as_of": "2026-10-17T23:44:24.364238Z",
+      "as_of": "2026-10-18T02:39:58.414081Z",
       "today": {
-        "date": "2026-10-17",
+        "date": "2026-10-18",
         "first_observed_unique": 0,
         "recent_dated_candidates": 0,
         "historical_dated": 0,
@@ -23,6 +23,14 @@
         "unverified_candidates": 0
       },
       "days": [
+        {
+          "date": "2026-10-18",
+          "first_observed_unique": 0,
+          "recent_dated_candidates": 0,
+          "historical_dated": 0,
+          "unknown_publication": 0,
+          "unverified_candidates": 0
+        },
         {
           "date": "2026-10-17",
           "first_observed_unique": 0,
@@ -78,14 +86,6 @@
           "historical_dated": 0,
           "unknown_publication": 2,
           "unverified_candidates": 0
-        },
-        {
-          "date": "2026-10-10",
-          "first_observed_unique": 3,
-          "recent_dated_candidates": 1,
-          "historical_dated": 0,
-          "unknown_publication": 2,
-          "unverified_candidates": 0
         }
       ],
       "target_daily_min": 30,
@@ -98,9 +98,9 @@
   },
   "daily_yield": {
     "timezone": "UTC",
-    "as_of": "2026-10-17T23:44:24.760004Z",
+    "as_of": "2026-10-18T02:39:58.782053Z",
     "today": {
-      "date": "2026-10-17",
+      "date": "2026-10-18",
       "first_observed_unique": 0,
       "recent_dated_candidates": 0,
       "historical_dated": 0,
@@ -108,6 +108,14 @@
       "unverified_candidates": 0
     },
     "days": [
+      {
+        "date": "2026-10-18",
+        "first_observed_unique": 0,
+        "recent_dated_candidates": 0,
+        "historical_dated": 0,
+        "unknown_publication": 0,
+        "unverified_candidates": 0
+      },
       {
         "date": "2026-10-17",
         "first_observed_unique": 0,
@@ -163,14 +171,6 @@
         "historical_dated": 0,
         "unknown_publication": 2,
         "unverified_candidates": 0
-      },
-      {
-        "date": "2026-10-10",
-        "first_observed_unique": 3,
-        "recent_dated_candidates": 1,
-        "historical_dated": 0,
-        "unknown_publication": 2,
-        "unverified_candidates": 0
       }
     ],
     "target_daily_min": 30,
@@ -182,7 +182,7 @@
   },
   "source_state": {
     "measurement_started_at": "2026-10-06T06:18:39.411631Z",
-    "public_web_cursor": 3
+    "public_web_cursor": 7
   },
   "notifications": "telegram_configured",
   "records": [
@@ -817,81 +817,6 @@
       "last_seen_at": "2026-10-17T14:25:14.728607Z"
     },
     {
-      "referral_code": "D2HSScu9Pw",
-      "url": "https://claude.ai/referral/D2HSScu9Pw",
-      "platform": "Web (www.v2ex.com)",
-      "source_url": "https://www.v2ex.com/t/1134700",
-      "author": null,
-      "published_at": null,
-      "discovered_at": "2026-10-06T09:45:15.414368Z",
-      "evidence_snippet": "<a href=\"https://claude.ai/referral/D2HSScu9Pw\" rel=\"nofollow noopener\" target=\"_blank\">https://claude.ai/referral/D2HSScu9Pw</a>",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": null,
-      "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-10-17T19:42:12.489610Z"
-    },
-    {
-      "referral_code": "yzD8vlwYJg",
-      "url": "https://claude.ai/referral/yzD8vlwYJg",
-      "platform": "Web (www.v2ex.com)",
-      "source_url": "https://www.v2ex.com/t/1134700",
-      "author": null,
-      "published_at": "2025-05-27T09:29:25Z",
-      "discovered_at": "2026-10-06T09:45:15.414368Z",
-      "evidence_snippet": "免费获取 4 个月的 claude AI Max - V2EX\n\n# 免费获取 4 个月的 claude AI Max\n\ncoolservices · May 27, 2025 · 4281 views\n\n5 replies • 2025-05-31 13:49:34 +08:00\n\n| | 1 Krylo May 27, 2025 接力 https://claude.ai/referral/yzD8vlwYJg |\n| --- | --- |\n\n| | 2 kebamt May 27, 2025 via iPad 能不能不要发创造栏目下 |\n| --- | --- |\n\n| | 3 coolservices OP May 28, 2025 #2 好的 活动还在继续 |\n| --- | --- |\n\n| | 5 lishuhang May 31, 2025 via Android https://claude.ai/referral/Qg4DW6Bmdg |\n| --- | --- |\n免费获取 4 个月的 claude AI Max - V2EX\n\n# 免费获取 4 个月的 claude AI Max\n...\n| | 1 Krylo May 27, 2025 接力 https://claude.ai/referral/yzD8vlwYJg |\n| --- | --- |\n...\n| | 5 lishuhang May 31, 2025 via Android https://claude.ai/referral/Qg4DW6Bmdg |\n| --- | --- |",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": null,
-      "timestamp_basis": "search_snippet_content",
-      "last_seen_at": "2026-10-17T19:42:12.490778Z"
-    },
-    {
-      "referral_code": "4fDjpBvIBg",
-      "url": "https://claude.ai/referral/4fDjpBvIBg",
-      "platform": "Web (www.v2ex.com)",
-      "source_url": "https://www.v2ex.com/t/1134700",
-      "author": null,
-      "published_at": null,
-      "discovered_at": "2026-10-06T09:45:15.414368Z",
-      "evidence_snippet": "<a href=\"https://claude.ai/referral/4fDjpBvIBg\" rel=\"nofollow noopener\" target=\"_blank\">https://claude.ai/referral/4fDjpBvIBg</a>",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": null,
-      "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-10-17T19:42:12.491937Z"
-    },
-    {
-      "referral_code": "Qg4DW6Bmdg",
-      "url": "https://claude.ai/referral/Qg4DW6Bmdg",
-      "platform": "Web (www.v2ex.com)",
-      "source_url": "https://www.v2ex.com/t/1134700",
-      "author": null,
-      "published_at": "2025-05-27T09:29:25Z",
-      "discovered_at": "2026-10-06T09:45:15.414368Z",
-      "evidence_snippet": "免费获取 4 个月的 claude AI Max - V2EX\n\n# 免费获取 4 个月的 claude AI Max\n\ncoolservices · May 27, 2025 · 4281 views\n\n5 replies • 2025-05-31 13:49:34 +08:00\n\n| | 1 Krylo May 27, 2025 接力 https://claude.ai/referral/yzD8vlwYJg |\n| --- | --- |\n\n| | 2 kebamt May 27, 2025 via iPad 能不能不要发创造栏目下 |\n| --- | --- |\n\n| | 3 coolservices OP May 28, 2025 #2 好的 活动还在继续 |\n| --- | --- |\n\n| | 5 lishuhang May 31, 2025 via Android https://claude.ai/referral/Qg4DW6Bmdg |\n| --- | --- |\n免费获取 4 个月的 claude AI Max - V2EX\n\n# 免费获取 4 个月的 claude AI Max\n...\n| | 1 Krylo May 27, 2025 接力 https://claude.ai/referral/yzD8vlwYJg |\n| --- | --- |\n...\n| | 5 lishuhang May 31, 2025 via Android https://claude.ai/referral/Qg4DW6Bmdg |\n| --- | --- |",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": null,
-      "timestamp_basis": "search_snippet_content",
-      "last_seen_at": "2026-10-17T19:42:12.493099Z"
-    },
-    {
-      "referral_code": "4l-jDHjytA",
-      "url": "https://claude.ai/referral/4l-jDHjytA",
-      "platform": "Web (discuss.pytorch.kr)",
-      "source_url": "https://discuss.pytorch.kr/t/3-claude-code-1-guest-pass/9037",
-      "author": null,
-      "published_at": null,
-      "discovered_at": "2026-10-06T09:45:17.581119Z",
-      "evidence_snippet": "<a href=\"https://claude.ai/referral/4l-jDHjytA\"><img alt=\"image\" data-base62-sha1=\"rISHiYht7TPs2zfIFRlhJOObZOM\" height=\"400\" src=\"https://discuss.pytorch.kr/uploads/default/original/2X/c/c24d83226beff83445d406dbaffa7ea83f3b3788.png\" width=\"1028\"/></a>",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": null,
-      "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-10-17T19:42:12.494409Z"
-    },
-    {
       "referral_code": "uiL9c_Xwrj",
       "url": "https://claude.ai/referral/uiL9c_Xwrj",
       "platform": "Web (www.zhaojian.net)",
@@ -905,21 +830,6 @@
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
       "last_seen_at": "2026-10-17T19:42:12.495574Z"
-    },
-    {
-      "referral_code": "oYaq12h4Zw",
-      "url": "https://claude.ai/referral/oYaq12h4Zw",
-      "platform": "Web (www.devproblems.com)",
-      "source_url": "https://www.devproblems.com/claude-ai-guest-pass-referral/",
-      "author": null,
-      "published_at": null,
-      "discovered_at": "2026-10-06T09:45:20.199006Z",
-      "evidence_snippet": "<a class=\"button btn\" href=\"https://claude.ai/referral/oYaq12h4Zw\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">Claim Your Free Week of Claude →</a>",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": null,
-      "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-10-17T21:56:30.381597Z"
     },
     {
       "referral_code": "uiL9c_Xwrj",
@@ -952,6 +862,21 @@
       "last_seen_at": "2026-10-17T21:56:30.384565Z"
     },
     {
+      "referral_code": "c2nHVSzW4g",
+      "url": "https://claude.ai/referral/c2nHVSzW4g",
+      "platform": "Web (jtechforums.org)",
+      "source_url": "https://jtechforums.org/t/claude-code-free-week-giveaway/9011/5",
+      "author": null,
+      "published_at": null,
+      "discovered_at": "2026-10-06T10:05:32.220301Z",
+      "evidence_snippet": "<a href=\"https://claude.ai/referral/c2nHVSzW4g\" rel=\"noopener\" target=\"_blank\">Join Claude!</a>",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": null,
+      "timestamp_basis": "web_page_observed_now; publication_time_unknown",
+      "last_seen_at": "2026-10-17T23:44:24.342044Z"
+    },
+    {
       "referral_code": "m5Ak2Sa7aQ",
       "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
       "platform": "GitHub (Issue/PR)",
@@ -964,7 +889,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-14T20:30:47Z",
       "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-10-17T23:44:24.103733Z"
+      "last_seen_at": "2026-10-18T02:39:58.164251Z"
     },
     {
       "referral_code": "m5Ak2Sa7aQ",
@@ -979,7 +904,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-14T08:14:46Z",
       "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-10-17T23:44:24.105493Z"
+      "last_seen_at": "2026-10-18T02:39:58.166282Z"
     },
     {
       "referral_code": "m5Ak2Sa7aQ",
@@ -994,7 +919,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-14T08:06:37Z",
       "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-10-17T23:44:24.106863Z"
+      "last_seen_at": "2026-10-18T02:39:58.167726Z"
     },
     {
       "referral_code": "m5Ak2Sa7aQ",
@@ -1009,7 +934,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-14T20:21:02Z",
       "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-10-17T23:44:24.108206Z"
+      "last_seen_at": "2026-10-18T02:39:58.169157Z"
     },
     {
       "referral_code": "m5Ak2Sa7aQ",
@@ -1024,7 +949,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-13T22:01:25Z",
       "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-10-17T23:44:24.109497Z"
+      "last_seen_at": "2026-10-18T02:39:58.172160Z"
     },
     {
       "referral_code": "m5Ak2Sa7aQ",
@@ -1039,7 +964,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-13T21:53:32Z",
       "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-10-17T23:44:24.110849Z"
+      "last_seen_at": "2026-10-18T02:39:58.173626Z"
     },
     {
       "referral_code": "m5Ak2Sa7aQ",
@@ -1054,7 +979,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-13T21:14:06Z",
       "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-10-17T23:44:24.112215Z"
+      "last_seen_at": "2026-10-18T02:39:58.175044Z"
     },
     {
       "referral_code": "m5Ak2Sa7aQ",
@@ -1069,7 +994,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-13T21:03:54Z",
       "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-10-17T23:44:24.113485Z"
+      "last_seen_at": "2026-10-18T02:39:58.176456Z"
     },
     {
       "referral_code": "m5Ak2Sa7aQ",
@@ -1084,7 +1009,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-13T20:40:04Z",
       "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-10-17T23:44:24.115016Z"
+      "last_seen_at": "2026-10-18T02:39:58.177831Z"
     },
     {
       "referral_code": "m5Ak2Sa7aQ",
@@ -1099,7 +1024,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-13T20:33:48Z",
       "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-10-17T23:44:24.116570Z"
+      "last_seen_at": "2026-10-18T02:39:58.179380Z"
     },
     {
       "referral_code": "m5Ak2Sa7aQ",
@@ -1114,7 +1039,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-13T20:17:40Z",
       "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-10-17T23:44:24.117981Z"
+      "last_seen_at": "2026-10-18T02:39:58.180921Z"
     },
     {
       "referral_code": "m5Ak2Sa7aQ",
@@ -1129,7 +1054,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-13T20:09:22Z",
       "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-10-17T23:44:24.119348Z"
+      "last_seen_at": "2026-10-18T02:39:58.182328Z"
     },
     {
       "referral_code": "m5Ak2Sa7aQ",
@@ -1144,7 +1069,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-13T17:41:22Z",
       "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-10-17T23:44:24.120691Z"
+      "last_seen_at": "2026-10-18T02:39:58.183779Z"
     },
     {
       "referral_code": "m5Ak2Sa7aQ",
@@ -1159,7 +1084,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-13T17:33:15Z",
       "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-10-17T23:44:24.142340Z"
+      "last_seen_at": "2026-10-18T02:39:58.185155Z"
     },
     {
       "referral_code": "m5Ak2Sa7aQ",
@@ -1174,7 +1099,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-13T11:41:17Z",
       "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-10-17T23:44:24.143666Z"
+      "last_seen_at": "2026-10-18T02:39:58.186547Z"
     },
     {
       "referral_code": "m5Ak2Sa7aQ",
@@ -1189,7 +1114,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-13T11:33:30Z",
       "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-10-17T23:44:24.145034Z"
+      "last_seen_at": "2026-10-18T02:39:58.187934Z"
     },
     {
       "referral_code": "m5Ak2Sa7aQ",
@@ -1204,7 +1129,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-13T11:00:10Z",
       "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-10-17T23:44:24.146265Z"
+      "last_seen_at": "2026-10-18T02:39:58.189220Z"
     },
     {
       "referral_code": "m5Ak2Sa7aQ",
@@ -1219,7 +1144,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-13T11:26:41Z",
       "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-10-17T23:44:24.147538Z"
+      "last_seen_at": "2026-10-18T02:39:58.190599Z"
     },
     {
       "referral_code": "m5Ak2Sa7aQ",
@@ -1234,7 +1159,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-13T10:55:08Z",
       "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-10-17T23:44:24.148957Z"
+      "last_seen_at": "2026-10-18T02:39:58.191959Z"
     },
     {
       "referral_code": "m5Ak2Sa7aQ",
@@ -1249,7 +1174,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-13T10:46:02Z",
       "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-10-17T23:44:24.150261Z"
+      "last_seen_at": "2026-10-18T02:39:58.193254Z"
     },
     {
       "referral_code": "m5Ak2Sa7aQ",
@@ -1264,7 +1189,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-13T10:41:36Z",
       "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-10-17T23:44:24.151537Z"
+      "last_seen_at": "2026-10-18T02:39:58.194576Z"
     },
     {
       "referral_code": "m5Ak2Sa7aQ",
@@ -1279,7 +1204,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-13T10:29:40Z",
       "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-10-17T23:44:24.152746Z"
+      "last_seen_at": "2026-10-18T02:39:58.195876Z"
     },
     {
       "referral_code": "m5Ak2Sa7aQ",
@@ -1294,7 +1219,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-12T21:18:50Z",
       "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-10-17T23:44:24.154063Z"
+      "last_seen_at": "2026-10-18T02:39:58.197382Z"
     },
     {
       "referral_code": "m5Ak2Sa7aQ",
@@ -1309,7 +1234,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-12T20:09:54Z",
       "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-10-17T23:44:24.155379Z"
+      "last_seen_at": "2026-10-18T02:39:58.198742Z"
     },
     {
       "referral_code": "m5Ak2Sa7aQ",
@@ -1324,7 +1249,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-17T23:44:24.156582Z"
+      "last_seen_at": "2026-10-18T02:39:58.200195Z"
     },
     {
       "referral_code": "m5Ak2Sa7aQ",
@@ -1339,7 +1264,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-17T23:44:24.157927Z"
+      "last_seen_at": "2026-10-18T02:39:58.201602Z"
     },
     {
       "referral_code": "m5Ak2Sa7aQ",
@@ -1354,7 +1279,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-17T23:44:24.159142Z"
+      "last_seen_at": "2026-10-18T02:39:58.202906Z"
     },
     {
       "referral_code": "m5Ak2Sa7aQ",
@@ -1369,7 +1294,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-17T23:44:24.160420Z"
+      "last_seen_at": "2026-10-18T02:39:58.204265Z"
     },
     {
       "referral_code": "m5Ak2Sa7aQ",
@@ -1384,7 +1309,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-17T23:44:24.161639Z"
+      "last_seen_at": "2026-10-18T02:39:58.205601Z"
     },
     {
       "referral_code": "b9Segx2cZA",
@@ -1399,7 +1324,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-17T23:44:24.162936Z"
+      "last_seen_at": "2026-10-18T02:39:58.206999Z"
     },
     {
       "referral_code": "SE-Jaa--ig",
@@ -1414,7 +1339,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-17T23:44:24.164248Z"
+      "last_seen_at": "2026-10-18T02:39:58.208332Z"
     },
     {
       "referral_code": "8U0OiPj7Dg",
@@ -1429,7 +1354,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-17T23:44:24.165444Z"
+      "last_seen_at": "2026-10-18T02:39:58.209719Z"
     },
     {
       "referral_code": "hWvMMltr7Q",
@@ -1444,7 +1369,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-17T23:44:24.166846Z"
+      "last_seen_at": "2026-10-18T02:39:58.211157Z"
     },
     {
       "referral_code": "b9Segx2cZA",
@@ -1459,7 +1384,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-17T23:44:24.168135Z"
+      "last_seen_at": "2026-10-18T02:39:58.212509Z"
     },
     {
       "referral_code": "b9Segx2cZA",
@@ -1474,7 +1399,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-17T23:44:24.169320Z"
+      "last_seen_at": "2026-10-18T02:39:58.233772Z"
     },
     {
       "referral_code": "u4UoldU5jA",
@@ -1489,7 +1414,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-17T23:44:24.170562Z"
+      "last_seen_at": "2026-10-18T02:39:58.235260Z"
     },
     {
       "referral_code": "b9Segx2cZA",
@@ -1504,7 +1429,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-17T23:44:24.171941Z"
+      "last_seen_at": "2026-10-18T02:39:58.236596Z"
     },
     {
       "referral_code": "b9Segx2cZA",
@@ -1519,7 +1444,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-17T23:44:24.173337Z"
+      "last_seen_at": "2026-10-18T02:39:58.237970Z"
     },
     {
       "referral_code": "b9Segx2cZA",
@@ -1534,7 +1459,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-17T23:44:24.174659Z"
+      "last_seen_at": "2026-10-18T02:39:58.239371Z"
     },
     {
       "referral_code": "b9Segx2cZA",
@@ -1549,7 +1474,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-10-17T23:44:24.175915Z"
+      "last_seen_at": "2026-10-18T02:39:58.240738Z"
     },
     {
       "referral_code": "pIpeQjEpEw",
@@ -1564,7 +1489,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "hn_item_created_time; content_observed_now; edit_time_unavailable",
-      "last_seen_at": "2026-10-17T23:44:24.177190Z"
+      "last_seen_at": "2026-10-18T02:39:58.242164Z"
     },
     {
       "referral_code": "YWAsr_1fbA",
@@ -1579,7 +1504,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "hn_item_created_time; content_observed_now; edit_time_unavailable",
-      "last_seen_at": "2026-10-17T23:44:24.178495Z"
+      "last_seen_at": "2026-10-18T02:39:58.243503Z"
     },
     {
       "referral_code": "TzCf-j4HSA",
@@ -1594,7 +1519,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.179756Z"
+      "last_seen_at": "2026-10-18T02:39:58.244824Z"
     },
     {
       "referral_code": "rOkK0QDOZQ",
@@ -1609,7 +1534,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.180998Z"
+      "last_seen_at": "2026-10-18T02:39:58.246210Z"
     },
     {
       "referral_code": "Ba_IXBBbXw",
@@ -1624,7 +1549,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.182398Z"
+      "last_seen_at": "2026-10-18T02:39:58.247557Z"
     },
     {
       "referral_code": "5kN3vkwg7w",
@@ -1639,7 +1564,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.183625Z"
+      "last_seen_at": "2026-10-18T02:39:58.248908Z"
     },
     {
       "referral_code": "ihaveCPonmycomputer",
@@ -1654,7 +1579,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.185056Z"
+      "last_seen_at": "2026-10-18T02:39:58.250350Z"
     },
     {
       "referral_code": "niggerfood",
@@ -1669,7 +1594,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.186431Z"
+      "last_seen_at": "2026-10-18T02:39:58.251756Z"
     },
     {
       "referral_code": "sexitits",
@@ -1684,7 +1609,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.187733Z"
+      "last_seen_at": "2026-10-18T02:39:58.253173Z"
     },
     {
       "referral_code": "gulsadnm",
@@ -1699,7 +1624,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.189114Z"
+      "last_seen_at": "2026-10-18T02:39:58.254509Z"
     },
     {
       "referral_code": "ug5Hlms",
@@ -1714,7 +1639,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.190405Z"
+      "last_seen_at": "2026-10-18T02:39:58.255789Z"
     },
     {
       "referral_code": "wopwopnigga",
@@ -1729,7 +1654,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.191783Z"
+      "last_seen_at": "2026-10-18T02:39:58.257215Z"
     },
     {
       "referral_code": "sdf5PFocdaE",
@@ -1744,7 +1669,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.193020Z"
+      "last_seen_at": "2026-10-18T02:39:58.258510Z"
     },
     {
       "referral_code": "gm1LYCDKBw",
@@ -1759,7 +1684,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.194289Z"
+      "last_seen_at": "2026-10-18T02:39:58.259833Z"
     },
     {
       "referral_code": "4GDH3",
@@ -1774,7 +1699,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.195634Z"
+      "last_seen_at": "2026-10-18T02:39:58.261315Z"
     },
     {
       "referral_code": "PXRguDxCdA",
@@ -1789,7 +1714,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.196917Z"
+      "last_seen_at": "2026-10-18T02:39:58.262626Z"
     },
     {
       "referral_code": "PXRAuDxCdA",
@@ -1804,7 +1729,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.198234Z"
+      "last_seen_at": "2026-10-18T02:39:58.263985Z"
     },
     {
       "referral_code": "Lh8JFw71cQ",
@@ -1819,7 +1744,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.199462Z"
+      "last_seen_at": "2026-10-18T02:39:58.265287Z"
     },
     {
       "referral_code": "1ZyUtTMzJg",
@@ -1834,7 +1759,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.200739Z"
+      "last_seen_at": "2026-10-18T02:39:58.266696Z"
     },
     {
       "referral_code": "zRf18dzbXg",
@@ -1849,7 +1774,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.202006Z"
+      "last_seen_at": "2026-10-18T02:39:58.268070Z"
     },
     {
       "referral_code": "fQNl4qxe8w",
@@ -1864,7 +1789,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.203194Z"
+      "last_seen_at": "2026-10-18T02:39:58.269425Z"
     },
     {
       "referral_code": "CxsL80A00A",
@@ -1879,7 +1804,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.207024Z"
+      "last_seen_at": "2026-10-18T02:39:58.270807Z"
     },
     {
       "referral_code": "D9bPRoRw4Q",
@@ -1894,7 +1819,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.210440Z"
+      "last_seen_at": "2026-10-18T02:39:58.272091Z"
     },
     {
       "referral_code": "dP-MvwdAVs",
@@ -1909,7 +1834,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.211680Z"
+      "last_seen_at": "2026-10-18T02:39:58.273340Z"
     },
     {
       "referral_code": "dP-MvwdAVw",
@@ -1924,7 +1849,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.212895Z"
+      "last_seen_at": "2026-10-18T02:39:58.274797Z"
     },
     {
       "referral_code": "ufnFYAokWA",
@@ -1939,7 +1864,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.214185Z"
+      "last_seen_at": "2026-10-18T02:39:58.276314Z"
     },
     {
       "referral_code": "PBtwBMB-Kg",
@@ -1954,7 +1879,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.215372Z"
+      "last_seen_at": "2026-10-18T02:39:58.277670Z"
     },
     {
       "referral_code": "pdRrGZtQdw",
@@ -1969,7 +1894,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.216636Z"
+      "last_seen_at": "2026-10-18T02:39:58.278987Z"
     },
     {
       "referral_code": "z1fkmO5Efw",
@@ -1984,7 +1909,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.217913Z"
+      "last_seen_at": "2026-10-18T02:39:58.280407Z"
     },
     {
       "referral_code": "9izzHjef7w",
@@ -1999,7 +1924,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.219197Z"
+      "last_seen_at": "2026-10-18T02:39:58.281809Z"
     },
     {
       "referral_code": "kD-WgXKRUw",
@@ -2014,7 +1939,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.220511Z"
+      "last_seen_at": "2026-10-18T02:39:58.283205Z"
     },
     {
       "referral_code": "GHI56RST",
@@ -2029,7 +1954,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.221831Z"
+      "last_seen_at": "2026-10-18T02:39:58.284525Z"
     },
     {
       "referral_code": "XlTn0GEPSw",
@@ -2044,7 +1969,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.223167Z"
+      "last_seen_at": "2026-10-18T02:39:58.285886Z"
     },
     {
       "referral_code": "LvCgwpHi8w",
@@ -2059,7 +1984,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.224396Z"
+      "last_seen_at": "2026-10-18T02:39:58.287318Z"
     },
     {
       "referral_code": "NaczESFrww",
@@ -2074,7 +1999,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.225645Z"
+      "last_seen_at": "2026-10-18T02:39:58.288709Z"
     },
     {
       "referral_code": "Y7Grt5DIrg",
@@ -2089,7 +2014,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.226978Z"
+      "last_seen_at": "2026-10-18T02:39:58.290167Z"
     },
     {
       "referral_code": "d23e1fdaf",
@@ -2104,7 +2029,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.228149Z"
+      "last_seen_at": "2026-10-18T02:39:58.291536Z"
     },
     {
       "referral_code": "0E5Ip1-SEA",
@@ -2119,7 +2044,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.229528Z"
+      "last_seen_at": "2026-10-18T02:39:58.292907Z"
     },
     {
       "referral_code": "YldFwT9qQA",
@@ -2134,7 +2059,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.230809Z"
+      "last_seen_at": "2026-10-18T02:39:58.294311Z"
     },
     {
       "referral_code": "B-9qsE1yOA",
@@ -2149,7 +2074,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.232149Z"
+      "last_seen_at": "2026-10-18T02:39:58.295695Z"
     },
     {
       "referral_code": "NFhffr883",
@@ -2164,7 +2089,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.233615Z"
+      "last_seen_at": "2026-10-18T02:39:58.297137Z"
     },
     {
       "referral_code": "6GKD9PtJfw",
@@ -2179,7 +2104,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.252258Z"
+      "last_seen_at": "2026-10-18T02:39:58.298447Z"
     },
     {
       "referral_code": "2hjZmF6w8Q",
@@ -2194,7 +2119,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.253666Z"
+      "last_seen_at": "2026-10-18T02:39:58.299864Z"
     },
     {
       "referral_code": "OE5Ipl-SEA",
@@ -2209,7 +2134,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.254908Z"
+      "last_seen_at": "2026-10-18T02:39:58.301222Z"
     },
     {
       "referral_code": "tJngdirGgw",
@@ -2224,7 +2149,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.256204Z"
+      "last_seen_at": "2026-10-18T02:39:58.302544Z"
     },
     {
       "referral_code": "yaniex",
@@ -2239,7 +2164,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.257556Z"
+      "last_seen_at": "2026-10-18T02:39:58.303896Z"
     },
     {
       "referral_code": "zPEPhfSguA",
@@ -2254,7 +2179,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.258939Z"
+      "last_seen_at": "2026-10-18T02:39:58.305272Z"
     },
     {
       "referral_code": "4kpVc8Rw7A",
@@ -2269,7 +2194,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.260166Z"
+      "last_seen_at": "2026-10-18T02:39:58.308178Z"
     },
     {
       "referral_code": "hMkuhD0wYA",
@@ -2284,7 +2209,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.261559Z"
+      "last_seen_at": "2026-10-18T02:39:58.311579Z"
     },
     {
       "referral_code": "jiCIWE2vgg",
@@ -2299,7 +2224,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.262859Z"
+      "last_seen_at": "2026-10-18T02:39:58.313298Z"
     },
     {
       "referral_code": "R0MRR8hCdg",
@@ -2314,7 +2239,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.264264Z"
+      "last_seen_at": "2026-10-18T02:39:58.314661Z"
     },
     {
       "referral_code": "xxxxl",
@@ -2329,7 +2254,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.265871Z"
+      "last_seen_at": "2026-10-18T02:39:58.316083Z"
     },
     {
       "referral_code": "ambient",
@@ -2344,7 +2269,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.267316Z"
+      "last_seen_at": "2026-10-18T02:39:58.317398Z"
     },
     {
       "referral_code": "xxxxx",
@@ -2359,7 +2284,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.269350Z"
+      "last_seen_at": "2026-10-18T02:39:58.318836Z"
     },
     {
       "referral_code": "9JSq19LQ0g",
@@ -2374,7 +2299,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.270682Z"
+      "last_seen_at": "2026-10-18T02:39:58.320214Z"
     },
     {
       "referral_code": "uiL9c_Xwrj",
@@ -2389,7 +2314,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.271987Z"
+      "last_seen_at": "2026-10-18T02:39:58.321554Z"
     },
     {
       "referral_code": "ItsATestNotAReferral",
@@ -2404,7 +2329,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.273324Z"
+      "last_seen_at": "2026-10-18T02:39:58.323039Z"
     },
     {
       "referral_code": "oiEshmCVtA",
@@ -2419,7 +2344,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.274605Z"
+      "last_seen_at": "2026-10-18T02:39:58.324439Z"
     },
     {
       "referral_code": "fmjzx",
@@ -2434,7 +2359,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.275929Z"
+      "last_seen_at": "2026-10-18T02:39:58.325753Z"
     },
     {
       "referral_code": "GaySex",
@@ -2449,7 +2374,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.277195Z"
+      "last_seen_at": "2026-10-18T02:39:58.327156Z"
     },
     {
       "referral_code": "qHUCpw-DiQ",
@@ -2464,7 +2389,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.278594Z"
+      "last_seen_at": "2026-10-18T02:39:58.328599Z"
     },
     {
       "referral_code": "gptaimedic",
@@ -2479,7 +2404,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.279929Z"
+      "last_seen_at": "2026-10-18T02:39:58.330003Z"
     },
     {
       "referral_code": "aimedic",
@@ -2494,7 +2419,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.281218Z"
+      "last_seen_at": "2026-10-18T02:39:58.331337Z"
     },
     {
       "referral_code": "twFXIynocA",
@@ -2509,7 +2434,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.282546Z"
+      "last_seen_at": "2026-10-18T02:39:58.332745Z"
     },
     {
       "referral_code": "naTB2wWWOQ",
@@ -2524,7 +2449,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.283832Z"
+      "last_seen_at": "2026-10-18T02:39:58.334067Z"
     },
     {
       "referral_code": "4CQHIbn7xQ",
@@ -2539,7 +2464,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.285181Z"
+      "last_seen_at": "2026-10-18T02:39:58.335390Z"
     },
     {
       "referral_code": "uEeh_V1HPg",
@@ -2554,7 +2479,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.286534Z"
+      "last_seen_at": "2026-10-18T02:39:58.336765Z"
     },
     {
       "referral_code": "Gj8BHEMqYg",
@@ -2569,7 +2494,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.287916Z"
+      "last_seen_at": "2026-10-18T02:39:58.338171Z"
     },
     {
       "referral_code": "4l-jDHjytA",
@@ -2584,7 +2509,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.289147Z"
+      "last_seen_at": "2026-10-18T02:39:58.339541Z"
     },
     {
       "referral_code": "u9KeiqhEUw",
@@ -2599,7 +2524,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.290352Z"
+      "last_seen_at": "2026-10-18T02:39:58.340931Z"
     },
     {
       "referral_code": "taRcxYDUMg",
@@ -2614,7 +2539,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.291691Z"
+      "last_seen_at": "2026-10-18T02:39:58.342311Z"
     },
     {
       "referral_code": "N3xpBAKKqA",
@@ -2629,7 +2554,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.292960Z"
+      "last_seen_at": "2026-10-18T02:39:58.343646Z"
     },
     {
       "referral_code": "jhK0wxxylA",
@@ -2644,7 +2569,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.294209Z"
+      "last_seen_at": "2026-10-18T02:39:58.345033Z"
     },
     {
       "referral_code": "monopoly24w",
@@ -2659,7 +2584,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.295437Z"
+      "last_seen_at": "2026-10-18T02:39:58.346354Z"
     },
     {
       "referral_code": "yLABN505rA",
@@ -2674,7 +2599,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.297257Z"
+      "last_seen_at": "2026-10-18T02:39:58.347792Z"
     },
     {
       "referral_code": "vDCiv2svIw",
@@ -2689,7 +2614,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-10-17T23:44:24.298631Z"
+      "last_seen_at": "2026-10-18T02:39:58.349086Z"
     },
     {
       "referral_code": "ANJING88",
@@ -2704,7 +2629,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-10-17T23:44:24.299889Z"
+      "last_seen_at": "2026-10-18T02:39:58.350376Z"
     },
     {
       "referral_code": "EnZHqEw2Og",
@@ -2719,7 +2644,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-10-17T23:44:24.301213Z"
+      "last_seen_at": "2026-10-18T02:39:58.351764Z"
     },
     {
       "referral_code": "1KnatPu",
@@ -2734,7 +2659,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-10-17T23:44:24.302414Z"
+      "last_seen_at": "2026-10-18T02:39:58.353012Z"
     },
     {
       "referral_code": "haha",
@@ -2749,7 +2674,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-10-17T23:44:24.303601Z"
+      "last_seen_at": "2026-10-18T02:39:58.354434Z"
     },
     {
       "referral_code": "2ad2ai",
@@ -2764,7 +2689,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-10-17T23:44:24.304881Z"
+      "last_seen_at": "2026-10-18T02:39:58.356223Z"
     },
     {
       "referral_code": "SHew3f",
@@ -2779,7 +2704,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-10-17T23:44:24.306160Z"
+      "last_seen_at": "2026-10-18T02:39:58.357739Z"
     },
     {
       "referral_code": "eIozHrUP0A",
@@ -2794,7 +2719,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-10-17T23:44:24.307397Z"
+      "last_seen_at": "2026-10-18T02:39:58.359070Z"
     },
     {
       "referral_code": "NaczESFrw",
@@ -2809,7 +2734,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-10-17T23:44:24.308722Z"
+      "last_seen_at": "2026-10-18T02:39:58.360467Z"
     },
     {
       "referral_code": "zPEPhfSguss",
@@ -2824,7 +2749,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-10-17T23:44:24.309976Z"
+      "last_seen_at": "2026-10-18T02:39:58.362006Z"
     },
     {
       "referral_code": "ZsC767c4MQ",
@@ -2839,7 +2764,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-10-17T23:44:24.311251Z"
+      "last_seen_at": "2026-10-18T02:39:58.363356Z"
     },
     {
       "referral_code": "3Xf9GS_m6g",
@@ -2854,7 +2779,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-10-17T23:44:24.312506Z"
+      "last_seen_at": "2026-10-18T02:39:58.364806Z"
     },
     {
       "referral_code": "Y9YNbekrsg",
@@ -2869,7 +2794,7 @@
       "evidence_kind": "candidate_only",
       "source_updated_at": "2026-10-03T19:53:35.337000Z",
       "timestamp_basis": "urlscan_observation_time_not_source_publication",
-      "last_seen_at": "2026-10-17T23:44:24.313709Z"
+      "last_seen_at": "2026-10-18T02:39:58.366229Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -2884,7 +2809,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-17T16:29:21Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-17T23:44:24.315245Z"
+      "last_seen_at": "2026-10-18T02:39:58.367582Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -2899,7 +2824,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-17T16:29:05Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-17T23:44:24.316710Z"
+      "last_seen_at": "2026-10-18T02:39:58.368880Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -2914,7 +2839,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-17T16:28:22Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-17T23:44:24.317987Z"
+      "last_seen_at": "2026-10-18T02:39:58.370296Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -2929,7 +2854,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-17T16:28:00Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-17T23:44:24.319299Z"
+      "last_seen_at": "2026-10-18T02:39:58.371662Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -2944,7 +2869,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-13T13:15:38Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-17T23:44:24.320631Z"
+      "last_seen_at": "2026-10-18T02:39:58.373055Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -2959,7 +2884,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-13T13:15:35Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-17T23:44:24.321978Z"
+      "last_seen_at": "2026-10-18T02:39:58.374458Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -2974,7 +2899,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-17T16:27:12Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-17T23:44:24.323318Z"
+      "last_seen_at": "2026-10-18T02:39:58.375859Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -2989,7 +2914,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-17T16:27:11Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-17T23:44:24.324613Z"
+      "last_seen_at": "2026-10-18T02:39:58.377223Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -3004,7 +2929,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-19T13:01:13Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-17T23:44:24.325879Z"
+      "last_seen_at": "2026-10-18T02:39:58.378618Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -3019,7 +2944,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T14:13:04Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-17T23:44:24.327205Z"
+      "last_seen_at": "2026-10-18T02:39:58.380039Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -3034,7 +2959,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T13:51:43Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-17T23:44:24.328731Z"
+      "last_seen_at": "2026-10-18T02:39:58.381419Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -3049,7 +2974,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T13:50:25Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-17T23:44:24.329986Z"
+      "last_seen_at": "2026-10-18T02:39:58.382846Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -3064,7 +2989,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T13:48:29Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-17T23:44:24.331341Z"
+      "last_seen_at": "2026-10-18T02:39:58.384211Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -3079,7 +3004,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T14:00:41Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-17T23:44:24.332649Z"
+      "last_seen_at": "2026-10-18T02:39:58.385588Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -3094,7 +3019,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T15:58:34Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-17T23:44:24.333999Z"
+      "last_seen_at": "2026-10-18T02:39:58.387051Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -3109,7 +3034,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T15:59:02Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-17T23:44:24.335468Z"
+      "last_seen_at": "2026-10-18T02:39:58.388396Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -3124,7 +3049,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T15:59:00Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-17T23:44:24.336866Z"
+      "last_seen_at": "2026-10-18T02:39:58.389847Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -3139,7 +3064,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T15:58:43Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-17T23:44:24.338141Z"
+      "last_seen_at": "2026-10-18T02:39:58.391309Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -3154,7 +3079,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T15:59:07Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-17T23:44:24.339458Z"
+      "last_seen_at": "2026-10-18T02:39:58.392651Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -3169,22 +3094,97 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T15:59:06Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-10-17T23:44:24.340753Z"
+      "last_seen_at": "2026-10-18T02:39:58.394027Z"
     },
     {
-      "referral_code": "c2nHVSzW4g",
-      "url": "https://claude.ai/referral/c2nHVSzW4g",
-      "platform": "Web (jtechforums.org)",
-      "source_url": "https://jtechforums.org/t/claude-code-free-week-giveaway/9011/5",
+      "referral_code": "D2HSScu9Pw",
+      "url": "https://claude.ai/referral/D2HSScu9Pw",
+      "platform": "Web (www.v2ex.com)",
+      "source_url": "https://www.v2ex.com/t/1134700",
       "author": null,
       "published_at": null,
-      "discovered_at": "2026-10-06T10:05:32.220301Z",
-      "evidence_snippet": "<a href=\"https://claude.ai/referral/c2nHVSzW4g\" rel=\"noopener\" target=\"_blank\">Join Claude!</a>",
+      "discovered_at": "2026-10-06T09:45:15.414368Z",
+      "evidence_snippet": "<a href=\"https://claude.ai/referral/D2HSScu9Pw\" rel=\"nofollow noopener\" target=\"_blank\">https://claude.ai/referral/D2HSScu9Pw</a>",
       "status": "unknown",
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-10-17T23:44:24.342044Z"
+      "last_seen_at": "2026-10-18T02:39:58.395399Z"
+    },
+    {
+      "referral_code": "yzD8vlwYJg",
+      "url": "https://claude.ai/referral/yzD8vlwYJg",
+      "platform": "Web (www.v2ex.com)",
+      "source_url": "https://www.v2ex.com/t/1134700",
+      "author": null,
+      "published_at": "2025-05-27T09:29:25Z",
+      "discovered_at": "2026-10-06T09:45:15.414368Z",
+      "evidence_snippet": "免费获取 4 个月的 claude AI Max - V2EX\n\n# 免费获取 4 个月的 claude AI Max\n\ncoolservices · May 27, 2025 · 4281 views\n\n5 replies • 2025-05-31 13:49:34 +08:00\n\n| | 1 Krylo May 27, 2025 接力 https://claude.ai/referral/yzD8vlwYJg |\n| --- | --- |\n\n| | 2 kebamt May 27, 2025 via iPad 能不能不要发创造栏目下 |\n| --- | --- |\n\n| | 3 coolservices OP May 28, 2025 #2 好的 活动还在继续 |\n| --- | --- |\n\n| | 5 lishuhang May 31, 2025 via Android https://claude.ai/referral/Qg4DW6Bmdg |\n| --- | --- |\n免费获取 4 个月的 claude AI Max - V2EX\n\n# 免费获取 4 个月的 claude AI Max\n...\n| | 1 Krylo May 27, 2025 接力 https://claude.ai/referral/yzD8vlwYJg |\n| --- | --- |\n...\n| | 5 lishuhang May 31, 2025 via Android https://claude.ai/referral/Qg4DW6Bmdg |\n| --- | --- |",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": null,
+      "timestamp_basis": "search_snippet_content",
+      "last_seen_at": "2026-10-18T02:39:58.396760Z"
+    },
+    {
+      "referral_code": "4fDjpBvIBg",
+      "url": "https://claude.ai/referral/4fDjpBvIBg",
+      "platform": "Web (www.v2ex.com)",
+      "source_url": "https://www.v2ex.com/t/1134700",
+      "author": null,
+      "published_at": null,
+      "discovered_at": "2026-10-06T09:45:15.414368Z",
+      "evidence_snippet": "<a href=\"https://claude.ai/referral/4fDjpBvIBg\" rel=\"nofollow noopener\" target=\"_blank\">https://claude.ai/referral/4fDjpBvIBg</a>",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": null,
+      "timestamp_basis": "web_page_observed_now; publication_time_unknown",
+      "last_seen_at": "2026-10-18T02:39:58.398151Z"
+    },
+    {
+      "referral_code": "Qg4DW6Bmdg",
+      "url": "https://claude.ai/referral/Qg4DW6Bmdg",
+      "platform": "Web (www.v2ex.com)",
+      "source_url": "https://www.v2ex.com/t/1134700",
+      "author": null,
+      "published_at": "2025-05-27T09:29:25Z",
+      "discovered_at": "2026-10-06T09:45:15.414368Z",
+      "evidence_snippet": "免费获取 4 个月的 claude AI Max - V2EX\n\n# 免费获取 4 个月的 claude AI Max\n\ncoolservices · May 27, 2025 · 4281 views\n\n5 replies • 2025-05-31 13:49:34 +08:00\n\n| | 1 Krylo May 27, 2025 接力 https://claude.ai/referral/yzD8vlwYJg |\n| --- | --- |\n\n| | 2 kebamt May 27, 2025 via iPad 能不能不要发创造栏目下 |\n| --- | --- |\n\n| | 3 coolservices OP May 28, 2025 #2 好的 活动还在继续 |\n| --- | --- |\n\n| | 5 lishuhang May 31, 2025 via Android https://claude.ai/referral/Qg4DW6Bmdg |\n| --- | --- |\n免费获取 4 个月的 claude AI Max - V2EX\n\n# 免费获取 4 个月的 claude AI Max\n...\n| | 1 Krylo May 27, 2025 接力 https://claude.ai/referral/yzD8vlwYJg |\n| --- | --- |\n...\n| | 5 lishuhang May 31, 2025 via Android https://claude.ai/referral/Qg4DW6Bmdg |\n| --- | --- |",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": null,
+      "timestamp_basis": "search_snippet_content",
+      "last_seen_at": "2026-10-18T02:39:58.399432Z"
+    },
+    {
+      "referral_code": "4l-jDHjytA",
+      "url": "https://claude.ai/referral/4l-jDHjytA",
+      "platform": "Web (discuss.pytorch.kr)",
+      "source_url": "https://discuss.pytorch.kr/t/3-claude-code-1-guest-pass/9037",
+      "author": null,
+      "published_at": null,
+      "discovered_at": "2026-10-06T09:45:17.581119Z",
+      "evidence_snippet": "<a href=\"https://claude.ai/referral/4l-jDHjytA\"><img alt=\"image\" data-base62-sha1=\"rISHiYht7TPs2zfIFRlhJOObZOM\" height=\"400\" src=\"https://discuss.pytorch.kr/uploads/default/original/2X/c/c24d83226beff83445d406dbaffa7ea83f3b3788.png\" width=\"1028\"/></a>",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": null,
+      "timestamp_basis": "web_page_observed_now; publication_time_unknown",
+      "last_seen_at": "2026-10-18T02:39:58.400872Z"
+    },
+    {
+      "referral_code": "oYaq12h4Zw",
+      "url": "https://claude.ai/referral/oYaq12h4Zw",
+      "platform": "Web (www.devproblems.com)",
+      "source_url": "https://www.devproblems.com/claude-ai-guest-pass-referral/",
+      "author": null,
+      "published_at": null,
+      "discovered_at": "2026-10-06T09:45:20.199006Z",
+      "evidence_snippet": "<a class=\"button btn\" href=\"https://claude.ai/referral/oYaq12h4Zw\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">Claim Your Free Week of Claude →</a>",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": null,
+      "timestamp_basis": "web_page_observed_now; publication_time_unknown",
+      "last_seen_at": "2026-10-18T02:39:58.402403Z"
     }
   ]
 }
