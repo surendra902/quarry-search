@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-07T11:07:37.480408Z",
+  "generated_at": "2026-11-07T16:52:54.524303Z",
   "collector": {
     "status": "completed",
     "configured": true,
-    "last_heartbeat": "2026-11-07T11:07:37.079333Z",
+    "last_heartbeat": "2026-11-07T16:52:54.020780Z",
     "mode": "scheduled",
     "cycles_completed": 1,
     "new_links_session": 0,
@@ -13,7 +13,7 @@
     "alerts_configured": true,
     "daily_yield": {
       "timezone": "UTC",
-      "as_of": "2026-11-07T11:07:37.082360Z",
+      "as_of": "2026-11-07T16:52:54.023392Z",
       "today": {
         "date": "2026-11-07",
         "first_observed_unique": 1,
@@ -98,7 +98,7 @@
   },
   "daily_yield": {
     "timezone": "UTC",
-    "as_of": "2026-11-07T11:07:37.482562Z",
+    "as_of": "2026-11-07T16:52:54.526628Z",
     "today": {
       "date": "2026-11-07",
       "first_observed_unique": 1,
@@ -182,7 +182,7 @@
   },
   "source_state": {
     "measurement_started_at": "2026-10-06T06:18:39.411631Z",
-    "public_web_cursor": 5
+    "public_web_cursor": 9
   },
   "notifications": "telegram_configured",
   "records": [
@@ -1687,66 +1687,6 @@
       "last_seen_at": "2026-11-06T05:09:11.359555Z"
     },
     {
-      "referral_code": "4l-jDHjytA",
-      "url": "https://claude.ai/referral/4l-jDHjytA",
-      "platform": "Web (discuss.pytorch.kr)",
-      "source_url": "https://discuss.pytorch.kr/t/3-claude-code-1-guest-pass/9037",
-      "author": null,
-      "published_at": null,
-      "discovered_at": "2026-10-06T09:45:17.581119Z",
-      "evidence_snippet": "<a href=\"https://claude.ai/referral/4l-jDHjytA\"><img alt=\"image\" data-base62-sha1=\"rISHiYht7TPs2zfIFRlhJOObZOM\" height=\"400\" src=\"https://discuss.pytorch.kr/uploads/default/original/2X/c/c24d83226beff83445d406dbaffa7ea83f3b3788.png\" width=\"1028\"/></a>",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": null,
-      "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-11-06T23:55:05.184595Z"
-    },
-    {
-      "referral_code": "oYaq12h4Zw",
-      "url": "https://claude.ai/referral/oYaq12h4Zw",
-      "platform": "Web (www.devproblems.com)",
-      "source_url": "https://www.devproblems.com/claude-ai-guest-pass-referral/",
-      "author": null,
-      "published_at": null,
-      "discovered_at": "2026-10-06T09:45:20.199006Z",
-      "evidence_snippet": "<a class=\"button btn\" href=\"https://claude.ai/referral/oYaq12h4Zw\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">Claim Your Free Week of Claude →</a>",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": null,
-      "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-11-06T23:55:05.185957Z"
-    },
-    {
-      "referral_code": "uiL9c_Xwrj",
-      "url": "https://claude.ai/referral/uiL9c_Xwrj",
-      "platform": "Web (www.zhaojian.net)",
-      "source_url": "https://www.zhaojian.net/en/free-claude-code-guest-pass-passes-share/",
-      "author": "zhaoJian",
-      "published_at": "2026-02-07T13:50:01Z",
-      "discovered_at": "2026-10-05T06:50:34.410691Z",
-      "evidence_snippet": "Try Claude Code for Free - Sharing 3 Guest Passes for Free Claude Pro Max Membership Accounts - zhaoJian's Tech Notes\n\n# Try Claude Code for Free - Sharing 3 Guest Passes for Free Claude Pro Max Membership Accounts \n\n Technology 02-07-2026 ~1841 words · 5 min read - views \n\nWhile using Claude Code recently, the terminal kept showing “/passes Share a free week of Claude Code with friends and earn extra usage”. After searching, I found this is a free trial feature launched by Anthropic — Guest Pass, which allows Max subscribers to share Claude Pro trial access with friends. I have these available across several of my accounts, so I’m sharing a few on a first-come, first-served basis while supplies last.\n\n## What is a Guest Pass?\n\nAfter clicking my invite link, you’ll get a full 7-day Claude Pro experience, including:\n\n- Access to all Claude models: Use Opus, Sonnet, and Haiku freely\n- Claude Code: Anthropic’s official command-line AI coding assistant for pair programming with AI directly in your terminal\n- Higher usage limits: Significantly increased compared to the free version\n- All Pro features: Deep Research, file creation, web search, and more\n\n## How to Claim?\n\n1. Click the invite link I’m sharing (see image)\n2. Sign up or log in to your Claude account\n3. Start using Claude Pro free for 7 days\n\nLink: `https://claude.ai/referral/uiL9c_Xwrj`\n\nImportant Notes:\n\n- A credit card is required when claiming, but no charges during the trial period\n- If you don’t want to continue after 7 days, remember to cancel your subscription before it expires, otherwise you’ll be automatically charged $20/month\n- Each invite link can only be used once by a new user\n- Limited spots available, while supplies last\n\nIf you find it useful after claiming, feel free to share with your friends. If you’re also a Max subscriber, you can type the `/passes` command in Claude Code to generate your own sharing link.\n\nWeChat: 757118\n\nQQ: 757118\nWhile using Claude Code recently, the terminal kept showing “/passes Share a free week of Claude Code with friends and earn extra usage”. After searching, I found this is a free trial feature launched by Anthropic — Guest Pass, which allows Max subscribers to share Claude Pro trial access with friends. I have these available across several of my accounts, so I’m sharing a few on a first-come, first-served basis while supplies last.\n...\nAfter clicking my invite link, you’ll get a full 7-day Claude Pro experience, including:\n...\n1. Click the invite link I’m sharing (see image)\n2. Sign up or log in to your Claude account\n3. Start using Claude Pro free for 7 days\n\nLink: `https://claude.ai/referral/uiL9c_Xwrj`\n...\n- A credit card is required when claiming, but no charges during the trial period\n- If you don’t want to continue after 7 days, remember to cancel your subscription before it expires, otherwise you’ll be automatically charged $20/month\n- Each invite link can only be used once by a new user\n- Limited spots available, while supplies last\n\nIf you find it useful after claiming, feel free to share with your friends. If you’re also a Max subscriber, you can type the `/passes` command in Claude Code to generate your own sharing link.",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": null,
-      "timestamp_basis": "search_snippet_content",
-      "last_seen_at": "2026-11-06T23:55:05.187223Z"
-    },
-    {
-      "referral_code": "3Xf9GS_m6g",
-      "url": "https://claude.ai/referral/3Xf9GS_m6g",
-      "platform": "Web (jdesigns.info)",
-      "source_url": "https://jdesigns.info/systemized",
-      "author": null,
-      "published_at": null,
-      "discovered_at": "2026-10-06T06:18:51.122715Z",
-      "evidence_snippet": "<a href=\"https://claude.ai/referral/3Xf9GS_m6g\" rel=\"noopener\" style=\"color:var(--green);\" target=\"_blank\">claude.ai/code</a>",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": null,
-      "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-11-07T04:13:06.488181Z"
-    },
-    {
       "referral_code": "8ju3ymGzfw",
       "url": "https://claude.ai/referral/8ju3ymGzfw",
       "platform": "Web (nannyakore.com)",
@@ -1775,531 +1715,6 @@
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
       "last_seen_at": "2026-11-07T04:13:06.490778Z"
-    },
-    {
-      "referral_code": "m5Ak2Sa7aQ",
-      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
-      "platform": "GitHub (Issue/PR)",
-      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/396",
-      "author": "TheMeinerLP",
-      "published_at": "2026-11-02T22:47:27Z",
-      "discovered_at": "2026-11-03T02:02:01.559510Z",
-      "evidence_snippet": " ] Breaking Change? → `feat!:` oder `BREAKING CHANGE:` im Commit-Footer\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": "2026-11-02T22:59:25Z",
-      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-11-07T11:07:36.806758Z"
-    },
-    {
-      "referral_code": "m5Ak2Sa7aQ",
-      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
-      "platform": "GitHub (Issue/PR)",
-      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/395",
-      "author": "TheMeinerLP",
-      "published_at": "2026-11-02T21:05:53Z",
-      "discovered_at": "2026-11-03T02:02:01.559966Z",
-      "evidence_snippet": " ] Breaking Change? → `feat!:` oder `BREAKING CHANGE:` im Commit-Footer\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": "2026-11-02T22:05:00Z",
-      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-11-07T11:07:36.808457Z"
-    },
-    {
-      "referral_code": "m5Ak2Sa7aQ",
-      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
-      "platform": "GitHub (Issue/PR)",
-      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/394",
-      "author": "TheMeinerLP",
-      "published_at": "2026-11-02T20:46:16Z",
-      "discovered_at": "2026-11-03T02:02:01.560107Z",
-      "evidence_snippet": " ] Breaking Change? → `feat!:` oder `BREAKING CHANGE:` im Commit-Footer\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": "2026-11-02T22:46:28Z",
-      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-11-07T11:07:36.809956Z"
-    },
-    {
-      "referral_code": "m5Ak2Sa7aQ",
-      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
-      "platform": "GitHub (Issue/PR)",
-      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/392",
-      "author": "TheMeinerLP",
-      "published_at": "2026-11-02T20:13:29Z",
-      "discovered_at": "2026-11-03T02:02:01.560194Z",
-      "evidence_snippet": " ] Breaking Change? → `feat!:` oder `BREAKING CHANGE:` im Commit-Footer\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": "2026-11-02T21:05:27Z",
-      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-11-07T11:07:36.811416Z"
-    },
-    {
-      "referral_code": "m5Ak2Sa7aQ",
-      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
-      "platform": "GitHub (Issue/PR)",
-      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/391",
-      "author": "TheMeinerLP",
-      "published_at": "2026-11-02T15:11:09Z",
-      "discovered_at": "2026-11-02T19:57:27.276375Z",
-      "evidence_snippet": " ] Breaking Change? → `feat!:` oder `BREAKING CHANGE:` im Commit-Footer\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": "2026-11-02T22:28:25Z",
-      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-11-07T11:07:36.812944Z"
-    },
-    {
-      "referral_code": "m5Ak2Sa7aQ",
-      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
-      "platform": "GitHub (Issue/PR)",
-      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/390",
-      "author": "TheMeinerLP",
-      "published_at": "2026-11-02T15:06:59Z",
-      "discovered_at": "2026-11-02T19:57:27.276588Z",
-      "evidence_snippet": " Commit-Footer\n\nTest items do not apply: this pull request has no code.\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n\n",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": "2026-11-02T20:26:09Z",
-      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-11-07T11:07:36.814402Z"
-    },
-    {
-      "referral_code": "m5Ak2Sa7aQ",
-      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
-      "platform": "GitHub (Issue/PR)",
-      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/389",
-      "author": "TheMeinerLP",
-      "published_at": "2026-11-02T14:34:44Z",
-      "discovered_at": "2026-11-02T19:57:27.276888Z",
-      "evidence_snippet": " ] Breaking Change? → `feat!:` oder `BREAKING CHANGE:` im Commit-Footer\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": "2026-11-02T14:54:14Z",
-      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-11-07T11:07:36.815826Z"
-    },
-    {
-      "referral_code": "m5Ak2Sa7aQ",
-      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
-      "platform": "GitHub (Issue/PR)",
-      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/388",
-      "author": "TheMeinerLP",
-      "published_at": "2026-11-02T14:29:22Z",
-      "discovered_at": "2026-11-02T19:57:27.277114Z",
-      "evidence_snippet": " ] Breaking Change? → `feat!:` oder `BREAKING CHANGE:` im Commit-Footer\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": "2026-11-02T15:08:59Z",
-      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-11-07T11:07:36.818092Z"
-    },
-    {
-      "referral_code": "m5Ak2Sa7aQ",
-      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
-      "platform": "GitHub (Issue/PR)",
-      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/387",
-      "author": "TheMeinerLP",
-      "published_at": "2026-11-02T14:13:46Z",
-      "discovered_at": "2026-11-02T19:57:27.277329Z",
-      "evidence_snippet": " ] Breaking Change? → `feat!:` oder `BREAKING CHANGE:` im Commit-Footer\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": "2026-11-02T14:38:33Z",
-      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-11-07T11:07:36.819640Z"
-    },
-    {
-      "referral_code": "m5Ak2Sa7aQ",
-      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
-      "platform": "GitHub (Issue/PR)",
-      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/386",
-      "author": "TheMeinerLP",
-      "published_at": "2026-11-02T14:04:50Z",
-      "discovered_at": "2026-11-02T19:57:27.277486Z",
-      "evidence_snippet": " ] Breaking Change? → `feat!:` oder `BREAKING CHANGE:` im Commit-Footer\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": "2026-11-02T14:17:58Z",
-      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-11-07T11:07:36.821158Z"
-    },
-    {
-      "referral_code": "m5Ak2Sa7aQ",
-      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
-      "platform": "GitHub (Issue/PR)",
-      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/383",
-      "author": "TheMeinerLP",
-      "published_at": "2026-11-02T13:31:51Z",
-      "discovered_at": "2026-11-02T19:57:27.277677Z",
-      "evidence_snippet": "de ohne Test (no code in this pull request)\n- [ ] Breaking Change? — no\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": "2026-11-02T13:43:07Z",
-      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-11-07T11:07:36.822676Z"
-    },
-    {
-      "referral_code": "m5Ak2Sa7aQ",
-      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
-      "platform": "GitHub (Issue/PR)",
-      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/381",
-      "author": "TheMeinerLP",
-      "published_at": "2026-10-31T18:33:15Z",
-      "discovered_at": "2026-10-31T19:40:13.854306Z",
-      "evidence_snippet": " ] Breaking Change? → `feat!:` oder `BREAKING CHANGE:` im Commit-Footer\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": "2026-10-31T18:51:14Z",
-      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-11-07T11:07:36.824368Z"
-    },
-    {
-      "referral_code": "m5Ak2Sa7aQ",
-      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
-      "platform": "GitHub (Issue/PR)",
-      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/380",
-      "author": "TheMeinerLP",
-      "published_at": "2026-10-30T19:48:55Z",
-      "discovered_at": "2026-10-30T20:06:56.243648Z",
-      "evidence_snippet": " ] Breaking Change? → `feat!:` oder `BREAKING CHANGE:` im Commit-Footer\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": "2026-10-31T18:29:36Z",
-      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-11-07T11:07:36.825815Z"
-    },
-    {
-      "referral_code": "m5Ak2Sa7aQ",
-      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
-      "platform": "GitHub (Issue/PR)",
-      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/379",
-      "author": "TheMeinerLP",
-      "published_at": "2026-10-30T19:36:39Z",
-      "discovered_at": "2026-10-30T20:06:56.243875Z",
-      "evidence_snippet": " ] Breaking Change? → `feat!:` oder `BREAKING CHANGE:` im Commit-Footer\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": "2026-10-31T18:20:14Z",
-      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-11-07T11:07:36.827416Z"
-    },
-    {
-      "referral_code": "m5Ak2Sa7aQ",
-      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
-      "platform": "GitHub (Issue/PR)",
-      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/378",
-      "author": "TheMeinerLP",
-      "published_at": "2026-10-29T14:00:34Z",
-      "discovered_at": "2026-10-29T18:31:03.386508Z",
-      "evidence_snippet": "uckperms] Goodbye!\nMinestom server stopped successfully.   (exit 0)\n```\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": "2026-10-29T14:09:08Z",
-      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-11-07T11:07:36.828854Z"
-    },
-    {
-      "referral_code": "m5Ak2Sa7aQ",
-      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
-      "platform": "GitHub (Issue/PR)",
-      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/377",
-      "author": "TheMeinerLP",
-      "published_at": "2026-10-29T12:13:58Z",
-      "discovered_at": "2026-10-29T18:31:03.387305Z",
-      "evidence_snippet": "ing server, and the restart from the state file (task 13.4). See above.\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n\n",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": "2026-11-02T13:57:03Z",
-      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-11-07T11:07:36.830389Z"
-    },
-    {
-      "referral_code": "m5Ak2Sa7aQ",
-      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
-      "platform": "GitHub (Issue/PR)",
-      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/376",
-      "author": "TheMeinerLP",
-      "published_at": "2026-10-29T11:42:19Z",
-      "discovered_at": "2026-10-29T12:08:38.261093Z",
-      "evidence_snippet": "ean build`)\n- [x] Kein neuer Code ohne Test\n- [ ] Breaking Change? — no\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": "2026-10-29T12:00:56Z",
-      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-11-07T11:07:36.832080Z"
-    },
-    {
-      "referral_code": "m5Ak2Sa7aQ",
-      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
-      "platform": "GitHub (Issue/PR)",
-      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/375",
-      "author": "TheMeinerLP",
-      "published_at": "2026-10-29T11:19:30Z",
-      "discovered_at": "2026-10-29T12:08:38.261508Z",
-      "evidence_snippet": "tom.server.ServerProcessImpl] Minestom server stopped successfully.\n```\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": "2026-10-29T11:34:36Z",
-      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-11-07T11:07:36.834387Z"
-    },
-    {
-      "referral_code": "m5Ak2Sa7aQ",
-      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
-      "platform": "GitHub (Issue/PR)",
-      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/374",
-      "author": "TheMeinerLP",
-      "published_at": "2026-10-29T10:52:39Z",
-      "discovered_at": "2026-10-29T12:08:38.262119Z",
-      "evidence_snippet": "ndo. If a save fails, the builder is told, and the map stays as it was.\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": "2026-11-02T23:26:34Z",
-      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-11-07T11:07:36.835953Z"
-    },
-    {
-      "referral_code": "m5Ak2Sa7aQ",
-      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
-      "platform": "GitHub (Issue/PR)",
-      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/373",
-      "author": "TheMeinerLP",
-      "published_at": "2026-10-29T10:51:38Z",
-      "discovered_at": "2026-10-29T12:08:38.262602Z",
-      "evidence_snippet": "armed, waiting for enough racers\nVoyagerServer Shutting down\nexit=0\n```\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": "2026-11-02T13:30:33Z",
-      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
-      "last_seen_at": "2026-11-07T11:07:36.837403Z"
-    },
-    {
-      "referral_code": "m5Ak2Sa7aQ",
-      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
-      "platform": "GitHub (Commit)",
-      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/commit/d60bd55e8d3c57faca1601d39d1a0148a00d67f1",
-      "author": "TheMeinerLP",
-      "published_at": "2026-10-28T11:52:13Z",
-      "discovered_at": "2026-10-29T00:04:30.332095Z",
-      "evidence_snippet": "x] Breaking Change? → `feat!:` oder `BREAKING CHANGE:` im Commit-Footer\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": null,
-      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-11-07T11:07:36.839079Z"
-    },
-    {
-      "referral_code": "m5Ak2Sa7aQ",
-      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
-      "platform": "GitHub (Commit)",
-      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/commit/40dd05dbc8aa40d387ee98c76f0e8b9af44c61b2",
-      "author": "TheMeinerLP",
-      "published_at": "2026-10-13T20:40:00Z",
-      "discovered_at": "2026-10-13T20:43:09.888171Z",
-      "evidence_snippet": "rse as the racing line. Its delta specs are synced into openspec/specs.\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\nhttps://claude.ai/code/session_01QgtyvQwXoNTXyBjSyAABrz",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": null,
-      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-11-07T11:07:36.840514Z"
-    },
-    {
-      "referral_code": "m5Ak2Sa7aQ",
-      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
-      "platform": "GitHub (Commit)",
-      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/commit/35bcdb5f0b9ef97ba7c14d246ee5871c2f870105",
-      "author": "TheMeinerLP",
-      "published_at": "2026-10-13T20:33:45Z",
-      "discovered_at": "2026-10-13T20:43:09.888539Z",
-      "evidence_snippet": " `CommittedMapDataTest` (+2, and the budget band moved to spacing 2.0).\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\nhttps://claude.ai/code/session_01QgtyvQwXoNTXyBjSyAABrz",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": null,
-      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-11-07T11:07:36.842054Z"
-    },
-    {
-      "referral_code": "m5Ak2Sa7aQ",
-      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
-      "platform": "GitHub (Commit)",
-      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/commit/d703b7317270853c6c7a57b2846cd1590aeabf23",
-      "author": "TheMeinerLP",
-      "published_at": "2026-10-13T11:41:13Z",
-      "discovered_at": "2026-10-13T20:43:09.888669Z",
-      "evidence_snippet": "hting change. Its spec moves to openspec/specs/platform/world-lighting.\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\nhttps://claude.ai/code/session_01QgtyvQwXoNTXyBjSyAABrz",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": null,
-      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-11-07T11:07:36.843521Z"
-    },
-    {
-      "referral_code": "m5Ak2Sa7aQ",
-      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
-      "platform": "GitHub (Commit)",
-      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/commit/ea42b3ac35d4cb7be2031f724353c7a7e4447da9",
-      "author": "TheMeinerLP",
-      "published_at": "2026-10-13T11:26:37Z",
-      "discovered_at": "2026-10-13T20:43:09.889023Z",
-      "evidence_snippet": "easured on the lab copy of ElytraLobby. The owner's copy was not found.\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\nhttps://claude.ai/code/session_01QgtyvQwXoNTXyBjSyAABrz",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": null,
-      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-11-07T11:07:36.845159Z"
-    },
-    {
-      "referral_code": "m5Ak2Sa7aQ",
-      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
-      "platform": "GitHub (Commit)",
-      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/commit/4b590263aa254c620faf832b3900490cff4d969e",
-      "author": "TheMeinerLP",
-      "published_at": "2026-10-10T23:24:43Z",
-      "discovered_at": "2026-10-11T00:46:26.804234Z",
-      "evidence_snippet": "rom the run directory once they leave the catalogue\nEND_COMMIT_OVERRIDE\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\nhttps://claude.ai/code/session_01QgtyvQwXoNTXyBjSyAABrz",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": null,
-      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-11-07T11:07:36.846802Z"
-    },
-    {
-      "referral_code": "b9Segx2cZA",
-      "url": "https://claude.ai/referral/b9Segx2cZA",
-      "platform": "GitHub (Commit)",
-      "source_url": "https://github.com/kathelix/catvox/commit/5b78cd48ded269ab94b4547dc868031bebd96b9c",
-      "author": "IvanBoyko",
-      "published_at": "2026-10-06T05:26:39Z",
-      "discovered_at": "2026-10-06T06:18:42.543546Z",
-      "evidence_snippet": "s` package |\nmatch |\n\n🤖 Claude Code: get a free week using referral link\nhttps://claude.ai/referral/b9Segx2cZA\n\nCo-authored-by: Claude Opus 5.5 <noreply@anthropic.com>",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": null,
-      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-11-07T11:07:36.848310Z"
-    },
-    {
-      "referral_code": "SE-Jaa--ig",
-      "url": "https://claude.ai/referral/SE-Jaa--ig",
-      "platform": "GitHub (Commit)",
-      "source_url": "https://github.com/notthinks/x-scraper-anon/commit/cfb9712434a57de7965f5f97078308aa7869ec7b",
-      "author": "notthinks",
-      "published_at": "2026-09-28T01:45:52Z",
-      "discovered_at": "2026-10-05T02:33:33.986317Z",
-      "evidence_snippet": "ry referral token came back cut off. With it the full\nvalues are available, e.g. claude.ai/referral/SE-Jaa--ig.\n\nurlhunt also matches the query against both the text and the links, and\nfalls back to the last UR",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": null,
-      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-11-07T11:07:36.849942Z"
-    },
-    {
-      "referral_code": "8U0OiPj7Dg",
-      "url": "https://claude.ai/referral/8U0OiPj7Dg",
-      "platform": "GitHub (Commit)",
-      "source_url": "https://github.com/joecheofficial/workshop-site/commit/92b122ffb1670eb72f294dd28910ad8b6a33f32e",
-      "author": "joecheofficial",
-      "published_at": "2026-08-05T02:34:40Z",
-      "discovered_at": "2026-10-18T07:25:33.898533Z",
-      "evidence_snippet": ". Every link that sends someone to get or open\na Claude account now uses https://claude.ai/referral/8U0OiPj7Dg so the signup is\ncredited to Joe.\n\nSingle source of truth: src/lib/claude-links.ts. Duplicated rath",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": null,
-      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-11-07T11:07:36.851640Z"
-    },
-    {
-      "referral_code": "hWvMMltr7Q",
-      "url": "https://claude.ai/referral/hWvMMltr7Q",
-      "platform": "GitHub (Commit)",
-      "source_url": "https://github.com/maxtattonbrown/claude-code-easy-mode/commit/ecb2dfbe558690bc93b39df00d654a384257e6bf",
-      "author": "maxtattonbrown",
-      "published_at": "2026-06-23T19:10:00Z",
-      "discovered_at": "2026-10-05T02:33:33.995787Z",
-      "evidence_snippet": "Drop dead referral link — point to claude.ai\n\nThe referral link (claude.ai/referral/hWvMMltr7Q) was capped at ~3\nfree-week signups; those are spent, so it now 403s. Replaced it across\nthe README",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": null,
-      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-11-07T11:07:36.853198Z"
-    },
-    {
-      "referral_code": "b9Segx2cZA",
-      "url": "https://claude.ai/referral/b9Segx2cZA",
-      "platform": "GitHub (Commit)",
-      "source_url": "https://github.com/kathelix/catvox/commit/088b71c614d304803749cb6b739bae38c6a822e4",
-      "author": "IvanBoyko",
-      "published_at": "2026-06-19T16:01:46Z",
-      "discovered_at": "2026-10-05T02:33:33.998783Z",
-      "evidence_snippet": "r declares its own).\n\n🤖 Claude Code: get a free week using referral link\nhttps://claude.ai/referral/b9Segx2cZA\n\nCo-authored-by: Claude Opus 4.8 <noreply@anthropic.com>",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": null,
-      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-11-07T11:07:36.854741Z"
-    },
-    {
-      "referral_code": "b9Segx2cZA",
-      "url": "https://claude.ai/referral/b9Segx2cZA",
-      "platform": "GitHub (Commit)",
-      "source_url": "https://github.com/kathelix/catvox/commit/2df9b29bbc76690e0ffa3787df6fdfd6be4a617e",
-      "author": "IvanBoyko",
-      "published_at": "2026-06-19T14:17:48Z",
-      "discovered_at": "2026-10-05T03:50:54.209898Z",
-      "evidence_snippet": "its own\nchange.\n\n---\n\n🤖 Claude Code: get a free week using referral link\nhttps://claude.ai/referral/b9Segx2cZA\n\nCo-authored-by: Claude Opus 4.8 <noreply@anthropic.com>",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": null,
-      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-11-07T11:07:36.856330Z"
-    },
-    {
-      "referral_code": "u4UoldU5jA",
-      "url": "https://claude.ai/referral/u4UoldU5jA",
-      "platform": "GitHub (Commit)",
-      "source_url": "https://github.com/botesjuan/botesjuan.github.io/commit/324f443ae76e8cf1f3d508f4af53314930a36a61",
-      "author": "botesjuan",
-      "published_at": "2026-06-19T07:27:26Z",
-      "discovered_at": "2026-10-05T02:33:34.002984Z",
-      "evidence_snippet": "https://claude.ai/referral/u4UoldU5jA\n\nhttps://claude.ai/referral/u4UoldU5jA",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": null,
-      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-11-07T11:07:36.857846Z"
-    },
-    {
-      "referral_code": "b9Segx2cZA",
-      "url": "https://claude.ai/referral/b9Segx2cZA",
-      "platform": "GitHub (Commit)",
-      "source_url": "https://github.com/kathelix/catvox/commit/65144fca921f956f6e2d1ad929a2bc2f9b5ec6db",
-      "author": "IvanBoyko",
-      "published_at": "2026-06-01T20:47:00Z",
-      "discovered_at": "2026-10-05T03:50:54.210896Z",
-      "evidence_snippet": "interleaved with it.\n\n🤖 Claude Code: get a free week using referral link\nhttps://claude.ai/referral/b9Segx2cZA\n\n---------\n\nCo-authored-by: Claude Opus 4.8 <noreply@anthropic.com>",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": null,
-      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-11-07T11:07:36.859400Z"
-    },
-    {
-      "referral_code": "b9Segx2cZA",
-      "url": "https://claude.ai/referral/b9Segx2cZA",
-      "platform": "GitHub (Commit)",
-      "source_url": "https://github.com/kathelix/catvox/commit/8dc78624fcbf776369a0e09a9ecf488ff4fbddcd",
-      "author": "IvanBoyko",
-      "published_at": "2026-06-01T16:50:37Z",
-      "discovered_at": "2026-10-05T03:50:54.210896Z",
-      "evidence_snippet": "en the O1 follow-up.\n\n🤖 Claude Code: get a free week using referral link\nhttps://claude.ai/referral/b9Segx2cZA\n\n---------\n\nCo-authored-by: Claude Opus 4.8 <noreply@anthropic.com>",
-      "status": "unknown",
-      "evidence_kind": "direct_match",
-      "source_updated_at": null,
-      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
-      "last_seen_at": "2026-11-07T11:07:36.860906Z"
     },
     {
       "referral_code": "b9Segx2cZA",
@@ -2332,6 +1747,531 @@
       "last_seen_at": "2026-11-07T11:07:36.864433Z"
     },
     {
+      "referral_code": "m5Ak2Sa7aQ",
+      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
+      "platform": "GitHub (Issue/PR)",
+      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/396",
+      "author": "TheMeinerLP",
+      "published_at": "2026-11-02T22:47:27Z",
+      "discovered_at": "2026-11-03T02:02:01.559510Z",
+      "evidence_snippet": " ] Breaking Change? → `feat!:` oder `BREAKING CHANGE:` im Commit-Footer\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": "2026-11-02T22:59:25Z",
+      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
+      "last_seen_at": "2026-11-07T16:52:53.791058Z"
+    },
+    {
+      "referral_code": "m5Ak2Sa7aQ",
+      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
+      "platform": "GitHub (Issue/PR)",
+      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/395",
+      "author": "TheMeinerLP",
+      "published_at": "2026-11-02T21:05:53Z",
+      "discovered_at": "2026-11-03T02:02:01.559966Z",
+      "evidence_snippet": " ] Breaking Change? → `feat!:` oder `BREAKING CHANGE:` im Commit-Footer\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": "2026-11-02T22:05:00Z",
+      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
+      "last_seen_at": "2026-11-07T16:52:53.792593Z"
+    },
+    {
+      "referral_code": "m5Ak2Sa7aQ",
+      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
+      "platform": "GitHub (Issue/PR)",
+      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/394",
+      "author": "TheMeinerLP",
+      "published_at": "2026-11-02T20:46:16Z",
+      "discovered_at": "2026-11-03T02:02:01.560107Z",
+      "evidence_snippet": " ] Breaking Change? → `feat!:` oder `BREAKING CHANGE:` im Commit-Footer\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": "2026-11-02T22:46:28Z",
+      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
+      "last_seen_at": "2026-11-07T16:52:53.794134Z"
+    },
+    {
+      "referral_code": "m5Ak2Sa7aQ",
+      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
+      "platform": "GitHub (Issue/PR)",
+      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/392",
+      "author": "TheMeinerLP",
+      "published_at": "2026-11-02T20:13:29Z",
+      "discovered_at": "2026-11-03T02:02:01.560194Z",
+      "evidence_snippet": " ] Breaking Change? → `feat!:` oder `BREAKING CHANGE:` im Commit-Footer\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": "2026-11-02T21:05:27Z",
+      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
+      "last_seen_at": "2026-11-07T16:52:53.795374Z"
+    },
+    {
+      "referral_code": "m5Ak2Sa7aQ",
+      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
+      "platform": "GitHub (Issue/PR)",
+      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/391",
+      "author": "TheMeinerLP",
+      "published_at": "2026-11-02T15:11:09Z",
+      "discovered_at": "2026-11-02T19:57:27.276375Z",
+      "evidence_snippet": " ] Breaking Change? → `feat!:` oder `BREAKING CHANGE:` im Commit-Footer\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": "2026-11-02T22:28:25Z",
+      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
+      "last_seen_at": "2026-11-07T16:52:53.796686Z"
+    },
+    {
+      "referral_code": "m5Ak2Sa7aQ",
+      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
+      "platform": "GitHub (Issue/PR)",
+      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/390",
+      "author": "TheMeinerLP",
+      "published_at": "2026-11-02T15:06:59Z",
+      "discovered_at": "2026-11-02T19:57:27.276588Z",
+      "evidence_snippet": " Commit-Footer\n\nTest items do not apply: this pull request has no code.\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n\n",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": "2026-11-02T20:26:09Z",
+      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
+      "last_seen_at": "2026-11-07T16:52:53.797942Z"
+    },
+    {
+      "referral_code": "m5Ak2Sa7aQ",
+      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
+      "platform": "GitHub (Issue/PR)",
+      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/389",
+      "author": "TheMeinerLP",
+      "published_at": "2026-11-02T14:34:44Z",
+      "discovered_at": "2026-11-02T19:57:27.276888Z",
+      "evidence_snippet": " ] Breaking Change? → `feat!:` oder `BREAKING CHANGE:` im Commit-Footer\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": "2026-11-02T14:54:14Z",
+      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
+      "last_seen_at": "2026-11-07T16:52:53.799333Z"
+    },
+    {
+      "referral_code": "m5Ak2Sa7aQ",
+      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
+      "platform": "GitHub (Issue/PR)",
+      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/388",
+      "author": "TheMeinerLP",
+      "published_at": "2026-11-02T14:29:22Z",
+      "discovered_at": "2026-11-02T19:57:27.277114Z",
+      "evidence_snippet": " ] Breaking Change? → `feat!:` oder `BREAKING CHANGE:` im Commit-Footer\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": "2026-11-02T15:08:59Z",
+      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
+      "last_seen_at": "2026-11-07T16:52:53.800907Z"
+    },
+    {
+      "referral_code": "m5Ak2Sa7aQ",
+      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
+      "platform": "GitHub (Issue/PR)",
+      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/387",
+      "author": "TheMeinerLP",
+      "published_at": "2026-11-02T14:13:46Z",
+      "discovered_at": "2026-11-02T19:57:27.277329Z",
+      "evidence_snippet": " ] Breaking Change? → `feat!:` oder `BREAKING CHANGE:` im Commit-Footer\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": "2026-11-02T14:38:33Z",
+      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
+      "last_seen_at": "2026-11-07T16:52:53.802407Z"
+    },
+    {
+      "referral_code": "m5Ak2Sa7aQ",
+      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
+      "platform": "GitHub (Issue/PR)",
+      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/386",
+      "author": "TheMeinerLP",
+      "published_at": "2026-11-02T14:04:50Z",
+      "discovered_at": "2026-11-02T19:57:27.277486Z",
+      "evidence_snippet": " ] Breaking Change? → `feat!:` oder `BREAKING CHANGE:` im Commit-Footer\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": "2026-11-02T14:17:58Z",
+      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
+      "last_seen_at": "2026-11-07T16:52:53.803543Z"
+    },
+    {
+      "referral_code": "m5Ak2Sa7aQ",
+      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
+      "platform": "GitHub (Issue/PR)",
+      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/383",
+      "author": "TheMeinerLP",
+      "published_at": "2026-11-02T13:31:51Z",
+      "discovered_at": "2026-11-02T19:57:27.277677Z",
+      "evidence_snippet": "de ohne Test (no code in this pull request)\n- [ ] Breaking Change? — no\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": "2026-11-02T13:43:07Z",
+      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
+      "last_seen_at": "2026-11-07T16:52:53.804758Z"
+    },
+    {
+      "referral_code": "m5Ak2Sa7aQ",
+      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
+      "platform": "GitHub (Issue/PR)",
+      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/381",
+      "author": "TheMeinerLP",
+      "published_at": "2026-10-31T18:33:15Z",
+      "discovered_at": "2026-10-31T19:40:13.854306Z",
+      "evidence_snippet": " ] Breaking Change? → `feat!:` oder `BREAKING CHANGE:` im Commit-Footer\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": "2026-10-31T18:51:14Z",
+      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
+      "last_seen_at": "2026-11-07T16:52:53.806065Z"
+    },
+    {
+      "referral_code": "m5Ak2Sa7aQ",
+      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
+      "platform": "GitHub (Issue/PR)",
+      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/380",
+      "author": "TheMeinerLP",
+      "published_at": "2026-10-30T19:48:55Z",
+      "discovered_at": "2026-10-30T20:06:56.243648Z",
+      "evidence_snippet": " ] Breaking Change? → `feat!:` oder `BREAKING CHANGE:` im Commit-Footer\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": "2026-10-31T18:29:36Z",
+      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
+      "last_seen_at": "2026-11-07T16:52:53.807287Z"
+    },
+    {
+      "referral_code": "m5Ak2Sa7aQ",
+      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
+      "platform": "GitHub (Issue/PR)",
+      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/379",
+      "author": "TheMeinerLP",
+      "published_at": "2026-10-30T19:36:39Z",
+      "discovered_at": "2026-10-30T20:06:56.243875Z",
+      "evidence_snippet": " ] Breaking Change? → `feat!:` oder `BREAKING CHANGE:` im Commit-Footer\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": "2026-10-31T18:20:14Z",
+      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
+      "last_seen_at": "2026-11-07T16:52:53.808577Z"
+    },
+    {
+      "referral_code": "m5Ak2Sa7aQ",
+      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
+      "platform": "GitHub (Issue/PR)",
+      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/378",
+      "author": "TheMeinerLP",
+      "published_at": "2026-10-29T14:00:34Z",
+      "discovered_at": "2026-10-29T18:31:03.386508Z",
+      "evidence_snippet": "uckperms] Goodbye!\nMinestom server stopped successfully.   (exit 0)\n```\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": "2026-10-29T14:09:08Z",
+      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
+      "last_seen_at": "2026-11-07T16:52:53.809828Z"
+    },
+    {
+      "referral_code": "m5Ak2Sa7aQ",
+      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
+      "platform": "GitHub (Issue/PR)",
+      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/377",
+      "author": "TheMeinerLP",
+      "published_at": "2026-10-29T12:13:58Z",
+      "discovered_at": "2026-10-29T18:31:03.387305Z",
+      "evidence_snippet": "ing server, and the restart from the state file (task 13.4). See above.\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n\n",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": "2026-11-02T13:57:03Z",
+      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
+      "last_seen_at": "2026-11-07T16:52:53.811040Z"
+    },
+    {
+      "referral_code": "m5Ak2Sa7aQ",
+      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
+      "platform": "GitHub (Issue/PR)",
+      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/376",
+      "author": "TheMeinerLP",
+      "published_at": "2026-10-29T11:42:19Z",
+      "discovered_at": "2026-10-29T12:08:38.261093Z",
+      "evidence_snippet": "ean build`)\n- [x] Kein neuer Code ohne Test\n- [ ] Breaking Change? — no\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": "2026-10-29T12:00:56Z",
+      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
+      "last_seen_at": "2026-11-07T16:52:53.812320Z"
+    },
+    {
+      "referral_code": "m5Ak2Sa7aQ",
+      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
+      "platform": "GitHub (Issue/PR)",
+      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/375",
+      "author": "TheMeinerLP",
+      "published_at": "2026-10-29T11:19:30Z",
+      "discovered_at": "2026-10-29T12:08:38.261508Z",
+      "evidence_snippet": "tom.server.ServerProcessImpl] Minestom server stopped successfully.\n```\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": "2026-10-29T11:34:36Z",
+      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
+      "last_seen_at": "2026-11-07T16:52:53.813648Z"
+    },
+    {
+      "referral_code": "m5Ak2Sa7aQ",
+      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
+      "platform": "GitHub (Issue/PR)",
+      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/374",
+      "author": "TheMeinerLP",
+      "published_at": "2026-10-29T10:52:39Z",
+      "discovered_at": "2026-10-29T12:08:38.262119Z",
+      "evidence_snippet": "ndo. If a save fails, the builder is told, and the map stays as it was.\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": "2026-11-02T23:26:34Z",
+      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
+      "last_seen_at": "2026-11-07T16:52:53.814815Z"
+    },
+    {
+      "referral_code": "m5Ak2Sa7aQ",
+      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
+      "platform": "GitHub (Issue/PR)",
+      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/pull/373",
+      "author": "TheMeinerLP",
+      "published_at": "2026-10-29T10:51:38Z",
+      "discovered_at": "2026-10-29T12:08:38.262602Z",
+      "evidence_snippet": "armed, waiting for enough racers\nVoyagerServer Shutting down\nexit=0\n```\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\n",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": "2026-11-02T13:30:33Z",
+      "timestamp_basis": "issue_created_at; content_observed_now; updated_at_is_last_edit_not_link_time",
+      "last_seen_at": "2026-11-07T16:52:53.816085Z"
+    },
+    {
+      "referral_code": "m5Ak2Sa7aQ",
+      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
+      "platform": "GitHub (Commit)",
+      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/commit/d60bd55e8d3c57faca1601d39d1a0148a00d67f1",
+      "author": "TheMeinerLP",
+      "published_at": "2026-10-28T11:52:13Z",
+      "discovered_at": "2026-10-29T00:04:30.332095Z",
+      "evidence_snippet": "x] Breaking Change? → `feat!:` oder `BREAKING CHANGE:` im Commit-Footer\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": null,
+      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
+      "last_seen_at": "2026-11-07T16:52:53.817429Z"
+    },
+    {
+      "referral_code": "m5Ak2Sa7aQ",
+      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
+      "platform": "GitHub (Commit)",
+      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/commit/40dd05dbc8aa40d387ee98c76f0e8b9af44c61b2",
+      "author": "TheMeinerLP",
+      "published_at": "2026-10-13T20:40:00Z",
+      "discovered_at": "2026-10-13T20:43:09.888171Z",
+      "evidence_snippet": "rse as the racing line. Its delta specs are synced into openspec/specs.\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\nhttps://claude.ai/code/session_01QgtyvQwXoNTXyBjSyAABrz",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": null,
+      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
+      "last_seen_at": "2026-11-07T16:52:53.818536Z"
+    },
+    {
+      "referral_code": "m5Ak2Sa7aQ",
+      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
+      "platform": "GitHub (Commit)",
+      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/commit/35bcdb5f0b9ef97ba7c14d246ee5871c2f870105",
+      "author": "TheMeinerLP",
+      "published_at": "2026-10-13T20:33:45Z",
+      "discovered_at": "2026-10-13T20:43:09.888539Z",
+      "evidence_snippet": " `CommittedMapDataTest` (+2, and the budget band moved to spacing 2.0).\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\nhttps://claude.ai/code/session_01QgtyvQwXoNTXyBjSyAABrz",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": null,
+      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
+      "last_seen_at": "2026-11-07T16:52:53.819846Z"
+    },
+    {
+      "referral_code": "m5Ak2Sa7aQ",
+      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
+      "platform": "GitHub (Commit)",
+      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/commit/d703b7317270853c6c7a57b2846cd1590aeabf23",
+      "author": "TheMeinerLP",
+      "published_at": "2026-10-13T11:41:13Z",
+      "discovered_at": "2026-10-13T20:43:09.888669Z",
+      "evidence_snippet": "hting change. Its spec moves to openspec/specs/platform/world-lighting.\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\nhttps://claude.ai/code/session_01QgtyvQwXoNTXyBjSyAABrz",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": null,
+      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
+      "last_seen_at": "2026-11-07T16:52:53.820968Z"
+    },
+    {
+      "referral_code": "m5Ak2Sa7aQ",
+      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
+      "platform": "GitHub (Commit)",
+      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/commit/ea42b3ac35d4cb7be2031f724353c7a7e4447da9",
+      "author": "TheMeinerLP",
+      "published_at": "2026-10-13T11:26:37Z",
+      "discovered_at": "2026-10-13T20:43:09.889023Z",
+      "evidence_snippet": "easured on the lab copy of ElytraLobby. The owner's copy was not found.\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\nhttps://claude.ai/code/session_01QgtyvQwXoNTXyBjSyAABrz",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": null,
+      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
+      "last_seen_at": "2026-11-07T16:52:53.822527Z"
+    },
+    {
+      "referral_code": "m5Ak2Sa7aQ",
+      "url": "https://claude.ai/referral/m5Ak2Sa7aQ",
+      "platform": "GitHub (Commit)",
+      "source_url": "https://github.com/OneLiteFeatherNET/Voyager/commit/4b590263aa254c620faf832b3900490cff4d969e",
+      "author": "TheMeinerLP",
+      "published_at": "2026-10-10T23:24:43Z",
+      "discovered_at": "2026-10-11T00:46:26.804234Z",
+      "evidence_snippet": "rom the run directory once they leave the catalogue\nEND_COMMIT_OVERRIDE\n\nhttps://claude.ai/referral/m5Ak2Sa7aQ\nhttps://claude.ai/code/session_01QgtyvQwXoNTXyBjSyAABrz",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": null,
+      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
+      "last_seen_at": "2026-11-07T16:52:53.823669Z"
+    },
+    {
+      "referral_code": "b9Segx2cZA",
+      "url": "https://claude.ai/referral/b9Segx2cZA",
+      "platform": "GitHub (Commit)",
+      "source_url": "https://github.com/kathelix/catvox/commit/5b78cd48ded269ab94b4547dc868031bebd96b9c",
+      "author": "IvanBoyko",
+      "published_at": "2026-10-06T05:26:39Z",
+      "discovered_at": "2026-10-06T06:18:42.543546Z",
+      "evidence_snippet": "s` package |\nmatch |\n\n🤖 Claude Code: get a free week using referral link\nhttps://claude.ai/referral/b9Segx2cZA\n\nCo-authored-by: Claude Opus 5.5 <noreply@anthropic.com>",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": null,
+      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
+      "last_seen_at": "2026-11-07T16:52:53.824763Z"
+    },
+    {
+      "referral_code": "SE-Jaa--ig",
+      "url": "https://claude.ai/referral/SE-Jaa--ig",
+      "platform": "GitHub (Commit)",
+      "source_url": "https://github.com/notthinks/x-scraper-anon/commit/cfb9712434a57de7965f5f97078308aa7869ec7b",
+      "author": "notthinks",
+      "published_at": "2026-09-28T01:45:52Z",
+      "discovered_at": "2026-10-05T02:33:33.986317Z",
+      "evidence_snippet": "ry referral token came back cut off. With it the full\nvalues are available, e.g. claude.ai/referral/SE-Jaa--ig.\n\nurlhunt also matches the query against both the text and the links, and\nfalls back to the last UR",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": null,
+      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
+      "last_seen_at": "2026-11-07T16:52:53.826006Z"
+    },
+    {
+      "referral_code": "8U0OiPj7Dg",
+      "url": "https://claude.ai/referral/8U0OiPj7Dg",
+      "platform": "GitHub (Commit)",
+      "source_url": "https://github.com/joecheofficial/workshop-site/commit/92b122ffb1670eb72f294dd28910ad8b6a33f32e",
+      "author": "joecheofficial",
+      "published_at": "2026-08-05T02:34:40Z",
+      "discovered_at": "2026-10-18T07:25:33.898533Z",
+      "evidence_snippet": ". Every link that sends someone to get or open\na Claude account now uses https://claude.ai/referral/8U0OiPj7Dg so the signup is\ncredited to Joe.\n\nSingle source of truth: src/lib/claude-links.ts. Duplicated rath",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": null,
+      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
+      "last_seen_at": "2026-11-07T16:52:53.827198Z"
+    },
+    {
+      "referral_code": "hWvMMltr7Q",
+      "url": "https://claude.ai/referral/hWvMMltr7Q",
+      "platform": "GitHub (Commit)",
+      "source_url": "https://github.com/maxtattonbrown/claude-code-easy-mode/commit/ecb2dfbe558690bc93b39df00d654a384257e6bf",
+      "author": "maxtattonbrown",
+      "published_at": "2026-06-23T19:10:00Z",
+      "discovered_at": "2026-10-05T02:33:33.995787Z",
+      "evidence_snippet": "Drop dead referral link — point to claude.ai\n\nThe referral link (claude.ai/referral/hWvMMltr7Q) was capped at ~3\nfree-week signups; those are spent, so it now 403s. Replaced it across\nthe README",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": null,
+      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
+      "last_seen_at": "2026-11-07T16:52:53.829142Z"
+    },
+    {
+      "referral_code": "b9Segx2cZA",
+      "url": "https://claude.ai/referral/b9Segx2cZA",
+      "platform": "GitHub (Commit)",
+      "source_url": "https://github.com/kathelix/catvox/commit/088b71c614d304803749cb6b739bae38c6a822e4",
+      "author": "IvanBoyko",
+      "published_at": "2026-06-19T16:01:46Z",
+      "discovered_at": "2026-10-05T02:33:33.998783Z",
+      "evidence_snippet": "r declares its own).\n\n🤖 Claude Code: get a free week using referral link\nhttps://claude.ai/referral/b9Segx2cZA\n\nCo-authored-by: Claude Opus 4.8 <noreply@anthropic.com>",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": null,
+      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
+      "last_seen_at": "2026-11-07T16:52:53.830270Z"
+    },
+    {
+      "referral_code": "b9Segx2cZA",
+      "url": "https://claude.ai/referral/b9Segx2cZA",
+      "platform": "GitHub (Commit)",
+      "source_url": "https://github.com/kathelix/catvox/commit/2df9b29bbc76690e0ffa3787df6fdfd6be4a617e",
+      "author": "IvanBoyko",
+      "published_at": "2026-06-19T14:17:48Z",
+      "discovered_at": "2026-10-05T03:50:54.209898Z",
+      "evidence_snippet": "its own\nchange.\n\n---\n\n🤖 Claude Code: get a free week using referral link\nhttps://claude.ai/referral/b9Segx2cZA\n\nCo-authored-by: Claude Opus 4.8 <noreply@anthropic.com>",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": null,
+      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
+      "last_seen_at": "2026-11-07T16:52:53.831447Z"
+    },
+    {
+      "referral_code": "u4UoldU5jA",
+      "url": "https://claude.ai/referral/u4UoldU5jA",
+      "platform": "GitHub (Commit)",
+      "source_url": "https://github.com/botesjuan/botesjuan.github.io/commit/324f443ae76e8cf1f3d508f4af53314930a36a61",
+      "author": "botesjuan",
+      "published_at": "2026-06-19T07:27:26Z",
+      "discovered_at": "2026-10-05T02:33:34.002984Z",
+      "evidence_snippet": "https://claude.ai/referral/u4UoldU5jA\n\nhttps://claude.ai/referral/u4UoldU5jA",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": null,
+      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
+      "last_seen_at": "2026-11-07T16:52:53.832724Z"
+    },
+    {
+      "referral_code": "b9Segx2cZA",
+      "url": "https://claude.ai/referral/b9Segx2cZA",
+      "platform": "GitHub (Commit)",
+      "source_url": "https://github.com/kathelix/catvox/commit/65144fca921f956f6e2d1ad929a2bc2f9b5ec6db",
+      "author": "IvanBoyko",
+      "published_at": "2026-06-01T20:47:00Z",
+      "discovered_at": "2026-10-05T03:50:54.210896Z",
+      "evidence_snippet": "interleaved with it.\n\n🤖 Claude Code: get a free week using referral link\nhttps://claude.ai/referral/b9Segx2cZA\n\n---------\n\nCo-authored-by: Claude Opus 4.8 <noreply@anthropic.com>",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": null,
+      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
+      "last_seen_at": "2026-11-07T16:52:53.834051Z"
+    },
+    {
+      "referral_code": "b9Segx2cZA",
+      "url": "https://claude.ai/referral/b9Segx2cZA",
+      "platform": "GitHub (Commit)",
+      "source_url": "https://github.com/kathelix/catvox/commit/8dc78624fcbf776369a0e09a9ecf488ff4fbddcd",
+      "author": "IvanBoyko",
+      "published_at": "2026-06-01T16:50:37Z",
+      "discovered_at": "2026-10-05T03:50:54.210896Z",
+      "evidence_snippet": "en the O1 follow-up.\n\n🤖 Claude Code: get a free week using referral link\nhttps://claude.ai/referral/b9Segx2cZA\n\n---------\n\nCo-authored-by: Claude Opus 4.8 <noreply@anthropic.com>",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": null,
+      "timestamp_basis": "commit_committer_date; self_reported_git_metadata_not_publication_or_origin_proof",
+      "last_seen_at": "2026-11-07T16:52:53.835756Z"
+    },
+    {
       "referral_code": "pIpeQjEpEw",
       "url": "https://claude.ai/referral/pIpeQjEpEw",
       "platform": "Hacker News",
@@ -2344,7 +2284,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "hn_item_created_time; content_observed_now; edit_time_unavailable",
-      "last_seen_at": "2026-11-07T11:07:36.866001Z"
+      "last_seen_at": "2026-11-07T16:52:53.837188Z"
     },
     {
       "referral_code": "YWAsr_1fbA",
@@ -2359,7 +2299,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "hn_item_created_time; content_observed_now; edit_time_unavailable",
-      "last_seen_at": "2026-11-07T11:07:36.867462Z"
+      "last_seen_at": "2026-11-07T16:52:53.838670Z"
     },
     {
       "referral_code": "PRi12PLdZA",
@@ -2374,7 +2314,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.869197Z"
+      "last_seen_at": "2026-11-07T16:52:53.839879Z"
     },
     {
       "referral_code": "penguinbutwhyshopclickhere",
@@ -2389,7 +2329,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.870808Z"
+      "last_seen_at": "2026-11-07T16:52:53.841102Z"
     },
     {
       "referral_code": "hikhwquge",
@@ -2404,7 +2344,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.872385Z"
+      "last_seen_at": "2026-11-07T16:52:53.842345Z"
     },
     {
       "referral_code": "A9gungpu_",
@@ -2419,7 +2359,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.873977Z"
+      "last_seen_at": "2026-11-07T16:52:53.843550Z"
     },
     {
       "referral_code": "KQREu6zNDg",
@@ -2434,7 +2374,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.875578Z"
+      "last_seen_at": "2026-11-07T16:52:53.844723Z"
     },
     {
       "referral_code": "Y3LGSBQ-0w",
@@ -2449,7 +2389,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.877100Z"
+      "last_seen_at": "2026-11-07T16:52:53.845988Z"
     },
     {
       "referral_code": "aj6NVMsa8g",
@@ -2464,7 +2404,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.878644Z"
+      "last_seen_at": "2026-11-07T16:52:53.847302Z"
     },
     {
       "referral_code": "bTGHEDHZ",
@@ -2479,7 +2419,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.881252Z"
+      "last_seen_at": "2026-11-07T16:52:53.848653Z"
     },
     {
       "referral_code": "d2ljlIDqPZ",
@@ -2494,7 +2434,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.883062Z"
+      "last_seen_at": "2026-11-07T16:52:53.849845Z"
     },
     {
       "referral_code": "HetkxVh3Dg",
@@ -2509,7 +2449,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.884670Z"
+      "last_seen_at": "2026-11-07T16:52:53.851160Z"
     },
     {
       "referral_code": "bTryUHKTdQ",
@@ -2524,7 +2464,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.886226Z"
+      "last_seen_at": "2026-11-07T16:52:53.852382Z"
     },
     {
       "referral_code": "aI0yURfsQA",
@@ -2539,7 +2479,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.887989Z"
+      "last_seen_at": "2026-11-07T16:52:53.853718Z"
     },
     {
       "referral_code": "L6verzePkg",
@@ -2554,7 +2494,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.889578Z"
+      "last_seen_at": "2026-11-07T16:52:53.855092Z"
     },
     {
       "referral_code": "4KiKt50dUg",
@@ -2569,7 +2509,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.891051Z"
+      "last_seen_at": "2026-11-07T16:52:53.856482Z"
     },
     {
       "referral_code": "TzCf-j4HSA",
@@ -2584,7 +2524,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.892787Z"
+      "last_seen_at": "2026-11-07T16:52:53.857623Z"
     },
     {
       "referral_code": "rOkK0QDOZQ",
@@ -2599,7 +2539,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.894458Z"
+      "last_seen_at": "2026-11-07T16:52:53.858827Z"
     },
     {
       "referral_code": "Ba_IXBBbXw",
@@ -2614,7 +2554,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.895994Z"
+      "last_seen_at": "2026-11-07T16:52:53.860027Z"
     },
     {
       "referral_code": "5kN3vkwg7w",
@@ -2629,7 +2569,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.897574Z"
+      "last_seen_at": "2026-11-07T16:52:53.861177Z"
     },
     {
       "referral_code": "ihaveCPonmycomputer",
@@ -2644,7 +2584,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.899292Z"
+      "last_seen_at": "2026-11-07T16:52:53.862377Z"
     },
     {
       "referral_code": "niggerfood",
@@ -2659,7 +2599,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.900814Z"
+      "last_seen_at": "2026-11-07T16:52:53.864436Z"
     },
     {
       "referral_code": "sexitits",
@@ -2674,7 +2614,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.902372Z"
+      "last_seen_at": "2026-11-07T16:52:53.865722Z"
     },
     {
       "referral_code": "gulsadnm",
@@ -2689,7 +2629,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.904022Z"
+      "last_seen_at": "2026-11-07T16:52:53.866993Z"
     },
     {
       "referral_code": "ug5Hlms",
@@ -2704,7 +2644,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.905661Z"
+      "last_seen_at": "2026-11-07T16:52:53.868220Z"
     },
     {
       "referral_code": "wopwopnigga",
@@ -2719,7 +2659,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.907196Z"
+      "last_seen_at": "2026-11-07T16:52:53.869376Z"
     },
     {
       "referral_code": "sdf5PFocdaE",
@@ -2734,7 +2674,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.908737Z"
+      "last_seen_at": "2026-11-07T16:52:53.871577Z"
     },
     {
       "referral_code": "gm1LYCDKBw",
@@ -2749,7 +2689,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.910326Z"
+      "last_seen_at": "2026-11-07T16:52:53.872907Z"
     },
     {
       "referral_code": "4GDH3",
@@ -2764,7 +2704,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.911919Z"
+      "last_seen_at": "2026-11-07T16:52:53.874346Z"
     },
     {
       "referral_code": "PXRguDxCdA",
@@ -2779,7 +2719,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.913465Z"
+      "last_seen_at": "2026-11-07T16:52:53.875620Z"
     },
     {
       "referral_code": "PXRAuDxCdA",
@@ -2794,7 +2734,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.915252Z"
+      "last_seen_at": "2026-11-07T16:52:53.876810Z"
     },
     {
       "referral_code": "Lh8JFw71cQ",
@@ -2809,7 +2749,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.916828Z"
+      "last_seen_at": "2026-11-07T16:52:53.877995Z"
     },
     {
       "referral_code": "1ZyUtTMzJg",
@@ -2824,7 +2764,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.918379Z"
+      "last_seen_at": "2026-11-07T16:52:53.879217Z"
     },
     {
       "referral_code": "zRf18dzbXg",
@@ -2839,7 +2779,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.919881Z"
+      "last_seen_at": "2026-11-07T16:52:53.880334Z"
     },
     {
       "referral_code": "fQNl4qxe8w",
@@ -2854,7 +2794,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.921592Z"
+      "last_seen_at": "2026-11-07T16:52:53.882900Z"
     },
     {
       "referral_code": "CxsL80A00A",
@@ -2869,7 +2809,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.923239Z"
+      "last_seen_at": "2026-11-07T16:52:53.884309Z"
     },
     {
       "referral_code": "D9bPRoRw4Q",
@@ -2884,7 +2824,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.924790Z"
+      "last_seen_at": "2026-11-07T16:52:53.885705Z"
     },
     {
       "referral_code": "dP-MvwdAVs",
@@ -2899,7 +2839,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.926384Z"
+      "last_seen_at": "2026-11-07T16:52:53.887186Z"
     },
     {
       "referral_code": "dP-MvwdAVw",
@@ -2914,7 +2854,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.928211Z"
+      "last_seen_at": "2026-11-07T16:52:53.888451Z"
     },
     {
       "referral_code": "ufnFYAokWA",
@@ -2929,7 +2869,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.929801Z"
+      "last_seen_at": "2026-11-07T16:52:53.889664Z"
     },
     {
       "referral_code": "PBtwBMB-Kg",
@@ -2944,7 +2884,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.931365Z"
+      "last_seen_at": "2026-11-07T16:52:53.890935Z"
     },
     {
       "referral_code": "pdRrGZtQdw",
@@ -2959,7 +2899,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.933026Z"
+      "last_seen_at": "2026-11-07T16:52:53.892220Z"
     },
     {
       "referral_code": "z1fkmO5Efw",
@@ -2974,7 +2914,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.934522Z"
+      "last_seen_at": "2026-11-07T16:52:53.893619Z"
     },
     {
       "referral_code": "9izzHjef7w",
@@ -2989,7 +2929,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.936035Z"
+      "last_seen_at": "2026-11-07T16:52:53.895413Z"
     },
     {
       "referral_code": "kD-WgXKRUw",
@@ -3004,7 +2944,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.937631Z"
+      "last_seen_at": "2026-11-07T16:52:53.896752Z"
     },
     {
       "referral_code": "GHI56RST",
@@ -3019,7 +2959,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.939223Z"
+      "last_seen_at": "2026-11-07T16:52:53.898272Z"
     },
     {
       "referral_code": "XlTn0GEPSw",
@@ -3034,7 +2974,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.940685Z"
+      "last_seen_at": "2026-11-07T16:52:53.899746Z"
     },
     {
       "referral_code": "LvCgwpHi8w",
@@ -3049,7 +2989,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.942365Z"
+      "last_seen_at": "2026-11-07T16:52:53.901407Z"
     },
     {
       "referral_code": "NaczESFrww",
@@ -3064,7 +3004,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.944300Z"
+      "last_seen_at": "2026-11-07T16:52:53.902693Z"
     },
     {
       "referral_code": "Y7Grt5DIrg",
@@ -3079,7 +3019,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.945784Z"
+      "last_seen_at": "2026-11-07T16:52:53.904200Z"
     },
     {
       "referral_code": "d23e1fdaf",
@@ -3094,7 +3034,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.947219Z"
+      "last_seen_at": "2026-11-07T16:52:53.905532Z"
     },
     {
       "referral_code": "0E5Ip1-SEA",
@@ -3109,7 +3049,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.948882Z"
+      "last_seen_at": "2026-11-07T16:52:53.906863Z"
     },
     {
       "referral_code": "YldFwT9qQA",
@@ -3124,7 +3064,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.950449Z"
+      "last_seen_at": "2026-11-07T16:52:53.908157Z"
     },
     {
       "referral_code": "B-9qsE1yOA",
@@ -3139,7 +3079,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.951997Z"
+      "last_seen_at": "2026-11-07T16:52:53.909623Z"
     },
     {
       "referral_code": "NFhffr883",
@@ -3154,7 +3094,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.953484Z"
+      "last_seen_at": "2026-11-07T16:52:53.911018Z"
     },
     {
       "referral_code": "6GKD9PtJfw",
@@ -3169,7 +3109,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.955206Z"
+      "last_seen_at": "2026-11-07T16:52:53.912586Z"
     },
     {
       "referral_code": "2hjZmF6w8Q",
@@ -3184,7 +3124,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.956693Z"
+      "last_seen_at": "2026-11-07T16:52:53.914418Z"
     },
     {
       "referral_code": "OE5Ipl-SEA",
@@ -3199,7 +3139,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.958228Z"
+      "last_seen_at": "2026-11-07T16:52:53.915732Z"
     },
     {
       "referral_code": "tJngdirGgw",
@@ -3214,7 +3154,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.959894Z"
+      "last_seen_at": "2026-11-07T16:52:53.916989Z"
     },
     {
       "referral_code": "yaniex",
@@ -3229,7 +3169,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.961507Z"
+      "last_seen_at": "2026-11-07T16:52:53.918183Z"
     },
     {
       "referral_code": "zPEPhfSguA",
@@ -3244,7 +3184,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.963014Z"
+      "last_seen_at": "2026-11-07T16:52:53.919295Z"
     },
     {
       "referral_code": "4kpVc8Rw7A",
@@ -3259,7 +3199,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.964508Z"
+      "last_seen_at": "2026-11-07T16:52:53.920468Z"
     },
     {
       "referral_code": "hMkuhD0wYA",
@@ -3274,7 +3214,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.966121Z"
+      "last_seen_at": "2026-11-07T16:52:53.921675Z"
     },
     {
       "referral_code": "jiCIWE2vgg",
@@ -3289,7 +3229,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.967605Z"
+      "last_seen_at": "2026-11-07T16:52:53.923005Z"
     },
     {
       "referral_code": "R0MRR8hCdg",
@@ -3304,7 +3244,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.969100Z"
+      "last_seen_at": "2026-11-07T16:52:53.924225Z"
     },
     {
       "referral_code": "xxxxl",
@@ -3319,7 +3259,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.970789Z"
+      "last_seen_at": "2026-11-07T16:52:53.925316Z"
     },
     {
       "referral_code": "ambient",
@@ -3334,7 +3274,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.972364Z"
+      "last_seen_at": "2026-11-07T16:52:53.926493Z"
     },
     {
       "referral_code": "xxxxx",
@@ -3349,7 +3289,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.973860Z"
+      "last_seen_at": "2026-11-07T16:52:53.927873Z"
     },
     {
       "referral_code": "9JSq19LQ0g",
@@ -3364,7 +3304,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.975466Z"
+      "last_seen_at": "2026-11-07T16:52:53.929332Z"
     },
     {
       "referral_code": "uiL9c_Xwrj",
@@ -3379,7 +3319,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.976990Z"
+      "last_seen_at": "2026-11-07T16:52:53.930641Z"
     },
     {
       "referral_code": "ItsATestNotAReferral",
@@ -3394,7 +3334,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.978631Z"
+      "last_seen_at": "2026-11-07T16:52:53.932076Z"
     },
     {
       "referral_code": "oiEshmCVtA",
@@ -3409,7 +3349,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.980067Z"
+      "last_seen_at": "2026-11-07T16:52:53.933648Z"
     },
     {
       "referral_code": "fmjzx",
@@ -3424,7 +3364,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.981733Z"
+      "last_seen_at": "2026-11-07T16:52:53.935003Z"
     },
     {
       "referral_code": "GaySex",
@@ -3439,7 +3379,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.983361Z"
+      "last_seen_at": "2026-11-07T16:52:53.936383Z"
     },
     {
       "referral_code": "qHUCpw-DiQ",
@@ -3454,7 +3394,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.984881Z"
+      "last_seen_at": "2026-11-07T16:52:53.937722Z"
     },
     {
       "referral_code": "gptaimedic",
@@ -3469,7 +3409,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.986364Z"
+      "last_seen_at": "2026-11-07T16:52:53.938988Z"
     },
     {
       "referral_code": "aimedic",
@@ -3484,7 +3424,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.987842Z"
+      "last_seen_at": "2026-11-07T16:52:53.940208Z"
     },
     {
       "referral_code": "twFXIynocA",
@@ -3499,7 +3439,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.989513Z"
+      "last_seen_at": "2026-11-07T16:52:53.941622Z"
     },
     {
       "referral_code": "naTB2wWWOQ",
@@ -3514,7 +3454,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.991098Z"
+      "last_seen_at": "2026-11-07T16:52:53.943004Z"
     },
     {
       "referral_code": "4CQHIbn7xQ",
@@ -3529,7 +3469,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.992776Z"
+      "last_seen_at": "2026-11-07T16:52:53.944491Z"
     },
     {
       "referral_code": "uEeh_V1HPg",
@@ -3544,7 +3484,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.994349Z"
+      "last_seen_at": "2026-11-07T16:52:53.945784Z"
     },
     {
       "referral_code": "Gj8BHEMqYg",
@@ -3559,7 +3499,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.995790Z"
+      "last_seen_at": "2026-11-07T16:52:53.947058Z"
     },
     {
       "referral_code": "4l-jDHjytA",
@@ -3574,7 +3514,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.997343Z"
+      "last_seen_at": "2026-11-07T16:52:53.948448Z"
     },
     {
       "referral_code": "u9KeiqhEUw",
@@ -3589,7 +3529,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:36.998932Z"
+      "last_seen_at": "2026-11-07T16:52:53.949736Z"
     },
     {
       "referral_code": "taRcxYDUMg",
@@ -3604,7 +3544,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:37.000475Z"
+      "last_seen_at": "2026-11-07T16:52:53.951195Z"
     },
     {
       "referral_code": "N3xpBAKKqA",
@@ -3619,7 +3559,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:37.002085Z"
+      "last_seen_at": "2026-11-07T16:52:53.952508Z"
     },
     {
       "referral_code": "jhK0wxxylA",
@@ -3634,7 +3574,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:37.003655Z"
+      "last_seen_at": "2026-11-07T16:52:53.953772Z"
     },
     {
       "referral_code": "monopoly24w",
@@ -3649,7 +3589,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:37.005345Z"
+      "last_seen_at": "2026-11-07T16:52:53.955108Z"
     },
     {
       "referral_code": "yLABN505rA",
@@ -3664,7 +3604,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:37.007958Z"
+      "last_seen_at": "2026-11-07T16:52:53.956387Z"
     },
     {
       "referral_code": "vDCiv2svIw",
@@ -3679,7 +3619,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "directory_archived_submission_time_not_new_post",
-      "last_seen_at": "2026-11-07T11:07:37.009589Z"
+      "last_seen_at": "2026-11-07T16:52:53.957532Z"
     },
     {
       "referral_code": "rZYGDx65Hg",
@@ -3694,7 +3634,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-11-07T11:07:37.011033Z"
+      "last_seen_at": "2026-11-07T16:52:53.958820Z"
     },
     {
       "referral_code": "d2ljlIDqPw",
@@ -3709,7 +3649,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-11-07T11:07:37.012739Z"
+      "last_seen_at": "2026-11-07T16:52:53.960307Z"
     },
     {
       "referral_code": "d2ljlIDqPB",
@@ -3724,7 +3664,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-11-07T11:07:37.014352Z"
+      "last_seen_at": "2026-11-07T16:52:53.961526Z"
     },
     {
       "referral_code": "ANJING88",
@@ -3739,7 +3679,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-11-07T11:07:37.015940Z"
+      "last_seen_at": "2026-11-07T16:52:53.962744Z"
     },
     {
       "referral_code": "EnZHqEw2Og",
@@ -3754,7 +3694,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-11-07T11:07:37.017758Z"
+      "last_seen_at": "2026-11-07T16:52:53.964203Z"
     },
     {
       "referral_code": "1KnatPu",
@@ -3769,7 +3709,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-11-07T11:07:37.019298Z"
+      "last_seen_at": "2026-11-07T16:52:53.965431Z"
     },
     {
       "referral_code": "haha",
@@ -3784,7 +3724,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-11-07T11:07:37.020893Z"
+      "last_seen_at": "2026-11-07T16:52:53.966691Z"
     },
     {
       "referral_code": "2ad2ai",
@@ -3799,7 +3739,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-11-07T11:07:37.022697Z"
+      "last_seen_at": "2026-11-07T16:52:53.968092Z"
     },
     {
       "referral_code": "SHew3f",
@@ -3814,7 +3754,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-11-07T11:07:37.024250Z"
+      "last_seen_at": "2026-11-07T16:52:53.969315Z"
     },
     {
       "referral_code": "eIozHrUP0A",
@@ -3829,7 +3769,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-11-07T11:07:37.025884Z"
+      "last_seen_at": "2026-11-07T16:52:53.970434Z"
     },
     {
       "referral_code": "NaczESFrw",
@@ -3844,7 +3784,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-11-07T11:07:37.027545Z"
+      "last_seen_at": "2026-11-07T16:52:53.971735Z"
     },
     {
       "referral_code": "zPEPhfSguss",
@@ -3859,7 +3799,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": null,
       "timestamp_basis": "web_page_observed_now; publication_time_unknown",
-      "last_seen_at": "2026-11-07T11:07:37.029071Z"
+      "last_seen_at": "2026-11-07T16:52:53.972892Z"
     },
     {
       "referral_code": "jpRKskbl6g",
@@ -3874,7 +3814,7 @@
       "evidence_kind": "candidate_only",
       "source_updated_at": "2026-11-07T02:10:44.595000Z",
       "timestamp_basis": "urlscan_observation_time_not_source_publication",
-      "last_seen_at": "2026-11-07T11:07:37.030623Z"
+      "last_seen_at": "2026-11-07T16:52:53.974175Z"
     },
     {
       "referral_code": "0nDn0Nagbw",
@@ -3889,7 +3829,7 @@
       "evidence_kind": "candidate_only",
       "source_updated_at": "2026-11-03T14:04:54.029000Z",
       "timestamp_basis": "urlscan_observation_time_not_source_publication",
-      "last_seen_at": "2026-11-07T11:07:37.032066Z"
+      "last_seen_at": "2026-11-07T16:52:53.976151Z"
     },
     {
       "referral_code": "gw4RiBkYS",
@@ -3904,7 +3844,7 @@
       "evidence_kind": "candidate_only",
       "source_updated_at": "2026-10-18T13:19:47.538000Z",
       "timestamp_basis": "urlscan_observation_time_not_source_publication",
-      "last_seen_at": "2026-11-07T11:07:37.033692Z"
+      "last_seen_at": "2026-11-07T16:52:53.977338Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -3919,7 +3859,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-27T07:45:08Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-11-07T11:07:37.035172Z"
+      "last_seen_at": "2026-11-07T16:52:53.978589Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -3934,7 +3874,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-11-04T10:51:43Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-11-07T11:07:37.036734Z"
+      "last_seen_at": "2026-11-07T16:52:53.979815Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -3949,7 +3889,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-11-01T06:21:24Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-11-07T11:07:37.038595Z"
+      "last_seen_at": "2026-11-07T16:52:53.980947Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -3964,7 +3904,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-11-04T10:50:46Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-11-07T11:07:37.040079Z"
+      "last_seen_at": "2026-11-07T16:52:53.982195Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -3979,7 +3919,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-11-01T06:20:06Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-11-07T11:07:37.041778Z"
+      "last_seen_at": "2026-11-07T16:52:53.983524Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -3994,7 +3934,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-11-04T10:48:23Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-11-07T11:07:37.043453Z"
+      "last_seen_at": "2026-11-07T16:52:53.984818Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -4009,7 +3949,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-18T17:45:15Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-11-07T11:07:37.045079Z"
+      "last_seen_at": "2026-11-07T16:52:53.986174Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -4024,7 +3964,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-10-18T17:45:07Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-11-07T11:07:37.046688Z"
+      "last_seen_at": "2026-11-07T16:52:53.987416Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -4039,7 +3979,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-11-01T06:19:35Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-11-07T11:07:37.048170Z"
+      "last_seen_at": "2026-11-07T16:52:53.988568Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -4054,7 +3994,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-11-04T10:47:49Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-11-07T11:07:37.049657Z"
+      "last_seen_at": "2026-11-07T16:52:53.989887Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -4069,7 +4009,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-19T13:01:13Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-11-07T11:07:37.051359Z"
+      "last_seen_at": "2026-11-07T16:52:53.991190Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -4084,7 +4024,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T14:13:04Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-11-07T11:07:37.052949Z"
+      "last_seen_at": "2026-11-07T16:52:53.992509Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -4099,7 +4039,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T13:51:43Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-11-07T11:07:37.055543Z"
+      "last_seen_at": "2026-11-07T16:52:53.994219Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -4114,7 +4054,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T13:50:25Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-11-07T11:07:37.057246Z"
+      "last_seen_at": "2026-11-07T16:52:53.995522Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -4129,7 +4069,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T13:48:29Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-11-07T11:07:37.058777Z"
+      "last_seen_at": "2026-11-07T16:52:53.996831Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -4144,7 +4084,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T14:00:41Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-11-07T11:07:37.060453Z"
+      "last_seen_at": "2026-11-07T16:52:53.998217Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -4159,7 +4099,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T15:58:34Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-11-07T11:07:37.062085Z"
+      "last_seen_at": "2026-11-07T16:52:53.999413Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -4174,7 +4114,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T15:59:02Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-11-07T11:07:37.063631Z"
+      "last_seen_at": "2026-11-07T16:52:54.000683Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -4189,7 +4129,7 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T15:59:00Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-11-07T11:07:37.065223Z"
+      "last_seen_at": "2026-11-07T16:52:54.001853Z"
     },
     {
       "referral_code": "0sqPw8E_lw",
@@ -4204,7 +4144,67 @@
       "evidence_kind": "direct_match",
       "source_updated_at": "2026-06-14T15:58:43Z",
       "timestamp_basis": "qiita_created_at",
-      "last_seen_at": "2026-11-07T11:07:37.066700Z"
+      "last_seen_at": "2026-11-07T16:52:54.003281Z"
+    },
+    {
+      "referral_code": "4l-jDHjytA",
+      "url": "https://claude.ai/referral/4l-jDHjytA",
+      "platform": "Web (discuss.pytorch.kr)",
+      "source_url": "https://discuss.pytorch.kr/t/3-claude-code-1-guest-pass/9037",
+      "author": null,
+      "published_at": null,
+      "discovered_at": "2026-10-06T09:45:17.581119Z",
+      "evidence_snippet": "<a href=\"https://claude.ai/referral/4l-jDHjytA\"><img alt=\"image\" data-base62-sha1=\"rISHiYht7TPs2zfIFRlhJOObZOM\" height=\"400\" src=\"https://discuss.pytorch.kr/uploads/default/original/2X/c/c24d83226beff83445d406dbaffa7ea83f3b3788.png\" width=\"1028\"/></a>",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": null,
+      "timestamp_basis": "web_page_observed_now; publication_time_unknown",
+      "last_seen_at": "2026-11-07T16:52:54.004434Z"
+    },
+    {
+      "referral_code": "oYaq12h4Zw",
+      "url": "https://claude.ai/referral/oYaq12h4Zw",
+      "platform": "Web (www.devproblems.com)",
+      "source_url": "https://www.devproblems.com/claude-ai-guest-pass-referral/",
+      "author": null,
+      "published_at": null,
+      "discovered_at": "2026-10-06T09:45:20.199006Z",
+      "evidence_snippet": "<a class=\"button btn\" href=\"https://claude.ai/referral/oYaq12h4Zw\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">Claim Your Free Week of Claude →</a>",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": null,
+      "timestamp_basis": "web_page_observed_now; publication_time_unknown",
+      "last_seen_at": "2026-11-07T16:52:54.005871Z"
+    },
+    {
+      "referral_code": "uiL9c_Xwrj",
+      "url": "https://claude.ai/referral/uiL9c_Xwrj",
+      "platform": "Web (www.zhaojian.net)",
+      "source_url": "https://www.zhaojian.net/en/free-claude-code-guest-pass-passes-share/",
+      "author": "zhaoJian",
+      "published_at": "2026-02-07T13:50:01Z",
+      "discovered_at": "2026-10-05T06:50:34.410691Z",
+      "evidence_snippet": "Try Claude Code for Free - Sharing 3 Guest Passes for Free Claude Pro Max Membership Accounts - zhaoJian's Tech Notes\n\n# Try Claude Code for Free - Sharing 3 Guest Passes for Free Claude Pro Max Membership Accounts \n\n Technology 02-07-2026 ~1841 words · 5 min read - views \n\nWhile using Claude Code recently, the terminal kept showing “/passes Share a free week of Claude Code with friends and earn extra usage”. After searching, I found this is a free trial feature launched by Anthropic — Guest Pass, which allows Max subscribers to share Claude Pro trial access with friends. I have these available across several of my accounts, so I’m sharing a few on a first-come, first-served basis while supplies last.\n\n## What is a Guest Pass?\n\nAfter clicking my invite link, you’ll get a full 7-day Claude Pro experience, including:\n\n- Access to all Claude models: Use Opus, Sonnet, and Haiku freely\n- Claude Code: Anthropic’s official command-line AI coding assistant for pair programming with AI directly in your terminal\n- Higher usage limits: Significantly increased compared to the free version\n- All Pro features: Deep Research, file creation, web search, and more\n\n## How to Claim?\n\n1. Click the invite link I’m sharing (see image)\n2. Sign up or log in to your Claude account\n3. Start using Claude Pro free for 7 days\n\nLink: `https://claude.ai/referral/uiL9c_Xwrj`\n\nImportant Notes:\n\n- A credit card is required when claiming, but no charges during the trial period\n- If you don’t want to continue after 7 days, remember to cancel your subscription before it expires, otherwise you’ll be automatically charged $20/month\n- Each invite link can only be used once by a new user\n- Limited spots available, while supplies last\n\nIf you find it useful after claiming, feel free to share with your friends. If you’re also a Max subscriber, you can type the `/passes` command in Claude Code to generate your own sharing link.\n\nWeChat: 757118\n\nQQ: 757118\nWhile using Claude Code recently, the terminal kept showing “/passes Share a free week of Claude Code with friends and earn extra usage”. After searching, I found this is a free trial feature launched by Anthropic — Guest Pass, which allows Max subscribers to share Claude Pro trial access with friends. I have these available across several of my accounts, so I’m sharing a few on a first-come, first-served basis while supplies last.\n...\nAfter clicking my invite link, you’ll get a full 7-day Claude Pro experience, including:\n...\n1. Click the invite link I’m sharing (see image)\n2. Sign up or log in to your Claude account\n3. Start using Claude Pro free for 7 days\n\nLink: `https://claude.ai/referral/uiL9c_Xwrj`\n...\n- A credit card is required when claiming, but no charges during the trial period\n- If you don’t want to continue after 7 days, remember to cancel your subscription before it expires, otherwise you’ll be automatically charged $20/month\n- Each invite link can only be used once by a new user\n- Limited spots available, while supplies last\n\nIf you find it useful after claiming, feel free to share with your friends. If you’re also a Max subscriber, you can type the `/passes` command in Claude Code to generate your own sharing link.",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": null,
+      "timestamp_basis": "search_snippet_content",
+      "last_seen_at": "2026-11-07T16:52:54.007524Z"
+    },
+    {
+      "referral_code": "3Xf9GS_m6g",
+      "url": "https://claude.ai/referral/3Xf9GS_m6g",
+      "platform": "Web (jdesigns.info)",
+      "source_url": "https://jdesigns.info/systemized",
+      "author": null,
+      "published_at": null,
+      "discovered_at": "2026-10-06T06:18:51.122715Z",
+      "evidence_snippet": "<a href=\"https://claude.ai/referral/3Xf9GS_m6g\" rel=\"noopener\" style=\"color:var(--green);\" target=\"_blank\">claude.ai/code</a>",
+      "status": "unknown",
+      "evidence_kind": "direct_match",
+      "source_updated_at": null,
+      "timestamp_basis": "web_page_observed_now; publication_time_unknown",
+      "last_seen_at": "2026-11-07T16:52:54.009103Z"
     }
   ]
 }
